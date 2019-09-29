@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>wildma的博客</title>
+  
+  <subtitle>wildma</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://wildma.github.io/"/>
+  <updated>2019-09-28T15:53:22.868Z</updated>
+  <id>https://wildma.github.io/</id>
+  
+  <author>
+    <name>wildma</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>带你通俗易懂的理解——Android中的MVC与MVP</title>
+    <link href="https://wildma.github.io/2016/11/25/dai-ni-tong-su-yi-dong-de-li-jie-android-zhong-de-mvc-yu-mvp/"/>
+    <id>https://wildma.github.io/2016/11/25/dai-ni-tong-su-yi-dong-de-li-jie-android-zhong-de-mvc-yu-mvp/</id>
+    <published>2016-11-25T06:04:04.000Z</published>
+    <updated>2019-09-28T15:53:22.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;首先介绍一下所谓的MVP，美国职业篮球联赛最有价值球员奖（National Basketball Association Most
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://wildma.github.io/tags/Android/"/>
+    
+  </entry>
+  
+</feed>
