@@ -1,1 +1,1 @@
-https://wildma.github.io/dai-ni-tong-su-yi-dong-de-li-jie-android-zhong-de-mvc-yu-mvp/
+https://wildma.github.io/mvc-mvp/
