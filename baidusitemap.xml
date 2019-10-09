@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wildma.github.io/dagger2/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/mvc-mvp/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/handler/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/domob-advertisement-sdk/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/expand-fold-text/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/glide-get-image-height/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/butterknife/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/promote-android-studio-compile-speed/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/scrollview-nest-baidu-map/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/glide-centercrop-transform/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/umeng-login/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/umeng-share/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
     <loc>https://wildma.github.io/sharesdk-login/</loc>
     <lastmod>2019-10-08</lastmod>
   </url>  <url>
@@ -9,17 +45,5 @@
   </url>  <url>
     <loc>https://wildma.github.io/sharesdk-share/</loc>
     <lastmod>2019-10-08</lastmod>
-  </url>  <url>
-    <loc>https://wildma.github.io/domob-advertisement-sdk/</loc>
-    <lastmod>2019-10-07</lastmod>
-  </url>  <url>
-    <loc>https://wildma.github.io/handler/</loc>
-    <lastmod>2019-10-07</lastmod>
-  </url>  <url>
-    <loc>https://wildma.github.io/dagger2/</loc>
-    <lastmod>2019-10-07</lastmod>
-  </url>  <url>
-    <loc>https://wildma.github.io/mvc-mvp/</loc>
-    <lastmod>2019-10-04</lastmod>
   </url>
 </urlset>

@@ -1,7 +1,15 @@
+https://wildma.github.io/expand-fold-text/
+https://wildma.github.io/glide-get-image-height/
+https://wildma.github.io/umeng-login/
+https://wildma.github.io/umeng-share/
+https://wildma.github.io/scrollview-nest-baidu-map/
 https://wildma.github.io/handler/
+https://wildma.github.io/promote-android-studio-compile-speed/
+https://wildma.github.io/butterknife/
 https://wildma.github.io/sharesdk-login/
 https://wildma.github.io/sharesdk-share/
 https://wildma.github.io/okhttp-self-signature-https/
 https://wildma.github.io/domob-advertisement-sdk/
+https://wildma.github.io/glide-centercrop-transform/
 https://wildma.github.io/dagger2/
 https://wildma.github.io/mvc-mvp/

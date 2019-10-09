@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2019-10-07T13:37:24.539Z</updated>
+  <updated>2019-10-09T15:40:11.252Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -17,11 +17,157 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>面试时最常问到的Handler消息机制源码详解</title>
+    <title>Android 仿微信朋友圈全文、收起功能</title>
+    <link href="https://wildma.github.io/expand-fold-text/"/>
+    <id>https://wildma.github.io/expand-fold-text/</id>
+    <published>2017-08-03T14:49:00.000Z</published>
+    <updated>2019-10-09T15:40:11.252Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+    
+      <category term="折叠文本" scheme="https://wildma.github.io/tags/%E6%8A%98%E5%8F%A0%E6%96%87%E6%9C%AC/"/>
+    
+      <category term="全文、收起功能" scheme="https://wildma.github.io/tags/%E5%85%A8%E6%96%87%E3%80%81%E6%94%B6%E8%B5%B7%E5%8A%9F%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 利用 Glide 获取图片真正的宽高</title>
+    <link href="https://wildma.github.io/glide-get-image-height/"/>
+    <id>https://wildma.github.io/glide-get-image-height/</id>
+    <published>2017-08-02T14:50:00.000Z</published>
+    <updated>2019-10-09T15:24:11.232Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="问题记录" scheme="https://wildma.github.io/categories/Android/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
+    
+      <category term="图片高度" scheme="https://wildma.github.io/tags/%E5%9B%BE%E7%89%87%E9%AB%98%E5%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 使用友盟集成 QQ、微信、微博等第三方登录</title>
+    <link href="https://wildma.github.io/umeng-login/"/>
+    <id>https://wildma.github.io/umeng-login/</id>
+    <published>2017-07-16T12:54:59.000Z</published>
+    <updated>2019-10-09T13:19:52.071Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
+    
+      <category term="友盟登录" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%99%BB%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 使用友盟集成 QQ、微信、微博等第三方分享</title>
+    <link href="https://wildma.github.io/umeng-share/"/>
+    <id>https://wildma.github.io/umeng-share/</id>
+    <published>2017-07-16T12:45:12.000Z</published>
+    <updated>2019-10-09T13:07:53.210Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="第三方分享" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="友盟分享" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scrollview 嵌套百度地图 MapView 导致滑动有黑边或者阴影问题</title>
+    <link href="https://wildma.github.io/scrollview-nest-baidu-map/"/>
+    <id>https://wildma.github.io/scrollview-nest-baidu-map/</id>
+    <published>2017-06-05T15:35:41.000Z</published>
+    <updated>2019-10-09T14:49:33.718Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="问题记录" scheme="https://wildma.github.io/categories/Android/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="百度地图" scheme="https://wildma.github.io/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试时最常问到的 Handler 消息机制源码详解</title>
     <link href="https://wildma.github.io/handler/"/>
     <id>https://wildma.github.io/handler/</id>
     <published>2017-05-07T05:50:02.000Z</published>
-    <updated>2019-10-07T13:37:24.539Z</updated>
+    <updated>2019-10-09T15:42:02.424Z</updated>
     
     <summary type="html">
     
@@ -47,6 +193,58 @@
       <category term="面试" scheme="https://wildma.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
       <category term="源码解析" scheme="https://wildma.github.io/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最全加快 Android Studio 的编译速度</title>
+    <link href="https://wildma.github.io/promote-android-studio-compile-speed/"/>
+    <id>https://wildma.github.io/promote-android-studio-compile-speed/</id>
+    <published>2017-04-21T06:51:47.000Z</published>
+    <updated>2019-10-09T14:58:59.654Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一开始公司的电脑运行Android Studio的项目那叫一个慢呀!
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://wildma.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Android Studio" scheme="https://wildma.github.io/tags/Android-Studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Butterknife 8.5.1 最新使用详解</title>
+    <link href="https://wildma.github.io/butterknife/"/>
+    <id>https://wildma.github.io/butterknife/</id>
+    <published>2017-03-26T04:16:15.000Z</published>
+    <updated>2019-10-09T15:14:29.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+    
+      <category term="Butterknife" scheme="https://wildma.github.io/tags/Butterknife/"/>
     
   </entry>
   
@@ -141,11 +339,11 @@
   </entry>
   
   <entry>
-    <title>Android接入多盟广告SDK--让你的APP通过广告平台赚钱</title>
+    <title>Android 接入多盟广告 SDK--让你的 APP 通过广告平台赚钱</title>
     <link href="https://wildma.github.io/domob-advertisement-sdk/"/>
     <id>https://wildma.github.io/domob-advertisement-sdk/</id>
     <published>2017-03-02T02:40:39.000Z</published>
-    <updated>2019-10-07T14:38:21.447Z</updated>
+    <updated>2019-10-09T15:41:43.194Z</updated>
     
     <summary type="html">
     
@@ -173,11 +371,39 @@
   </entry>
   
   <entry>
-    <title>Dagger2使用——结合MVP模式讲解</title>
+    <title>Glide 中 centerCrop() 与 transform() 共用问题(包括 4.0.0 以上解决方法)</title>
+    <link href="https://wildma.github.io/glide-centercrop-transform/"/>
+    <id>https://wildma.github.io/glide-centercrop-transform/</id>
+    <published>2017-02-24T03:31:42.000Z</published>
+    <updated>2019-10-09T14:42:17.911Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="问题记录" scheme="https://wildma.github.io/categories/Android/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dagger2 使用——结合 MVP 模式讲解</title>
     <link href="https://wildma.github.io/dagger2/"/>
     <id>https://wildma.github.io/dagger2/</id>
     <published>2016-11-27T15:04:16.000Z</published>
-    <updated>2019-10-07T08:25:32.609Z</updated>
+    <updated>2019-10-09T15:42:51.008Z</updated>
     
     <summary type="html">
     
@@ -201,11 +427,11 @@
   </entry>
   
   <entry>
-    <title>带你通俗易懂的理解——Android中的MVC与MVP</title>
+    <title>带你通俗易懂的理解——Android 中的 MVC 与 MVP</title>
     <link href="https://wildma.github.io/mvc-mvp/"/>
     <id>https://wildma.github.io/mvc-mvp/</id>
     <published>2016-11-25T06:04:04.000Z</published>
-    <updated>2019-10-04T07:48:06.339Z</updated>
+    <updated>2019-10-09T15:42:29.475Z</updated>
     
     <summary type="html">
     
