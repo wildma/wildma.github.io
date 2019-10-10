@@ -49,7 +49,7 @@
     <link href="https://wildma.github.io/glide-get-image-height/"/>
     <id>https://wildma.github.io/glide-get-image-height/</id>
     <published>2017-08-02T14:50:00.000Z</published>
-    <updated>2019-10-09T15:24:11.232Z</updated>
+    <updated>2019-10-09T15:51:36.849Z</updated>
     
     <summary type="html">
     
@@ -131,6 +131,109 @@
       <category term="第三方分享" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%88%86%E4%BA%AB/"/>
     
       <category term="友盟分享" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题</title>
+    <link href="https://wildma.github.io/hot-fix-tinker-3-question/"/>
+    <id>https://wildma.github.io/hot-fix-tinker-3-question/</id>
+    <published>2017-07-09T15:36:13.000Z</published>
+    <updated>2019-10-10T15:20:10.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;该系列第一篇文章&lt;a href=&quot;http://www.jianshu.com/p/ed17f00a3d23&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+      <category term="热修复" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+    
+      <category term="热修复" scheme="https://wildma.github.io/tags/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+      <category term="Tinker" scheme="https://wildma.github.io/tags/Tinker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包</title>
+    <link href="https://wildma.github.io/hot-fix-tinker-2-walle/"/>
+    <id>https://wildma.github.io/hot-fix-tinker-2-walle/</id>
+    <published>2017-07-09T14:20:00.000Z</published>
+    <updated>2019-10-10T14:45:20.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上一篇文章&lt;a href=&quot;http://www.jianshu.com/p/ed17f00a3d23&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+      <category term="热修复" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+    
+      <category term="热修复" scheme="https://wildma.github.io/tags/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+      <category term="Tinker" scheme="https://wildma.github.io/tags/Tinker/"/>
+    
+      <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
+    
+      <category term="Walle" scheme="https://wildma.github.io/tags/Walle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>热修复框架 Tinker 最完整讲解（01）——集成之路</title>
+    <link href="https://wildma.github.io/hot-fix-tinker-1-integrate/"/>
+    <id>https://wildma.github.io/hot-fix-tinker-1-integrate/</id>
+    <published>2017-07-08T15:45:13.000Z</published>
+    <updated>2019-10-10T14:31:14.282Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;2017/09/22 更新：为了同步Tinker官方，故将github上的Demo中的Tinker版本升级到了1.8.1（不要使用1.8.0的版本，该版本不支持加固）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+      <category term="热修复" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+    
+      <category term="热修复" scheme="https://wildma.github.io/tags/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    
+      <category term="Tinker" scheme="https://wildma.github.io/tags/Tinker/"/>
     
   </entry>
   
@@ -371,6 +474,34 @@
   </entry>
   
   <entry>
+    <title>利用高德地图关键字检索 POI-实现仿微信发朋友圈搜索附近位置</title>
+    <link href="https://wildma.github.io/gaode-map-poi-search/"/>
+    <id>https://wildma.github.io/gaode-map-poi-search/</id>
+    <published>2017-02-25T06:07:04.000Z</published>
+    <updated>2019-10-10T15:53:53.160Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+    
+      <category term="高德地图" scheme="https://wildma.github.io/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/"/>
+    
+      <category term="POI 搜索" scheme="https://wildma.github.io/tags/POI-%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Glide 中 centerCrop() 与 transform() 共用问题(包括 4.0.0 以上解决方法)</title>
     <link href="https://wildma.github.io/glide-centercrop-transform/"/>
     <id>https://wildma.github.io/glide-centercrop-transform/</id>
@@ -395,6 +526,34 @@
     
     
       <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 一步一步教你集成高德地图</title>
+    <link href="https://wildma.github.io/gaode-map-integrate/"/>
+    <id>https://wildma.github.io/gaode-map-integrate/</id>
+    <published>2017-02-22T08:41:42.000Z</published>
+    <updated>2019-10-10T15:45:10.971Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;当项目中需要使用地图SDK的时候, 是选择高德地图还是百度地图呢?从对开发者友好角度，从容易上手角度：高德完胜百度!
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="高德地图" scheme="https://wildma.github.io/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
