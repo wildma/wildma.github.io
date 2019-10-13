@@ -1,3 +1,8 @@
+https://wildma.github.io/picture-selector/
+https://wildma.github.io/git/
+https://wildma.github.io/umeng-statistics/
+https://wildma.github.io/thread/
+https://wildma.github.io/tencent-x5/
 https://wildma.github.io/expand-fold-text/
 https://wildma.github.io/glide-get-image-height/
 https://wildma.github.io/umeng-login/

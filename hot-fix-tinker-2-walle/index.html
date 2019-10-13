@@ -471,7 +471,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇文章<a href="http://www.jianshu.com/p/ed17f00a3d23" target="_blank" rel="noopener"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合理的。那怎样才能实现20个渠道包只需要一个补丁包呢？Tinker官方也说了，推荐我们多渠道打包使用Walle，这样就能实现多个渠道包只使用一个补丁包了！</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合理的。那怎样才能实现20个渠道包只需要一个补丁包呢？Tinker官方也说了，推荐我们多渠道打包使用Walle，这样就能实现多个渠道包只使用一个补丁包了！</p>
 <h2 id="一、什么是Walle？"><a href="#一、什么是Walle？" class="headerlink" title="一、什么是Walle？"></a>一、什么是Walle？</h2><p>Walle（瓦力）：Android Signature V2 Scheme签名下的新一代渠道包打包神器。<br>瓦力通过在Apk中的APK Signature Block区块添加自定义的渠道信息来生成渠道包，从而提高了渠道包生成效率，可以作为单机工具来使用，也可以部署在HTTP服务器上来实时处理渠道包Apk的升级网络请求。<br>——介绍来自<a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="noopener">Walle</a></p>
 <h2 id="二、集成"><a href="#二、集成" class="headerlink" title="二、集成"></a>二、集成</h2><p>为了方便大家的使用，Walle提供了2种使用方式：（这里主要讲常用的第一种方式）</p>
 <ul>
@@ -529,8 +529,8 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
 <p><img src="3.jpg" alt></p>
 <p>并且会在channels文件夹中生成所有渠道的apk，如图：<br><img src="4.jpg" alt></p>
 <p>一一对应关系为：<br><img src="5.jpg" alt></p>
-<h2 id="五、Tinker与Walle在真实项目中的使用流程"><a href="#五、Tinker与Walle在真实项目中的使用流程" class="headerlink" title="五、Tinker与Walle在真实项目中的使用流程"></a>五、Tinker与Walle在真实项目中的使用流程</h2><p>上一篇文章<a href="http://www.jianshu.com/p/ed17f00a3d23" target="_blank" rel="noopener"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要修复的是单个渠道包，这里结合Walle修复多个渠道包。</p>
-<h3 id="5-1-发布版本流程"><a href="#5-1-发布版本流程" class="headerlink" title="5.1 发布版本流程"></a>5.1 发布版本流程</h3><p>（1）我们在发布版本的时候都需要改版本号，因为我这里使用版本名称作为tinkerId，所以发布版本修改版本名称的时候，tinkerId也要跟着修改。(tinkerId主要作用是当前打出的补丁包是基于哪个版本的apk, tinkerId的选取见我下一篇文章 <a href="http://www.jianshu.com/p/0e72515505ca" target="_blank" rel="noopener">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
+<h2 id="五、Tinker与Walle在真实项目中的使用流程"><a href="#五、Tinker与Walle在真实项目中的使用流程" class="headerlink" title="五、Tinker与Walle在真实项目中的使用流程"></a>五、Tinker与Walle在真实项目中的使用流程</h2><p>上一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要修复的是单个渠道包，这里结合Walle修复多个渠道包。</p>
+<h3 id="5-1-发布版本流程"><a href="#5-1-发布版本流程" class="headerlink" title="5.1 发布版本流程"></a>5.1 发布版本流程</h3><p>（1）我们在发布版本的时候都需要改版本号，因为我这里使用版本名称作为tinkerId，所以发布版本修改版本名称的时候，tinkerId也要跟着修改。(tinkerId主要作用是当前打出的补丁包是基于哪个版本的apk, tinkerId的选取见我下一篇文章 <a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
 <p><img src="6.jpg" alt></p>
 <p>（2）检查app build中是否开启了热修复功能, 即tinkerEnabled需要设置为true。如图：<br><img src="7.jpg" alt></p>
 <p>（3）打包前先建一个当前版本的分支！！！（热更新修复bug就在该分支上修改）</p>
@@ -541,14 +541,14 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
 <p>（3）修改bug</p>
 <p>（4）运行补丁命令获取补丁包。单击AS右侧顶部gradle，双击tinkerPatchRelease，如图:<br><img src="11.jpg" alt></p>
 <p>（5）运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="12.jpg" alt></p>
-<p>（6）将该补丁包重修修改名字后发给后台（注意：这里的一个补丁包就适用于各个渠道包！），关于补丁包的存放与后台设计请看下一篇文章<a href="http://www.jianshu.com/p/0e72515505ca" target="_blank" rel="noopener">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
+<p>（6）将该补丁包重修修改名字后发给后台（注意：这里的一个补丁包就适用于各个渠道包！），关于补丁包的存放与后台设计请看下一篇文章<a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
 <p>（7）bug修改完成后将该分支合并到trunk主干上即可。这样能保证分支上修改了bug，trunk主干上也跟着更新了。</p>
 <p>Tinker系列文章讲的已经非常详细了，有不足的地方希望指出。遇到不懂的问题都可以直接在博客下评论问我，只要我遇到过并且能回答出来的都会乐意回答。</p>
 <p>Demo下载地址：<a href="https://github.com/wildma/WildmaTinker" target="_blank" rel="noopener">https://github.com/wildma/WildmaTinker</a><br>如果对你有帮助请点赞，star支持下哈~</p>
 <h2 id="热修复Tinker系列文章"><a href="#热修复Tinker系列文章" class="headerlink" title="热修复Tinker系列文章"></a>热修复Tinker系列文章</h2><ul>
-<li><a href="http://www.jianshu.com/p/ed17f00a3d23" target="_blank" rel="noopener">热修复框架Tinker最完整讲解（01）——集成之路</a></li>
-<li><a href="http://www.jianshu.com/p/8a850ddee403" target="_blank" rel="noopener">热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包</a></li>
-<li><a href="http://www.jianshu.com/p/0e72515505ca" target="_blank" rel="noopener">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a></li>
+<li><a href="https://wildma.github.io/hot-fix-tinker-1-integrate/">热修复框架Tinker最完整讲解（01）——集成之路</a></li>
+<li><a href="https://wildma.github.io/hot-fix-tinker-2-walle/">热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包</a></li>
+<li><a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a></li>
 </ul>
 
             </div>
@@ -1180,7 +1180,7 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">27.6k</span>
+            <span class="white-color">38.3k</span>
             
             
             

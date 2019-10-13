@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2019-10-09T15:40:11.252Z</updated>
+  <updated>2019-10-13T15:42:31.206Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,161 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个非常好用的 Android 图片选择框架</title>
+    <link href="https://wildma.github.io/picture-selector/"/>
+    <id>https://wildma.github.io/picture-selector/</id>
+    <published>2018-06-24T13:43:38.000Z</published>
+    <updated>2019-10-13T15:42:31.206Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="开源库" scheme="https://wildma.github.io/categories/Android/%E5%BC%80%E6%BA%90%E5%BA%93/"/>
+    
+    
+      <category term="图片选择" scheme="https://wildma.github.io/tags/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详细讲解 Android Studio 中使用 Git——结合 GitLab</title>
+    <link href="https://wildma.github.io/git/"/>
+    <id>https://wildma.github.io/git/</id>
+    <published>2018-05-24T13:18:04.000Z</published>
+    <updated>2019-10-13T15:27:49.847Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文已授权微信公众号《鸿洋》原创首发，转载请注明出处。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="工具" scheme="https://wildma.github.io/categories/Android/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="https://wildma.github.io/tags/Git/"/>
+    
+      <category term="GitLab" scheme="https://wildma.github.io/tags/GitLab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 友盟统计的集成与使用（包含多渠道打包配置）</title>
+    <link href="https://wildma.github.io/umeng-statistics/"/>
+    <id>https://wildma.github.io/umeng-statistics/</id>
+    <published>2018-02-25T13:33:10.000Z</published>
+    <updated>2019-10-13T15:33:40.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
+    
+      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>带你通俗易懂的理解——线程、多线程与线程池</title>
+    <link href="https://wildma.github.io/thread/"/>
+    <id>https://wildma.github.io/thread/</id>
+    <published>2017-10-05T11:04:19.000Z</published>
+    <updated>2019-10-13T14:22:18.463Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;进程与线程&quot;&gt;&lt;a href=&quot;#进程与线程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="Java 并发" scheme="https://wildma.github.io/categories/Android/Java-%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="Thread" scheme="https://wildma.github.io/tags/Thread/"/>
+    
+      <category term="线程" scheme="https://wildma.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="多线程" scheme="https://wildma.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="线程池" scheme="https://wildma.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一步一步教你集成腾讯浏览服务 X5 内核</title>
+    <link href="https://wildma.github.io/tencent-x5/"/>
+    <id>https://wildma.github.io/tencent-x5/</id>
+    <published>2017-10-05T08:36:00.000Z</published>
+    <updated>2019-10-13T15:33:53.802Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;腾讯浏览服务（TBS，Tencent Browsing
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="腾讯 X5 内核" scheme="https://wildma.github.io/tags/%E8%85%BE%E8%AE%AF-X5-%E5%86%85%E6%A0%B8/"/>
+    
+      <category term="webview 增强版" scheme="https://wildma.github.io/tags/webview-%E5%A2%9E%E5%BC%BA%E7%89%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 仿微信朋友圈全文、收起功能</title>
@@ -139,7 +294,7 @@
     <link href="https://wildma.github.io/hot-fix-tinker-3-question/"/>
     <id>https://wildma.github.io/hot-fix-tinker-3-question/</id>
     <published>2017-07-09T15:36:13.000Z</published>
-    <updated>2019-10-10T15:20:10.897Z</updated>
+    <updated>2019-10-13T08:37:30.287Z</updated>
     
     <summary type="html">
     
@@ -147,7 +302,7 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;该系列第一篇文章&lt;a href=&quot;http://www.jianshu.com/p/ed17f00a3d23&quot;
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;该系列第一篇文章&lt;a
         
       
     
@@ -171,7 +326,7 @@
     <link href="https://wildma.github.io/hot-fix-tinker-2-walle/"/>
     <id>https://wildma.github.io/hot-fix-tinker-2-walle/</id>
     <published>2017-07-09T14:20:00.000Z</published>
-    <updated>2019-10-10T14:45:20.692Z</updated>
+    <updated>2019-10-13T08:35:44.811Z</updated>
     
     <summary type="html">
     
@@ -179,7 +334,7 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上一篇文章&lt;a href=&quot;http://www.jianshu.com/p/ed17f00a3d23&quot; target=&quot;_blank&quot;
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上一篇文章&lt;a href=&quot;https://wildma.github.io/hot-fix-tinker-1-integrate/&quot;&gt;
         
       
     
@@ -207,7 +362,7 @@
     <link href="https://wildma.github.io/hot-fix-tinker-1-integrate/"/>
     <id>https://wildma.github.io/hot-fix-tinker-1-integrate/</id>
     <published>2017-07-08T15:45:13.000Z</published>
-    <updated>2019-10-10T14:31:14.282Z</updated>
+    <updated>2019-10-13T08:34:17.963Z</updated>
     
     <summary type="html">
     
@@ -470,148 +625,6 @@
       <category term="domob" scheme="https://wildma.github.io/tags/domob/"/>
     
       <category term="接入广告SDK" scheme="https://wildma.github.io/tags/%E6%8E%A5%E5%85%A5%E5%B9%BF%E5%91%8ASDK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用高德地图关键字检索 POI-实现仿微信发朋友圈搜索附近位置</title>
-    <link href="https://wildma.github.io/gaode-map-poi-search/"/>
-    <id>https://wildma.github.io/gaode-map-poi-search/</id>
-    <published>2017-02-25T06:07:04.000Z</published>
-    <updated>2019-10-10T15:53:53.160Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-    
-      <category term="高德地图" scheme="https://wildma.github.io/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/"/>
-    
-      <category term="POI 搜索" scheme="https://wildma.github.io/tags/POI-%E6%90%9C%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Glide 中 centerCrop() 与 transform() 共用问题(包括 4.0.0 以上解决方法)</title>
-    <link href="https://wildma.github.io/glide-centercrop-transform/"/>
-    <id>https://wildma.github.io/glide-centercrop-transform/</id>
-    <published>2017-02-24T03:31:42.000Z</published>
-    <updated>2019-10-09T14:42:17.911Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="问题记录" scheme="https://wildma.github.io/categories/Android/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    
-    
-      <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 一步一步教你集成高德地图</title>
-    <link href="https://wildma.github.io/gaode-map-integrate/"/>
-    <id>https://wildma.github.io/gaode-map-integrate/</id>
-    <published>2017-02-22T08:41:42.000Z</published>
-    <updated>2019-10-10T15:45:10.971Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;当项目中需要使用地图SDK的时候, 是选择高德地图还是百度地图呢?从对开发者友好角度，从容易上手角度：高德完胜百度!
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="高德地图" scheme="https://wildma.github.io/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dagger2 使用——结合 MVP 模式讲解</title>
-    <link href="https://wildma.github.io/dagger2/"/>
-    <id>https://wildma.github.io/dagger2/</id>
-    <published>2016-11-27T15:04:16.000Z</published>
-    <updated>2019-10-09T15:42:51.008Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;更新：根据Dagger2官方最新配置，现在配置已经不需要添加android-apt插件了，所以配置更简单了。即在下文中说的Dagger2配置的第一步与第二步都可以省略了，第三步直接改成以下即可）。&lt;/p&gt;
-&lt;pre
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-    
-      <category term="Dagger2" scheme="https://wildma.github.io/tags/Dagger2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>带你通俗易懂的理解——Android 中的 MVC 与 MVP</title>
-    <link href="https://wildma.github.io/mvc-mvp/"/>
-    <id>https://wildma.github.io/mvc-mvp/</id>
-    <published>2016-11-25T06:04:04.000Z</published>
-    <updated>2019-10-09T15:42:29.475Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;首先介绍一下所谓的MVP，美国职业篮球联赛最有价值球员奖（National Basketball Association Most
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://wildma.github.io/tags/Android/"/>
-    
-      <category term="MVC" scheme="https://wildma.github.io/tags/MVC/"/>
-    
-      <category term="MVP" scheme="https://wildma.github.io/tags/MVP/"/>
     
   </entry>
   
