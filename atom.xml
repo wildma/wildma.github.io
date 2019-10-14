@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2019-10-13T15:42:31.206Z</updated>
+  <updated>2019-10-14T15:26:58.663Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -17,11 +17,188 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android 设备与 U 盘之间的交互</title>
+    <link href="https://wildma.github.io/android-usb/"/>
+    <id>https://wildma.github.io/android-usb/</id>
+    <published>2019-07-28T15:35:12.000Z</published>
+    <updated>2019-10-14T15:26:58.663Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近需要实现一个 TV 或一体机从 U 盘读取数据显示的功能，该功能主要解决的问题是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取 U
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="硬件" scheme="https://wildma.github.io/categories/Android/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+      <category term="U 盘" scheme="https://wildma.github.io/tags/U-%E7%9B%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自己撸一个 Android Studio 插件</title>
+    <link href="https://wildma.github.io/make-plug-in/"/>
+    <id>https://wildma.github.io/make-plug-in/</id>
+    <published>2019-05-11T14:38:43.000Z</published>
+    <updated>2019-10-14T15:21:10.195Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;用过 Android Studio
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="工具" scheme="https://wildma.github.io/categories/Android/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="插件" scheme="https://wildma.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>聊聊 Android 中的字体大小适配</title>
+    <link href="https://wildma.github.io/font-adaptation/"/>
+    <id>https://wildma.github.io/font-adaptation/</id>
+    <published>2019-02-12T14:53:23.000Z</published>
+    <updated>2019-10-14T15:01:17.674Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本篇文章已授权微信公众号 guolin_blog（郭霖）独家发布&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="适配" scheme="https://wildma.github.io/categories/Android/%E9%80%82%E9%85%8D/"/>
+    
+    
+      <category term="字体大小适配" scheme="https://wildma.github.io/tags/%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E9%80%82%E9%85%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 消息推送 MQTT 实战</title>
+    <link href="https://wildma.github.io/mqtt/"/>
+    <id>https://wildma.github.io/mqtt/</id>
+    <published>2018-11-08T13:46:35.000Z</published>
+    <updated>2019-10-14T14:51:39.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;年初做了一款Android TV
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+    
+      <category term="MQTT" scheme="https://wildma.github.io/tags/MQTT/"/>
+    
+      <category term="消息推送" scheme="https://wildma.github.io/tags/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发布自己的开源库让他人使用——基于 JitPack</title>
+    <link href="https://wildma.github.io/jitpack/"/>
+    <id>https://wildma.github.io/jitpack/</id>
+    <published>2018-07-01T09:26:49.000Z</published>
+    <updated>2019-10-14T14:27:36.650Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="开源库" scheme="https://wildma.github.io/categories/Android/%E5%BC%80%E6%BA%90%E5%BA%93/"/>
+    
+    
+      <category term="JitPack" scheme="https://wildma.github.io/tags/JitPack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 自定义相机实现身份证拍照，并加入自动对焦与图片不规则裁剪</title>
+    <link href="https://wildma.github.io/idcard-camera/"/>
+    <id>https://wildma.github.io/idcard-camera/</id>
+    <published>2018-06-30T08:04:11.000Z</published>
+    <updated>2019-10-14T15:28:52.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、-前言&quot;&gt;&lt;a href=&quot;#一、-前言&quot; class=&quot;headerlink&quot; title=&quot;一、 前言&quot;&gt;&lt;/a&gt;一、
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="开源库" scheme="https://wildma.github.io/categories/Android/%E5%BC%80%E6%BA%90%E5%BA%93/"/>
+    
+    
+      <category term="相机" scheme="https://wildma.github.io/tags/%E7%9B%B8%E6%9C%BA/"/>
+    
+      <category term="身份证拍照" scheme="https://wildma.github.io/tags/%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%8B%8D%E7%85%A7/"/>
+    
+      <category term="自动对焦" scheme="https://wildma.github.io/tags/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一个非常好用的 Android 图片选择框架</title>
     <link href="https://wildma.github.io/picture-selector/"/>
     <id>https://wildma.github.io/picture-selector/</id>
     <published>2018-06-24T13:43:38.000Z</published>
-    <updated>2019-10-13T15:42:31.206Z</updated>
+    <updated>2019-10-14T15:29:25.970Z</updated>
     
     <summary type="html">
     
@@ -74,6 +251,35 @@
       <category term="Git" scheme="https://wildma.github.io/tags/Git/"/>
     
       <category term="GitLab" scheme="https://wildma.github.io/tags/GitLab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一种非常好用的 Android 屏幕适配</title>
+    <link href="https://wildma.github.io/screen-adaptation/"/>
+    <id>https://wildma.github.io/screen-adaptation/</id>
+    <published>2018-04-06T02:43:33.000Z</published>
+    <updated>2019-10-14T15:40:36.367Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;更新：由于该适配方案越来越多人使用，也有很多人遇到不太理解的问题。所以为了大家更好的使用，我将文章很多内容更新了，老用户可以重新看下整篇文章。主要更新的内容是使用方法跟以前不同了，以前是不改变最小宽度基准值，根据 UI
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
+    
+      <category term="适配" scheme="https://wildma.github.io/categories/Android/%E9%80%82%E9%85%8D/"/>
+    
+    
+      <category term="屏幕适配" scheme="https://wildma.github.io/tags/%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/"/>
     
   </entry>
   
@@ -417,214 +623,6 @@
     
     
       <category term="百度地图" scheme="https://wildma.github.io/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试时最常问到的 Handler 消息机制源码详解</title>
-    <link href="https://wildma.github.io/handler/"/>
-    <id>https://wildma.github.io/handler/</id>
-    <published>2017-05-07T05:50:02.000Z</published>
-    <updated>2019-10-09T15:42:02.424Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="面试" scheme="https://wildma.github.io/categories/Android/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="源码解析" scheme="https://wildma.github.io/categories/Android/%E9%9D%A2%E8%AF%95/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
-    
-    
-      <category term="Handler" scheme="https://wildma.github.io/tags/Handler/"/>
-    
-      <category term="面试" scheme="https://wildma.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="源码解析" scheme="https://wildma.github.io/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最全加快 Android Studio 的编译速度</title>
-    <link href="https://wildma.github.io/promote-android-studio-compile-speed/"/>
-    <id>https://wildma.github.io/promote-android-studio-compile-speed/</id>
-    <published>2017-04-21T06:51:47.000Z</published>
-    <updated>2019-10-09T14:58:59.654Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一开始公司的电脑运行Android Studio的项目那叫一个慢呀!
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://wildma.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Android Studio" scheme="https://wildma.github.io/tags/Android-Studio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Butterknife 8.5.1 最新使用详解</title>
-    <link href="https://wildma.github.io/butterknife/"/>
-    <id>https://wildma.github.io/butterknife/</id>
-    <published>2017-03-26T04:16:15.000Z</published>
-    <updated>2019-10-09T15:14:29.819Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-    
-      <category term="Butterknife" scheme="https://wildma.github.io/tags/Butterknife/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用 ShareSDK 集成 QQ、微信、微博等第三方登录</title>
-    <link href="https://wildma.github.io/sharesdk-login/"/>
-    <id>https://wildma.github.io/sharesdk-login/</id>
-    <published>2017-03-16T07:26:48.000Z</published>
-    <updated>2019-10-08T15:32:54.861Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="ShareSDK" scheme="https://wildma.github.io/tags/ShareSDK/"/>
-    
-      <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用 ShareSDK 集成 QQ、微信、微博等第三方分享</title>
-    <link href="https://wildma.github.io/sharesdk-share/"/>
-    <id>https://wildma.github.io/sharesdk-share/</id>
-    <published>2017-03-15T08:12:06.000Z</published>
-    <updated>2019-10-08T15:15:29.803Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="ShareSDK" scheme="https://wildma.github.io/tags/ShareSDK/"/>
-    
-      <category term="第三方分享" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用 OkHttp 请求自签名的 HTTPS 网站</title>
-    <link href="https://wildma.github.io/okhttp-self-signature-https/"/>
-    <id>https://wildma.github.io/okhttp-self-signature-https/</id>
-    <published>2017-03-12T11:30:03.000Z</published>
-    <updated>2019-10-08T15:16:31.888Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="网络编程" scheme="https://wildma.github.io/categories/Android/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="OkHttp" scheme="https://wildma.github.io/tags/OkHttp/"/>
-    
-      <category term="自签名 HTTPS" scheme="https://wildma.github.io/tags/%E8%87%AA%E7%AD%BE%E5%90%8D-HTTPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 接入多盟广告 SDK--让你的 APP 通过广告平台赚钱</title>
-    <link href="https://wildma.github.io/domob-advertisement-sdk/"/>
-    <id>https://wildma.github.io/domob-advertisement-sdk/</id>
-    <published>2017-03-02T02:40:39.000Z</published>
-    <updated>2019-10-09T15:41:43.194Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="多盟" scheme="https://wildma.github.io/tags/%E5%A4%9A%E7%9B%9F/"/>
-    
-      <category term="domob" scheme="https://wildma.github.io/tags/domob/"/>
-    
-      <category term="接入广告SDK" scheme="https://wildma.github.io/tags/%E6%8E%A5%E5%85%A5%E5%B9%BF%E5%91%8ASDK/"/>
     
   </entry>
   

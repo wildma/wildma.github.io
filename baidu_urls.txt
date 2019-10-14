@@ -1,5 +1,12 @@
+https://wildma.github.io/android-usb/
+https://wildma.github.io/make-plug-in/
+https://wildma.github.io/font-adaptation/
+https://wildma.github.io/mqtt/
+https://wildma.github.io/jitpack/
+https://wildma.github.io/idcard-camera/
 https://wildma.github.io/picture-selector/
 https://wildma.github.io/git/
+https://wildma.github.io/screen-adaptation/
 https://wildma.github.io/umeng-statistics/
 https://wildma.github.io/thread/
 https://wildma.github.io/tencent-x5/

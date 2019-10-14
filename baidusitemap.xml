@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wildma.github.io/screen-adaptation/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
     <loc>https://wildma.github.io/picture-selector/</loc>
-    <lastmod>2019-10-13</lastmod>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/idcard-camera/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/android-usb/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/make-plug-in/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/font-adaptation/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/mqtt/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://wildma.github.io/jitpack/</loc>
+    <lastmod>2019-10-14</lastmod>
   </url>  <url>
     <loc>https://wildma.github.io/tencent-x5/</loc>
     <lastmod>2019-10-13</lastmod>

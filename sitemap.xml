@@ -2,9 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wildma.github.io/screen-adaptation/</loc>
+    
+    <lastmod>2019-10-14T15:40:36.367Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wildma.github.io/picture-selector/</loc>
     
-    <lastmod>2019-10-13T15:42:31.206Z</lastmod>
+    <lastmod>2019-10-14T15:29:25.970Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/idcard-camera/</loc>
+    
+    <lastmod>2019-10-14T15:28:52.739Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/android-usb/</loc>
+    
+    <lastmod>2019-10-14T15:26:58.663Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/make-plug-in/</loc>
+    
+    <lastmod>2019-10-14T15:21:10.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/font-adaptation/</loc>
+    
+    <lastmod>2019-10-14T15:01:17.674Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/mqtt/</loc>
+    
+    <lastmod>2019-10-14T14:51:39.698Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildma.github.io/jitpack/</loc>
+    
+    <lastmod>2019-10-14T14:27:36.650Z</lastmod>
     
   </url>
   
