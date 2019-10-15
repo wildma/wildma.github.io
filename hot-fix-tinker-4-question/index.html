@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包, Android 知识分享">
+    <meta name="keywords" content="热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题, Android 知识分享">
     <meta name="baidu-site-verification" content="FLsnLJ6eF1">
     <meta name="google-site-verification" content="16Gna8-Ho0L5gq5QusQ01kiKooeZUaUSmH--RyCrrro">
     <meta name="360-site-verification" content>
-    <meta name="description" content="前言上一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合">
+    <meta name="description" content="前言该系列第一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 主要讲了tinker的集成，第二篇文章热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包主要讲了Tinker与Walle多渠道打包在项目中的使用。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包 | wildma的博客</title>
+    <title>热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题 | wildma的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -279,7 +279,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包
+                        热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题
                     </div>
                 </div>
             </div>
@@ -398,14 +398,6 @@
                             <span class="chip bg-color">Tinker</span>
                         </a>
                         
-                        <a href="/tags/多渠道打包/" target="_blank">
-                            <span class="chip bg-color">多渠道打包</span>
-                        </a>
-                        
-                        <a href="/tags/Walle/" target="_blank">
-                            <span class="chip bg-color">Walle</span>
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -448,7 +440,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.4k
                 </div>
                 
 
@@ -471,78 +463,32 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合理的。那怎样才能实现20个渠道包只需要一个补丁包呢？Tinker官方也说了，推荐我们多渠道打包使用Walle，这样就能实现多个渠道包只使用一个补丁包了！</p>
-<h2 id="一、什么是Walle？"><a href="#一、什么是Walle？" class="headerlink" title="一、什么是Walle？"></a>一、什么是Walle？</h2><p>Walle（瓦力）：Android Signature V2 Scheme签名下的新一代渠道包打包神器。<br>瓦力通过在Apk中的APK Signature Block区块添加自定义的渠道信息来生成渠道包，从而提高了渠道包生成效率，可以作为单机工具来使用，也可以部署在HTTP服务器上来实时处理渠道包Apk的升级网络请求。<br>——介绍来自<a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="noopener">Walle</a></p>
-<h2 id="二、集成"><a href="#二、集成" class="headerlink" title="二、集成"></a>二、集成</h2><p>为了方便大家的使用，Walle提供了2种使用方式：（这里主要讲常用的第一种方式）</p>
-<ul>
-<li>Gradle插件方式，方便快速集成</li>
-<li>命令行方式，最大化满足各种自定义需求</li>
-</ul>
-<p><strong>配置build.gradle：</strong></p>
-<p>（1）在项目的build.gradle 文件中添加Walle Gradle插件的依赖， 如下：</p>
-<pre class="line-numbers language-java"><code class="language-java">buildscript <span class="token punctuation">{</span>
-    dependencies <span class="token punctuation">{</span>
-        classpath <span class="token string">'com.meituan.android.walle:plugin:1.1.4'</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（2）在app的 build.gradle 文件中apply这个插件，并添加上用于读取渠道号的AAR，如下：</p>
-<pre class="line-numbers language-java"><code class="language-java">apply plugin<span class="token operator">:</span> <span class="token string">'walle'</span>
-
-dependencies <span class="token punctuation">{</span>
-    compile <span class="token string">'com.meituan.android.walle:library:1.1.4'</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（3）在app的 build.gradle 文件中配置插件，如下：</p>
-<pre class="line-numbers language-java"><code class="language-java">walle <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 指定渠道包的输出路径</span>
-    apkOutputFolder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"${project.buildDir}/outputs/channels"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 定制渠道包的APK的文件名称</span>
-    apkFileNameFormat <span class="token operator">=</span> <span class="token string">'${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 渠道配置文件</span>
-    channelFile <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"${project.getProjectDir()}/channel"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>配置项具体解释：</p>
-<pre class="line-numbers language-java"><code class="language-java">apkOutputFolder：指定渠道包的输出路径， 默认值为<span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"${project.buildDir}/outputs/apk"</span><span class="token punctuation">)</span>
-
-apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punctuation">,</span> 默认值为<span class="token string">'${appName}-${buildType}-${channel}.apk'</span>
-可使用以下变量<span class="token operator">:</span>
-
-     projectName <span class="token operator">-</span> 项目名字
-     appName <span class="token operator">-</span> App模块名字
-     packageName <span class="token operator">-</span> <span class="token function">applicationId</span> <span class="token punctuation">(</span>App包名packageName<span class="token punctuation">)</span>
-     buildType <span class="token operator">-</span> <span class="token function">buildType</span> <span class="token punctuation">(</span>release<span class="token operator">/</span>debug等<span class="token punctuation">)</span>
-     channel <span class="token operator">-</span> channel名称 <span class="token punctuation">(</span>对应渠道打包中的渠道名字<span class="token punctuation">)</span>
-     versionName <span class="token operator">-</span> <span class="token function">versionName</span> <span class="token punctuation">(</span>显示用的版本号<span class="token punctuation">)</span>
-     versionCode <span class="token operator">-</span> <span class="token function">versionCode</span> <span class="token punctuation">(</span>内部版本号<span class="token punctuation">)</span>
-     buildTime <span class="token operator">-</span> <span class="token function">buildTime</span> <span class="token punctuation">(</span>编译构建日期时间<span class="token punctuation">)</span>
-     fileSHA1 <span class="token operator">-</span> <span class="token function">fileSHA1</span> <span class="token punctuation">(</span>最终APK文件的SHA1哈希值<span class="token punctuation">)</span>
-     flavorName <span class="token operator">-</span> 编译构建 productFlavors 名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>channelFile：包含渠道配置信息的文件路径：</p>
-<p>在app目录下新建名为channel的文件，如图</p>
-<p><img src="1.jpg" alt></p>
-<p>在该文件里写上需要打包的渠道号（渠道号支持使用#号添加注释。具体内容格式详见下图，这里只测试2个渠道）</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该系列第一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要讲了tinker的集成，第二篇文章<a href="https://wildma.github.io/hot-fix-tinker-2-walle/">热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包</a>主要讲了Tinker与Walle多渠道打包在项目中的使用。这篇文章主要讲讲真实项目中使用Tinker的常见问题。</p>
+<h2 id="一、存放补丁包的平台选取"><a href="#一、存放补丁包的平台选取" class="headerlink" title="一、存放补丁包的平台选取"></a>一、存放补丁包的平台选取</h2><p>1，存放在自己公司的服务器<br>2，使用TinkerPatch平台，需要收费<br>3，腾讯Bugly平台，免费<br>为了安全与经济考虑，我们公司选取了第一种。大家可以根据自己的需要选择。</p>
+<h2 id="二、tinkerId应该如何选择？"><a href="#二、tinkerId应该如何选择？" class="headerlink" title="二、tinkerId应该如何选择？"></a>二、tinkerId应该如何选择？</h2><p>tinkerId主要作用是区分当前打出的补丁包是基于哪个版本的apk，也就是说当前打出的补丁包能修复哪个版本的bug。每次发布版本需要保证tinkerId一定是要唯一性的，Tiker官方推荐使用git版本号或者versionName作为tinkerId。我自己项目使用的是versionName，你可以将versionName配置在项目的gradle.properties文件中，这样就不用每次都修改tinkerId了。如图：<br><img src="1.jpg" alt></p>
 <p><img src="2.jpg" alt></p>
-<h2 id="三、相关API和命令"><a href="#三、相关API和命令" class="headerlink" title="三、相关API和命令"></a>三、相关API和命令</h2><p><strong>获取渠道信息：</strong><br>在需要渠道等信息时可以通过下面代码进行获取</p>
-<pre class="line-numbers language-java"><code class="language-java">String channel <span class="token operator">=</span> WalleChannelReader<span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>生成渠道包：</strong><br>生成渠道包的方式是和assemble${variantName}Channels指令结合，渠道包的生成目录默认存放在 build/outputs/apk/，也可以通过walle闭包中的apkOutputFolder参数来指定输出目录</p>
-<pre><code>生成渠道包 ./gradlew clean assembleReleaseChannels</code></pre><p>更多API和命令可参考 <a href="https://github.com/Meituan-Dianping/walle#%E6%9B%B4%E5%A4%9A%E7%94%A8%E6%B3%95" target="_blank" rel="noopener">更多用法</a></p>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>在Android Studio的Terminal中输入命令gradlew clean assembleReleaseChannels进行多渠道打包,当运行完成会出现BUILD SUCCESSFUL, 如图：</p>
 <p><img src="3.jpg" alt></p>
-<p>并且会在channels文件夹中生成所有渠道的apk，如图：<br><img src="4.jpg" alt></p>
-<p>一一对应关系为：<br><img src="5.jpg" alt></p>
-<h2 id="五、Tinker与Walle在真实项目中的使用流程"><a href="#五、Tinker与Walle在真实项目中的使用流程" class="headerlink" title="五、Tinker与Walle在真实项目中的使用流程"></a>五、Tinker与Walle在真实项目中的使用流程</h2><p>上一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要修复的是单个渠道包，这里结合Walle修复多个渠道包。</p>
-<h3 id="5-1-发布版本流程"><a href="#5-1-发布版本流程" class="headerlink" title="5.1 发布版本流程"></a>5.1 发布版本流程</h3><p>（1）我们在发布版本的时候都需要改版本号，因为我这里使用版本名称作为tinkerId，所以发布版本修改版本名称的时候，tinkerId也要跟着修改。(tinkerId主要作用是当前打出的补丁包是基于哪个版本的apk, tinkerId的选取见我下一篇文章 <a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
-<p><img src="6.jpg" alt></p>
-<p>（2）检查app build中是否开启了热修复功能, 即tinkerEnabled需要设置为true。如图：<br><img src="7.jpg" alt></p>
-<p>（3）打包前先建一个当前版本的分支！！！（热更新修复bug就在该分支上修改）</p>
-<p>（4）在AS的Terminal中输入命令gradlew clean assembleReleaseChannels进行多渠道打包<br>命令行运行完成会在channels文件夹中生成所有渠道的apk， 如图：<br><img src="8.jpg" alt></p>
-<p>（5）同时会在bakApk文件中生成三个文件，如图： （这三个文件需要保存在本地，svn或者git服务器，每次发布补丁包的时候需要用到！）<br><img src="9.jpg" alt></p>
-<h3 id="5-2-发补丁包流程"><a href="#5-2-发补丁包流程" class="headerlink" title="5.2 发补丁包流程"></a>5.2 发补丁包流程</h3><p>（1）在新建的分支上修改bug</p>
-<p>（2）将发布版本第5步中的三个文件路径复制到app build中对应的位置，如图：<br><img src="10.jpg" alt></p>
-<p>（3）修改bug</p>
-<p>（4）运行补丁命令获取补丁包。单击AS右侧顶部gradle，双击tinkerPatchRelease，如图:<br><img src="11.jpg" alt></p>
-<p>（5）运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="12.jpg" alt></p>
-<p>（6）将该补丁包重修修改名字后发给后台（注意：这里的一个补丁包就适用于各个渠道包！），关于补丁包的存放与后台设计请看下一篇文章<a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
-<p>（7）bug修改完成后将该分支合并到trunk主干上即可。这样能保证分支上修改了bug，trunk主干上也跟着更新了。</p>
+<h2 id="三、后台接口的设计"><a href="#三、后台接口的设计" class="headerlink" title="三、后台接口的设计"></a>三、后台接口的设计</h2><p>问题:如果A用户用1.0.0版本的APK，B用户用2.0.0版本的APK，这个时候1.0.0和2.0.0都有对应的补丁包。接口该怎么设计?</p>
+<p>方案: (可以保证用1.0.0还是2.0.0的用户都可以修复)<br>叫后台给一个接口,前端传versionName给后台(这里的versionName要保证和TinkerID一样), 传1.0.0后台就返回1.0.0的补丁包。传2.0.0后台则返回2.0.0的补丁包。字段后台返回一个补丁包的链接就可以了，每次更新补丁包后台都要换不同的链接（下面前端设计有讲到）。没有则返回空。</p>
+<h2 id="四、前端设计与问题"><a href="#四、前端设计与问题" class="headerlink" title="四、前端设计与问题"></a>四、前端设计与问题</h2><p>问题: 前端下载APK的时机和逻辑<br>方案: 放在启动页-SplashActivity请求比较好(越早请求越好),每次都去请求,把请求回来的链接保存在本地,进行对比,链接不一样则下载补丁包并加载。链接一样则不用重复下载。</p>
+<p>问题: 前端下载的时候需不需要提示用户?<br>方案: 这个看产品经理的需求,一般可以不提示,我修复bug告诉你干嘛…</p>
+<p>问题: 如果1.0.0版本上线后,过了很久才发现有bug, 我的trunk主线代码已经改了很多了。这个时候打补丁包那不是把其他代码也认为是差异的代码,然后直接加载补丁包到1.0.0的apk上?这样不合理吧？<br>方案:<br>发布1.0.0版本后, 新建一个1.0.0的分支, 然后在1.0.0分支上修改bug，打出补丁包发给后台，最后把1.0.0的代码merge到trunk主线即可。</p>
+<p>问题: 要给同一个版本多次打补丁包,又怎样弄呢?<br>直接在每次发布版本新建的分支上修复bug，然后每次打不同的补丁包，就需要叫后台返回不通的连接（为了区分该补丁包是否已加载过，上面后台接口的设计有讲到）。即都要以发布时的版本作为基础包进行bug修改。</p>
+<p>问题：加载补丁包后，怎样才能让修改的bug生效呢？<br>解决：因为Tinker不是即时生效的。所以我们这里不用处理，加载完补丁包，用户退出下次进来就自然生效。</p>
+<h2 id="五、华为H60-L03-Android4-4-2手机上运行直接crash"><a href="#五、华为H60-L03-Android4-4-2手机上运行直接crash" class="headerlink" title="五、华为H60-L03 Android4.4.2手机上运行直接crash"></a>五、华为H60-L03 Android4.4.2手机上运行直接crash</h2><p>最近测试的时候将项目运行在华为荣耀6（H60-L03）Android版本4.4.2的手机上就直接crash了，找资料发现其他人测试红米2A Android4.4.4，华为 MT7-TL00 Android4.4.2都会出现同样的问题（猜测5.0以下的手机都会出现该问题）。错误日志如下：</p>
+<pre class="line-numbers language-java"><code class="language-java">Caused by<span class="token operator">:</span> com<span class="token punctuation">.</span>tencent<span class="token punctuation">.</span>tinker<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>TinkerRuntimeException<span class="token operator">:</span> Tinker Exception<span class="token operator">:</span>createDelegate failed
+
+Tinker<span class="token punctuation">.</span>UncaughtHandler<span class="token operator">:</span> <span class="token keyword">catch</span> exception when loading tinker<span class="token operator">:</span>java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>RuntimeException<span class="token operator">:</span> Unable to instantiate application tinker<span class="token punctuation">.</span>sample<span class="token punctuation">.</span>android<span class="token punctuation">.</span>app<span class="token punctuation">.</span>SampleApplication<span class="token operator">:</span> com<span class="token punctuation">.</span>tencent<span class="token punctuation">.</span>tinker<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>TinkerRuntimeException<span class="token operator">:</span> Tinker Exception<span class="token operator">:</span>createDelegate failed
+
+Caused by<span class="token operator">:</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>ClassNotFoundException<span class="token operator">:</span> Didn't find <span class="token keyword">class</span> <span class="token string">"com.wildma.wildmatinker.global.MyApplication"</span> on path<span class="token operator">:</span> DexPathList<span class="token punctuation">[</span><span class="token punctuation">[</span>zip file <span class="token string">"/system/framework/org.simalliance.openmobileapi.jar"</span><span class="token punctuation">,</span> zip file <span class="token string">"/data/app/com.wildma.wildmatinker-1.apk"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>nativeLibraryDirectories<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">/</span>data<span class="token operator">/</span>app<span class="token operator">-</span>lib<span class="token operator">/</span>com<span class="token punctuation">.</span>wildma<span class="token punctuation">.</span>wildmatinker<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">/</span>vendor<span class="token operator">/</span>lib<span class="token punctuation">,</span> <span class="token operator">/</span>system<span class="token operator">/</span>lib<span class="token punctuation">,</span> <span class="token operator">/</span>data<span class="token operator">/</span>datalib<span class="token punctuation">]</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>经过自己测试，发现只有将tinkerEnabled设置为false的时候运行在该手机上才会报错。最后在issues上找到作者解释说是分包问题，如果关了tinkerEnabled。需要将ApplicationLike类放在main dex keep</p>
+<p>解决一：打开tinkerEnabled</p>
+<p>解决二：如果想在关闭tinkerEnabled的时候又运行在5.0以下的手机上, 那必须自己写分包规则。<br>1，将app/build/intermediates/tinker_intermediates/tinker_multidexkeep.pro文件复制到app的根目录下<br>2，在app build中对对应该文件即可。</p>
+<pre class="line-numbers language-java"><code class="language-java">    defaultConfig <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//其他。。。</span>
+        <span class="token comment" spellcheck="true">//tinker分包规则</span>
+        multiDexKeepProguard <span class="token function">file</span><span class="token punctuation">(</span><span class="token string">"./tinker_multidexkeep.pro"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//keep specific classes using proguard syntax</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Tinker系列文章讲的已经非常详细了，有不足的地方希望指出。遇到不懂的问题都可以直接在博客下评论问我，只要我遇到过并且能回答出来的都会乐意回答。</p>
 <p>Demo下载地址：<a href="https://github.com/wildma/WildmaTinker" target="_blank" rel="noopener">https://github.com/wildma/WildmaTinker</a><br>如果对你有帮助请点赞，star支持下哈~</p>
 <h2 id="热修复Tinker系列文章"><a href="#热修复Tinker系列文章" class="headerlink" title="热修复Tinker系列文章"></a>热修复Tinker系列文章</h2><ul>
@@ -584,9 +530,9 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包》
+                    《热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/hot-fix-tinker-2-walle/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/hot-fix-tinker-4-question/" property="cc:attributionName"
                rel="cc:attributionURL">
                 wildma
             </a> 采用
@@ -627,7 +573,7 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
         repo: 'wildma.github.io',
         owner: 'wildma',
         admin: "wildma",
-        id: 'hot-fix-tinker-2-walle/',
+        id: 'hot-fix-tinker-4-question/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -914,24 +860,25 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/hot-fix-tinker-4-question/">
+                <a href="/umeng-share/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Android 使用友盟集成 QQ、微信、微博等第三方分享">
                         
-                        <span class="card-title">热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题</span>
+                        <span class="card-title">Android 使用友盟集成 QQ、微信、微博等第三方分享</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言该系列第一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 主要讲了tinker的集成，第二篇文章热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包主要讲了Tinker与Walle多渠道打包在项目中的使用。
+                            前言最近项目需要加入第三方分享和登录功能，之前其他项目的第三方分享和登录一直都使用ShareSDK实现的。为了统一使用友盟的全家桶，所以三方分享和登录也就选择了友盟。这里记录一下完整的集成与使用流程。
+一、申请友盟Appkey直接到友盟官网
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-16
                         </span>
                         <span class="publish-author">
                             
@@ -945,10 +892,6 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
                                     第三方集成
                                 </a>
                             
-                            <a href="/categories/Android/第三方集成/热修复/" class="post-category" target="_blank">
-                                    热修复
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -956,12 +899,12 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/热修复/" target="_blank">
-                        <span class="chip bg-color">热修复</span>
+                    <a href="/tags/第三方分享/" target="_blank">
+                        <span class="chip bg-color">第三方分享</span>
                     </a>
                     
-                    <a href="/tags/Tinker/" target="_blank">
-                        <span class="chip bg-color">Tinker</span>
+                    <a href="/tags/友盟分享/" target="_blank">
+                        <span class="chip bg-color">友盟分享</span>
                     </a>
                     
                 </div>
@@ -975,27 +918,24 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hot-fix-tinker-1-integrate/">
+                <a href="/hot-fix-tinker-2-walle/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（01）——集成之路">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包">
                         
-                        <span class="card-title">热修复框架 Tinker 最完整讲解（01）——集成之路</span>
+                        <span class="card-title">热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-2017/09/22 更新：为了同步Tinker官方，故将github上的Demo中的Tinker版本升级到了1.8.1（不要使用1.8.0的版本，该版本不支持加固）。
-
-前言上个月我们的产品又更新了一个版本，当一个测试把产品上传了十几个
+                            前言上一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-09
                             </span>
                         <span class="publish-author">
                             
@@ -1026,6 +966,14 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
                     
                     <a href="/tags/Tinker/" target="_blank">
                         <span class="chip bg-color">Tinker</span>
+                    </a>
+                    
+                    <a href="/tags/多渠道打包/" target="_blank">
+                        <span class="chip bg-color">多渠道打包</span>
+                    </a>
+                    
+                    <a href="/tags/Walle/" target="_blank">
+                        <span class="chip bg-color">Walle</span>
                     </a>
                     
                 </div>
