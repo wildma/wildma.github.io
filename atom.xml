@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2019-10-14T15:26:58.663Z</updated>
+  <updated>2019-10-16T13:02:21.139Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Android 设备与 U 盘之间的交互</title>
-    <link href="https://wildma.github.io/android-usb/"/>
-    <id>https://wildma.github.io/android-usb/</id>
+    <link href="https://wildma.github.io/blog/a009c79d.html"/>
+    <id>https://wildma.github.io/blog/a009c79d.html</id>
     <published>2019-07-28T15:35:12.000Z</published>
-    <updated>2019-10-14T15:26:58.663Z</updated>
+    <updated>2019-10-16T13:02:21.139Z</updated>
     
     <summary type="html">
     
@@ -48,10 +48,10 @@
   
   <entry>
     <title>自己撸一个 Android Studio 插件</title>
-    <link href="https://wildma.github.io/make-plug-in/"/>
-    <id>https://wildma.github.io/make-plug-in/</id>
+    <link href="https://wildma.github.io/blog/9cddebb4.html"/>
+    <id>https://wildma.github.io/blog/9cddebb4.html</id>
     <published>2019-05-11T14:38:43.000Z</published>
-    <updated>2019-10-14T15:21:10.195Z</updated>
+    <updated>2019-10-16T13:02:21.155Z</updated>
     
     <summary type="html">
     
@@ -76,10 +76,10 @@
   
   <entry>
     <title>聊聊 Android 中的字体大小适配</title>
-    <link href="https://wildma.github.io/font-adaptation/"/>
-    <id>https://wildma.github.io/font-adaptation/</id>
+    <link href="https://wildma.github.io/blog/7770b02.html"/>
+    <id>https://wildma.github.io/blog/7770b02.html</id>
     <published>2019-02-12T14:53:23.000Z</published>
-    <updated>2019-10-14T15:01:17.674Z</updated>
+    <updated>2019-10-16T13:02:21.150Z</updated>
     
     <summary type="html">
     
@@ -107,10 +107,10 @@
   
   <entry>
     <title>Android 消息推送 MQTT 实战</title>
-    <link href="https://wildma.github.io/mqtt/"/>
-    <id>https://wildma.github.io/mqtt/</id>
+    <link href="https://wildma.github.io/blog/6b52ae54.html"/>
+    <id>https://wildma.github.io/blog/6b52ae54.html</id>
     <published>2018-11-08T13:46:35.000Z</published>
-    <updated>2019-10-14T14:51:39.698Z</updated>
+    <updated>2019-10-16T13:02:21.192Z</updated>
     
     <summary type="html">
     
@@ -135,10 +135,10 @@
   
   <entry>
     <title>发布自己的开源库让他人使用——基于 JitPack</title>
-    <link href="https://wildma.github.io/jitpack/"/>
-    <id>https://wildma.github.io/jitpack/</id>
+    <link href="https://wildma.github.io/blog/febb7b68.html"/>
+    <id>https://wildma.github.io/blog/febb7b68.html</id>
     <published>2018-07-01T09:26:49.000Z</published>
-    <updated>2019-10-14T14:27:36.650Z</updated>
+    <updated>2019-10-16T13:02:21.124Z</updated>
     
     <summary type="html">
     
@@ -163,10 +163,10 @@
   
   <entry>
     <title>Android 自定义相机实现身份证拍照，并加入自动对焦与图片不规则裁剪</title>
-    <link href="https://wildma.github.io/idcard-camera/"/>
-    <id>https://wildma.github.io/idcard-camera/</id>
+    <link href="https://wildma.github.io/blog/26d11c6d.html"/>
+    <id>https://wildma.github.io/blog/26d11c6d.html</id>
     <published>2018-06-30T08:04:11.000Z</published>
-    <updated>2019-10-14T15:28:52.739Z</updated>
+    <updated>2019-10-16T13:02:21.200Z</updated>
     
     <summary type="html">
     
@@ -195,10 +195,10 @@
   
   <entry>
     <title>一个非常好用的 Android 图片选择框架</title>
-    <link href="https://wildma.github.io/picture-selector/"/>
-    <id>https://wildma.github.io/picture-selector/</id>
+    <link href="https://wildma.github.io/blog/a81abbe.html"/>
+    <id>https://wildma.github.io/blog/a81abbe.html</id>
     <published>2018-06-24T13:43:38.000Z</published>
-    <updated>2019-10-14T15:29:25.970Z</updated>
+    <updated>2019-10-16T13:02:21.164Z</updated>
     
     <summary type="html">
     
@@ -223,10 +223,10 @@
   
   <entry>
     <title>详细讲解 Android Studio 中使用 Git——结合 GitLab</title>
-    <link href="https://wildma.github.io/git/"/>
-    <id>https://wildma.github.io/git/</id>
+    <link href="https://wildma.github.io/blog/13aaf42f.html"/>
+    <id>https://wildma.github.io/blog/13aaf42f.html</id>
     <published>2018-05-24T13:18:04.000Z</published>
-    <updated>2019-10-13T15:27:49.847Z</updated>
+    <updated>2019-10-16T13:02:21.143Z</updated>
     
     <summary type="html">
     
@@ -256,10 +256,10 @@
   
   <entry>
     <title>一种非常好用的 Android 屏幕适配</title>
-    <link href="https://wildma.github.io/screen-adaptation/"/>
-    <id>https://wildma.github.io/screen-adaptation/</id>
+    <link href="https://wildma.github.io/blog/3cf1e1de.html"/>
+    <id>https://wildma.github.io/blog/3cf1e1de.html</id>
     <published>2018-04-06T02:43:33.000Z</published>
-    <updated>2019-10-14T15:40:36.367Z</updated>
+    <updated>2019-10-16T13:02:21.170Z</updated>
     
     <summary type="html">
     
@@ -285,10 +285,10 @@
   
   <entry>
     <title>Android 友盟统计的集成与使用（包含多渠道打包配置）</title>
-    <link href="https://wildma.github.io/umeng-statistics/"/>
-    <id>https://wildma.github.io/umeng-statistics/</id>
+    <link href="https://wildma.github.io/blog/2e8cc733.html"/>
+    <id>https://wildma.github.io/blog/2e8cc733.html</id>
     <published>2018-02-25T13:33:10.000Z</published>
-    <updated>2019-10-13T15:33:40.640Z</updated>
+    <updated>2019-10-16T13:02:21.172Z</updated>
     
     <summary type="html">
     
@@ -315,10 +315,10 @@
   
   <entry>
     <title>带你通俗易懂的理解——线程、多线程与线程池</title>
-    <link href="https://wildma.github.io/thread/"/>
-    <id>https://wildma.github.io/thread/</id>
+    <link href="https://wildma.github.io/blog/7ac296bb.html"/>
+    <id>https://wildma.github.io/blog/7ac296bb.html</id>
     <published>2017-10-05T11:04:19.000Z</published>
-    <updated>2019-10-13T14:22:18.463Z</updated>
+    <updated>2019-10-16T13:02:21.195Z</updated>
     
     <summary type="html">
     
@@ -349,10 +349,10 @@
   
   <entry>
     <title>一步一步教你集成腾讯浏览服务 X5 内核</title>
-    <link href="https://wildma.github.io/tencent-x5/"/>
-    <id>https://wildma.github.io/tencent-x5/</id>
+    <link href="https://wildma.github.io/blog/71dca980.html"/>
+    <id>https://wildma.github.io/blog/71dca980.html</id>
     <published>2017-10-05T08:36:00.000Z</published>
-    <updated>2019-10-13T15:33:53.802Z</updated>
+    <updated>2019-10-16T13:02:21.137Z</updated>
     
     <summary type="html">
     
@@ -379,10 +379,10 @@
   
   <entry>
     <title>Android 仿微信朋友圈全文、收起功能</title>
-    <link href="https://wildma.github.io/expand-fold-text/"/>
-    <id>https://wildma.github.io/expand-fold-text/</id>
+    <link href="https://wildma.github.io/blog/a020565d.html"/>
+    <id>https://wildma.github.io/blog/a020565d.html</id>
     <published>2017-08-03T14:49:00.000Z</published>
-    <updated>2019-10-09T15:40:11.252Z</updated>
+    <updated>2019-10-16T13:02:21.141Z</updated>
     
     <summary type="html">
     
@@ -407,10 +407,10 @@
   
   <entry>
     <title>Android 利用 Glide 获取图片真正的宽高</title>
-    <link href="https://wildma.github.io/glide-get-image-height/"/>
-    <id>https://wildma.github.io/glide-get-image-height/</id>
+    <link href="https://wildma.github.io/blog/c44542c2.html"/>
+    <id>https://wildma.github.io/blog/c44542c2.html</id>
     <published>2017-08-02T14:50:00.000Z</published>
-    <updated>2019-10-09T15:51:36.849Z</updated>
+    <updated>2019-10-16T13:02:21.122Z</updated>
     
     <summary type="html">
     
@@ -437,10 +437,10 @@
   
   <entry>
     <title>Android 使用友盟集成 QQ、微信、微博等第三方登录</title>
-    <link href="https://wildma.github.io/umeng-login/"/>
-    <id>https://wildma.github.io/umeng-login/</id>
+    <link href="https://wildma.github.io/blog/6f5411d5.html"/>
+    <id>https://wildma.github.io/blog/6f5411d5.html</id>
     <published>2017-07-16T12:54:59.000Z</published>
-    <updated>2019-10-09T13:19:52.071Z</updated>
+    <updated>2019-10-16T13:02:21.174Z</updated>
     
     <summary type="html">
     
@@ -467,10 +467,10 @@
   
   <entry>
     <title>Android 使用友盟集成 QQ、微信、微博等第三方分享</title>
-    <link href="https://wildma.github.io/umeng-share/"/>
-    <id>https://wildma.github.io/umeng-share/</id>
+    <link href="https://wildma.github.io/blog/f2bfcfcb.html"/>
+    <id>https://wildma.github.io/blog/f2bfcfcb.html</id>
     <published>2017-07-16T12:45:12.000Z</published>
-    <updated>2019-10-09T13:07:53.210Z</updated>
+    <updated>2019-10-16T13:02:21.184Z</updated>
     
     <summary type="html">
     
@@ -497,10 +497,10 @@
   
   <entry>
     <title>热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题</title>
-    <link href="https://wildma.github.io/hot-fix-tinker-4-question/"/>
-    <id>https://wildma.github.io/hot-fix-tinker-4-question/</id>
+    <link href="https://wildma.github.io/blog/493565be.html"/>
+    <id>https://wildma.github.io/blog/493565be.html</id>
     <published>2017-07-09T15:36:13.000Z</published>
-    <updated>2019-10-13T08:37:30.287Z</updated>
+    <updated>2019-10-16T13:02:21.126Z</updated>
     
     <summary type="html">
     
@@ -529,10 +529,10 @@
   
   <entry>
     <title>热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包</title>
-    <link href="https://wildma.github.io/hot-fix-tinker-2-walle/"/>
-    <id>https://wildma.github.io/hot-fix-tinker-2-walle/</id>
+    <link href="https://wildma.github.io/blog/d74c6f53.html"/>
+    <id>https://wildma.github.io/blog/d74c6f53.html</id>
     <published>2017-07-09T14:20:00.000Z</published>
-    <updated>2019-10-13T08:35:44.811Z</updated>
+    <updated>2019-10-16T13:02:21.129Z</updated>
     
     <summary type="html">
     
@@ -565,10 +565,10 @@
   
   <entry>
     <title>热修复框架 Tinker 最完整讲解（01）——集成之路</title>
-    <link href="https://wildma.github.io/hot-fix-tinker-1-integrate/"/>
-    <id>https://wildma.github.io/hot-fix-tinker-1-integrate/</id>
+    <link href="https://wildma.github.io/blog/fdabc636.html"/>
+    <id>https://wildma.github.io/blog/fdabc636.html</id>
     <published>2017-07-08T15:45:13.000Z</published>
-    <updated>2019-10-13T08:34:17.963Z</updated>
+    <updated>2019-10-16T13:02:21.198Z</updated>
     
     <summary type="html">
     
@@ -600,10 +600,10 @@
   
   <entry>
     <title>Scrollview 嵌套百度地图 MapView 导致滑动有黑边或者阴影问题</title>
-    <link href="https://wildma.github.io/scrollview-nest-baidu-map/"/>
-    <id>https://wildma.github.io/scrollview-nest-baidu-map/</id>
+    <link href="https://wildma.github.io/blog/e1990d7c.html"/>
+    <id>https://wildma.github.io/blog/e1990d7c.html</id>
     <published>2017-06-05T15:35:41.000Z</published>
-    <updated>2019-10-09T14:49:33.718Z</updated>
+    <updated>2019-10-16T13:02:21.134Z</updated>
     
     <summary type="html">
     
