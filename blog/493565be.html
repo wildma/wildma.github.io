@@ -465,9 +465,9 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该系列第一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要讲了tinker的集成，第二篇文章<a href="https://wildma.github.io/hot-fix-tinker-2-walle/">热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包</a>主要讲了Tinker与Walle多渠道打包在项目中的使用。这篇文章主要讲讲真实项目中使用Tinker的常见问题。</p>
 <h2 id="一、存放补丁包的平台选取"><a href="#一、存放补丁包的平台选取" class="headerlink" title="一、存放补丁包的平台选取"></a>一、存放补丁包的平台选取</h2><p>1，存放在自己公司的服务器<br>2，使用TinkerPatch平台，需要收费<br>3，腾讯Bugly平台，免费<br>为了安全与经济考虑，我们公司选取了第一种。大家可以根据自己的需要选择。</p>
-<h2 id="二、tinkerId应该如何选择？"><a href="#二、tinkerId应该如何选择？" class="headerlink" title="二、tinkerId应该如何选择？"></a>二、tinkerId应该如何选择？</h2><p>tinkerId主要作用是区分当前打出的补丁包是基于哪个版本的apk，也就是说当前打出的补丁包能修复哪个版本的bug。每次发布版本需要保证tinkerId一定是要唯一性的，Tiker官方推荐使用git版本号或者versionName作为tinkerId。我自己项目使用的是versionName，你可以将versionName配置在项目的gradle.properties文件中，这样就不用每次都修改tinkerId了。如图：<br><img src="1.jpg" alt></p>
-<p><img src="2.jpg" alt></p>
-<p><img src="3.jpg" alt></p>
+<h2 id="二、tinkerId应该如何选择？"><a href="#二、tinkerId应该如何选择？" class="headerlink" title="二、tinkerId应该如何选择？"></a>二、tinkerId应该如何选择？</h2><p>tinkerId主要作用是区分当前打出的补丁包是基于哪个版本的apk，也就是说当前打出的补丁包能修复哪个版本的bug。每次发布版本需要保证tinkerId一定是要唯一性的，Tiker官方推荐使用git版本号或者versionName作为tinkerId。我自己项目使用的是versionName，你可以将versionName配置在项目的gradle.properties文件中，这样就不用每次都修改tinkerId了。如图：<br><img src="493565be/1.jpg" alt></p>
+<p><img src="493565be/2.jpg" alt></p>
+<p><img src="493565be/3.jpg" alt></p>
 <h2 id="三、后台接口的设计"><a href="#三、后台接口的设计" class="headerlink" title="三、后台接口的设计"></a>三、后台接口的设计</h2><p>问题:如果A用户用1.0.0版本的APK，B用户用2.0.0版本的APK，这个时候1.0.0和2.0.0都有对应的补丁包。接口该怎么设计?</p>
 <p>方案: (可以保证用1.0.0还是2.0.0的用户都可以修复)<br>叫后台给一个接口,前端传versionName给后台(这里的versionName要保证和TinkerID一样), 传1.0.0后台就返回1.0.0的补丁包。传2.0.0后台则返回2.0.0的补丁包。字段后台返回一个补丁包的链接就可以了，每次更新补丁包后台都要换不同的链接（下面前端设计有讲到）。没有则返回空。</p>
 <h2 id="四、前端设计与问题"><a href="#四、前端设计与问题" class="headerlink" title="四、前端设计与问题"></a>四、前端设计与问题</h2><p>问题: 前端下载APK的时机和逻辑<br>方案: 放在启动页-SplashActivity请求比较好(越早请求越好),每次都去请求,把请求回来的链接保存在本地,进行对比,链接不一样则下载补丁包并加载。链接一样则不用重复下载。</p>

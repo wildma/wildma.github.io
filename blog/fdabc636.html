@@ -472,7 +472,7 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上个月我们的产品又更新了一个版本，当一个测试把产品上传了十几个应用市场的时候，另外一个测试突然测出一个重要bug。项目经理就说把全部渠道上传的先退回来，重新改好bug再发布。这时候我们就苦逼了，又要走一遍 签名打包-&gt;加固-&gt;签名-&gt;上传应用市场的流程。要知道我们的渠道有接近20个，整个流程又要花上2，3小时。只能全部加班加点了。。。 </p>
 <p>为了解决有一个bug又要重新发布版本的问题，项目经理就叫我赶紧把热修复集成到项目中去。一开始觉得3天就能搞定，就跟项目经理要了4天时间。结果是整整搞了5天！集成tinker Demo确实一天可以搞定，但是还要自定义Application类（我们项目的Application还比较复杂），集成美团Walle多渠道打包（我们以前多渠道打包是采用productFlavors实现的），与后台沟通接口的设计（补丁包的存放），svn的分支管理，测试整个流程等等就花了很多时间了。这其中遇到了很多坑和问题。这个系列文章都会一一讲解，新手看了肯定会少走很多弯路。</p>
 <h2 id="一、Tinker是什么"><a href="#一、Tinker是什么" class="headerlink" title="一、Tinker是什么"></a>一、Tinker是什么</h2><p>Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。</p>
-<h2 id="二、为什么使用Tinker"><a href="#二、为什么使用Tinker" class="headerlink" title="二、为什么使用Tinker"></a>二、为什么使用Tinker</h2><p>当前市面的热补丁方案有很多，其中比较出名的有阿里的AndFix、美团的Robust以及QZone的超级补丁方案。但它们都存在无法解决的问题，这也是正是我们推出Tinker的原因。<br><img src="1.jpg" alt></p>
+<h2 id="二、为什么使用Tinker"><a href="#二、为什么使用Tinker" class="headerlink" title="二、为什么使用Tinker"></a>二、为什么使用Tinker</h2><p>当前市面的热补丁方案有很多，其中比较出名的有阿里的AndFix、美团的Robust以及QZone的超级补丁方案。但它们都存在无法解决的问题，这也是正是我们推出Tinker的原因。<br><img src="fdabc636/1.jpg" alt></p>
 <p>总的来说:<br>1、AndFix作为native解决方案，首先面临的是稳定性与兼容性问题，更重要的是它无法实现类替换，它是需要大量额外的开发成本的；<br>2、Robust兼容性与成功率较高，但是它与AndFix一样，无法新增变量与类只能用做的bugFix方案；<br>3、Qzone方案可以做到发布产品功能，但是它主要问题是插桩带来Dalvik的性能问题，以及为了解决Art下内存地址问题而导致补丁包急速增大的。</p>
 <p>  特别是在Android N之后，由于混合编译的inline策略修改，对于市面上的各种方案都不太容易解决。而Tinker热补丁方案不仅支持类、So以及资源的替换，它还是2.X－7.X的全平台支持。利用Tinker我们不仅可以用做bugfix,甚至可以替代功能的发布。Tinker已运行在微信的数亿Android设备上，那么为什么你不使用Tinker呢？</p>
 <h2 id="三、Tinker的已知问题"><a href="#三、Tinker的已知问题" class="headerlink" title="三、Tinker的已知问题"></a>三、Tinker的已知问题</h2><p> 由于原理与系统限制，Tinker有以下已知问题：<br>1、Tinker不支持修改AndroidManifest.xml，Tinker不支持新增四大组件；<br>2、由于Google Play的开发者条款限制，不建议在GP渠道动态更新代码；<br>3、在Android N上，补丁对应用启动时间有轻微的影响；<br>4、不支持部分三星android-21机型，加载补丁时会主动抛出”TinkerRuntimeException:checkDexInstall failed”；<br>5、对于资源替换，不支持修改remoteView。例如transition动画，notification icon以及桌面图标。</p>
@@ -1026,7 +1026,7 @@ def <span class="token function">getTinkerBuildFlavorDirectory</span><span class
             <span class="token operator">&lt;</span><span class="token operator">/</span>intent<span class="token operator">-</span>filter<span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">/</span>activity<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>application<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-3-添加Tinker相关类"><a href="#4-3-添加Tinker相关类" class="headerlink" title="4.3 添加Tinker相关类"></a>4.3 添加Tinker相关类</h3><p>这些类主要是加载补丁包过程的回调，打印log，崩溃保护等。具体见 <a href="https://github.com/Tencent/tinker/wiki/Tinker-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95#%E8%87%AA%E5%AE%9A%E4%B9%89application%E7%B1%BB" target="_blank" rel="noopener">Tinker 自定义扩展</a><br><img src="2.jpg" alt></p>
+<h3 id="4-3-添加Tinker相关类"><a href="#4-3-添加Tinker相关类" class="headerlink" title="4.3 添加Tinker相关类"></a>4.3 添加Tinker相关类</h3><p>这些类主要是加载补丁包过程的回调，打印log，崩溃保护等。具体见 <a href="https://github.com/Tencent/tinker/wiki/Tinker-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95#%E8%87%AA%E5%AE%9A%E4%B9%89application%E7%B1%BB" target="_blank" rel="noopener">Tinker 自定义扩展</a><br><img src="fdabc636/2.jpg" alt></p>
 <h3 id="4-4-在清单文件添加读写sd卡的权限"><a href="#4-4-在清单文件添加读写sd卡的权限" class="headerlink" title="4.4 在清单文件添加读写sd卡的权限"></a>4.4 在清单文件添加读写sd卡的权限</h3><pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.READ_EXTERNAL_STORAGE"</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.WRITE_EXTERNAL_STORAGE"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="4-5-加载补丁包代码"><a href="#4-5-加载补丁包代码" class="headerlink" title="4.5 加载补丁包代码"></a>4.5 加载补丁包代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>wildma<span class="token punctuation">.</span>wildmatinker<span class="token punctuation">;</span>
@@ -1057,11 +1057,11 @@ def <span class="token function">getTinkerBuildFlavorDirectory</span><span class
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其中第9行代码的路径为我们放在sd卡中的补丁包路径。</p>
 <h2 id="五、测试Tinker热修复"><a href="#五、测试Tinker热修复" class="headerlink" title="五、测试Tinker热修复"></a>五、测试Tinker热修复</h2><p>这里只讲release版本。<br>（1）按正常流程打包出带签名的APK，并装到手机上<br>打包完成，会自动在项目的app/build文件夹下生成bakAPK文件夹并有三个文件（基础包的一些文件），如图：</p>
-<p><img src="3.jpg" alt></p>
-<p>（2）将上面的三个文件路径复制到app.build中对应的位置，如图<br><img src="4.jpg" alt></p>
+<p><img src="fdabc636/3.jpg" alt></p>
+<p>（2）将上面的三个文件路径复制到app.build中对应的位置，如图<br><img src="fdabc636/4.jpg" alt></p>
 <p>（3）修复bug（测试的时候随便改动一点代码）</p>
-<p>（4）运行补丁命令获取补丁包<br>运行补丁命令，单击AS右侧顶部gradle–&gt;双击tinkerPatchRelease，如图:<br>(也可以直接在Android studio中的Terminal中输入命令gradlew tinkerPatchRelease)<br><img src="5.jpg" alt></p>
-<p>运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="6.jpg" alt></p>
+<p>（4）运行补丁命令获取补丁包<br>运行补丁命令，单击AS右侧顶部gradle–&gt;双击tinkerPatchRelease，如图:<br>(也可以直接在Android studio中的Terminal中输入命令gradlew tinkerPatchRelease)<br><img src="fdabc636/5.jpg" alt></p>
+<p>运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="fdabc636/6.jpg" alt></p>
 <p>（5）将该补丁包复制到之前加载补丁包中对应的SD卡路劲即可。<br>注意：该补丁包需要重新命名，不要以.apk结尾，因为有些运营商会挟持以.apk结尾的资源，名字要与之前加载补丁包的名字相同，例如Demo中命名为patch_signed_7zip。</p>
 <p>（6）运行项目发现bug并没有修复，因为tinker是不支持即时修复的，关掉APP重启。恭喜你！bug已修复！</p>
 <p>注意事项：</p>

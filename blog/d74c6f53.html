@@ -518,29 +518,29 @@ apkFileNameFormat：定制渠道包的APK的文件名称<span class="token punct
      flavorName <span class="token operator">-</span> 编译构建 productFlavors 名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>channelFile：包含渠道配置信息的文件路径：</p>
 <p>在app目录下新建名为channel的文件，如图</p>
-<p><img src="1.jpg" alt></p>
+<p><img src="d74c6f53/1.jpg" alt></p>
 <p>在该文件里写上需要打包的渠道号（渠道号支持使用#号添加注释。具体内容格式详见下图，这里只测试2个渠道）</p>
-<p><img src="2.jpg" alt></p>
+<p><img src="d74c6f53/2.jpg" alt></p>
 <h2 id="三、相关API和命令"><a href="#三、相关API和命令" class="headerlink" title="三、相关API和命令"></a>三、相关API和命令</h2><p><strong>获取渠道信息：</strong><br>在需要渠道等信息时可以通过下面代码进行获取</p>
 <pre class="line-numbers language-java"><code class="language-java">String channel <span class="token operator">=</span> WalleChannelReader<span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>生成渠道包：</strong><br>生成渠道包的方式是和assemble${variantName}Channels指令结合，渠道包的生成目录默认存放在 build/outputs/apk/，也可以通过walle闭包中的apkOutputFolder参数来指定输出目录</p>
 <pre><code>生成渠道包 ./gradlew clean assembleReleaseChannels</code></pre><p>更多API和命令可参考 <a href="https://github.com/Meituan-Dianping/walle#%E6%9B%B4%E5%A4%9A%E7%94%A8%E6%B3%95" target="_blank" rel="noopener">更多用法</a></p>
 <h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>在Android Studio的Terminal中输入命令gradlew clean assembleReleaseChannels进行多渠道打包,当运行完成会出现BUILD SUCCESSFUL, 如图：</p>
-<p><img src="3.jpg" alt></p>
-<p>并且会在channels文件夹中生成所有渠道的apk，如图：<br><img src="4.jpg" alt></p>
-<p>一一对应关系为：<br><img src="5.jpg" alt></p>
+<p><img src="d74c6f53/3.jpg" alt></p>
+<p>并且会在channels文件夹中生成所有渠道的apk，如图：<br><img src="d74c6f53/4.jpg" alt></p>
+<p>一一对应关系为：<br><img src="d74c6f53/5.jpg" alt></p>
 <h2 id="五、Tinker与Walle在真实项目中的使用流程"><a href="#五、Tinker与Walle在真实项目中的使用流程" class="headerlink" title="五、Tinker与Walle在真实项目中的使用流程"></a>五、Tinker与Walle在真实项目中的使用流程</h2><p>上一篇文章<a href="https://wildma.github.io/hot-fix-tinker-1-integrate/"> 热修复框架Tinker最完整讲解（01）——集成之路</a> 主要修复的是单个渠道包，这里结合Walle修复多个渠道包。</p>
 <h3 id="5-1-发布版本流程"><a href="#5-1-发布版本流程" class="headerlink" title="5.1 发布版本流程"></a>5.1 发布版本流程</h3><p>（1）我们在发布版本的时候都需要改版本号，因为我这里使用版本名称作为tinkerId，所以发布版本修改版本名称的时候，tinkerId也要跟着修改。(tinkerId主要作用是当前打出的补丁包是基于哪个版本的apk, tinkerId的选取见我下一篇文章 <a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
-<p><img src="6.jpg" alt></p>
-<p>（2）检查app build中是否开启了热修复功能, 即tinkerEnabled需要设置为true。如图：<br><img src="7.jpg" alt></p>
+<p><img src="d74c6f53/6.jpg" alt></p>
+<p>（2）检查app build中是否开启了热修复功能, 即tinkerEnabled需要设置为true。如图：<br><img src="d74c6f53/7.jpg" alt></p>
 <p>（3）打包前先建一个当前版本的分支！！！（热更新修复bug就在该分支上修改）</p>
-<p>（4）在AS的Terminal中输入命令gradlew clean assembleReleaseChannels进行多渠道打包<br>命令行运行完成会在channels文件夹中生成所有渠道的apk， 如图：<br><img src="8.jpg" alt></p>
-<p>（5）同时会在bakApk文件中生成三个文件，如图： （这三个文件需要保存在本地，svn或者git服务器，每次发布补丁包的时候需要用到！）<br><img src="9.jpg" alt></p>
+<p>（4）在AS的Terminal中输入命令gradlew clean assembleReleaseChannels进行多渠道打包<br>命令行运行完成会在channels文件夹中生成所有渠道的apk， 如图：<br><img src="d74c6f53/8.jpg" alt></p>
+<p>（5）同时会在bakApk文件中生成三个文件，如图： （这三个文件需要保存在本地，svn或者git服务器，每次发布补丁包的时候需要用到！）<br><img src="d74c6f53/9.jpg" alt></p>
 <h3 id="5-2-发补丁包流程"><a href="#5-2-发补丁包流程" class="headerlink" title="5.2 发补丁包流程"></a>5.2 发补丁包流程</h3><p>（1）在新建的分支上修改bug</p>
-<p>（2）将发布版本第5步中的三个文件路径复制到app build中对应的位置，如图：<br><img src="10.jpg" alt></p>
+<p>（2）将发布版本第5步中的三个文件路径复制到app build中对应的位置，如图：<br><img src="d74c6f53/10.jpg" alt></p>
 <p>（3）修改bug</p>
-<p>（4）运行补丁命令获取补丁包。单击AS右侧顶部gradle，双击tinkerPatchRelease，如图:<br><img src="11.jpg" alt></p>
-<p>（5）运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="12.jpg" alt></p>
+<p>（4）运行补丁命令获取补丁包。单击AS右侧顶部gradle，双击tinkerPatchRelease，如图:<br><img src="d74c6f53/11.jpg" alt></p>
+<p>（5）运行完成会在build-&gt;outputs-&gt;tinkerPatch-&gt;release文件夹中生成一个名为patch_signed_7zip.apk的补丁包，如图：<br><img src="d74c6f53/12.jpg" alt></p>
 <p>（6）将该补丁包重修修改名字后发给后台（注意：这里的一个补丁包就适用于各个渠道包！），关于补丁包的存放与后台设计请看下一篇文章<a href="https://wildma.github.io/hot-fix-tinker-3-question/">热修复框架Tinker最完整讲解（03）——使用Tinker常见问题</a>。</p>
 <p>（7）bug修改完成后将该分支合并到trunk主干上即可。这样能保证分支上修改了bug，trunk主干上也跟着更新了。</p>
 <p>Tinker系列文章讲的已经非常详细了，有不足的地方希望指出。遇到不懂的问题都可以直接在博客下评论问我，只要我遇到过并且能回答出来的都会乐意回答。</p>

@@ -463,7 +463,7 @@
 </blockquote>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽然去年写的一篇文章【<a href="https://www.jianshu.com/p/1302ad5a4b04" target="_blank" rel="noopener">一种非常好用的Android屏幕适配</a>】就包含字体大小适配，但那篇文章讲的是根据不同屏幕尺寸来适配字体大小的，接下来我要聊的是字体大小适配中的其他几种场景。</p>
 <h2 id="一、场景一"><a href="#一、场景一" class="headerlink" title="一、场景一"></a>一、场景一</h2><p>有这样一个需求，界面上需要显示一个标题文本，但是该标题的文案长度是不固定的，要求标题的文案全部显示出来，不能用省略号显示，并且标题所占的宽高是固定的。例如标题的文案为 “这是标题，该标题的名字比较长，产品要求不换行全部显示出来”，如下图所示，第一个为不符合需求的标题，第二个为符合需求的标题。</p>
-<p><img src="1.jpg" alt></p>
+<p><img src="7770b02/1.jpg" alt></p>
 <p>也就是说TextView控件的宽高需要固定，然后根据标题的文案长度动态改变字体大小，也就是上图第二个标题的效果。那是怎么实现的呢？</p>
 <p>以前的做法一般是测量TextView文本所占的宽度与TextView控件的宽度对比，动态改变TextView的字体大小，写起来即麻烦又耗性能。但是现在不用这么麻烦了，Android 8.0 新增了用来动态改变TextView字体大小的新特性 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/autosizing-textview#setting-textview-autosize" target="_blank" rel="noopener">Autosizing TextViews</a>，只需要简单设置一下属性即可。</p>
 <p>例如上图中符合需求的效果可以这样写：</p>
@@ -533,7 +533,7 @@
 </ul>
 <p>Autosizing TextViews更多属性请参考 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/autosizing-textview#setting-textview-autosize" target="_blank" rel="noopener">Autosizing TextViews</a></p>
 <h2 id="二、场景二"><a href="#二、场景二" class="headerlink" title="二、场景二"></a>二、场景二</h2><p>很多人肯定遇到过这种情况，测试扔个图片过来，然后说怎么运行在这个测试机后下面的内容都挡住了（如下右图，左图为正常情况），你不是说做了屏幕适配的吗？然后你拿测试的手机一看，设置里面竟然选了 <strong>特大</strong> 字体。</p>
-<p><img src="2.jpg" alt></p>
+<p><img src="7770b02/2.jpg" alt></p>
 <p>嗯… 经过这么一看基本就知道什么问题了。原因是你在xml文件写死了控件的高度，并且TextView的字体单位用的是sp，这种情况下到手机设置中改变字体大小，那么界面中的字体大小就会随系统改变。</p>
 <p>那么我们应该怎么解决这个问题呢？这时候我们可以观察下微信的做法，经过研究发现微信的字体是不会随着系统字体大小的改变而改变的，并且微信本身是有改变字体大小功能的。微信中改变字体大小后不仅字体大小改变了，控件的宽高也会跟着改变。所以可以猜到微信的字体适配是如下方式实现的：</p>
 <h3 id="2-1-字体大小不随系统改变"><a href="#2-1-字体大小不随系统改变" class="headerlink" title="2.1 字体大小不随系统改变"></a>2.1 字体大小不随系统改变</h3><p>想要实现字体大小不随系统改变有两种方式：<br><strong>1. xml方式</strong><br>TextView的字体单位不使用sp，而是用dp。因为sp单位的字体大小会随系统字体大小的改变而改变，而dp单位则不会。</p>
@@ -563,7 +563,7 @@
 <li>官方推荐使用sp作为字体单位。</li>
 </ul>
 <h3 id="2-2-控件宽高尽量不要固定"><a href="#2-2-控件宽高尽量不要固定" class="headerlink" title="2.2 控件宽高尽量不要固定"></a>2.2 控件宽高尽量不要固定</h3><p>原因是如果应用需要增加类似微信可以改变字体大小的功能，如果控件宽高固定的话，调大字体会导致控件显示不下，这不是我们需要的效果。</p>
-<h2 id="三、场景三"><a href="#三、场景三" class="headerlink" title="三、场景三"></a>三、场景三</h2><p>有这样一种情况，当你按照设计图的标注去写一个TextView控件的时候，宽高用的是wrap_content，也没有设置任何padding，但是运行在手机上该TextView所占的宽高却比设计图的要大。如下图所示，字体周围多了很多空白部分。<br><img src="3.jpg" alt></p>
+<h2 id="三、场景三"><a href="#三、场景三" class="headerlink" title="三、场景三"></a>三、场景三</h2><p>有这样一种情况，当你按照设计图的标注去写一个TextView控件的时候，宽高用的是wrap_content，也没有设置任何padding，但是运行在手机上该TextView所占的宽高却比设计图的要大。如下图所示，字体周围多了很多空白部分。<br><img src="7770b02/3.jpg" alt></p>
 <p>这是因为TextView本身就含有内边距造成的，那么TextView有没有属性可以去除内边距呢？答案是有的，该属性为 includeFontPadding，设置为false表示不包含字体内边距，具体代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>TextView
         android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"wrap_content"</span>
@@ -572,7 +572,7 @@
         android<span class="token operator">:</span>text<span class="token operator">=</span><span class="token string">"Hello"</span>
         android<span class="token operator">:</span>textSize<span class="token operator">=</span><span class="token string">"50sp"</span>
         android<span class="token operator">:</span>includeFontPadding<span class="token operator">=</span><span class="token string">"false"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行效果如下图中的第二个“Hello”（第一个“Hello”为普通TextView），看起来好像是可以的，但是仔细看发现还是留有一点内边距的。<br><img src="4.jpg" alt></p>
+<p>运行效果如下图中的第二个“Hello”（第一个“Hello”为普通TextView），看起来好像是可以的，但是仔细看发现还是留有一点内边距的。<br><img src="7770b02/4.jpg" alt></p>
 <p>一般的应用可能不在乎那点内边距，但如果做的是TV上的应用就要求比较严格了，因为TV界面一般是不支持上下左右滚动的，如果设计图上的内容刚好占满屏幕，那么这些内边距就会导致个别控件显示不全。所以在这种情况下是必须要解决的，既然TextView自带属性不能解决，那就只能自定义了。具体代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> android<span class="token punctuation">.</span>content<span class="token punctuation">.</span>Context<span class="token punctuation">;</span>
 <span class="token keyword">import</span> android<span class="token punctuation">.</span>content<span class="token punctuation">.</span>res<span class="token punctuation">.</span>TypedArray<span class="token punctuation">;</span>
@@ -680,7 +680,7 @@
         app<span class="token operator">:</span>removeDefaultPadding<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">/</span><span class="token operator">></span>
 
 <span class="token operator">&lt;</span><span class="token operator">/</span>LinearLayout<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行效果如下图中的第三个“Hello”（第一个为普通TextView，第二个为加了includeFontPadding属性的TextView），完美解决！<br><img src="5.jpg" alt></p>
+<p>运行效果如下图中的第三个“Hello”（第一个为普通TextView，第二个为加了includeFontPadding属性的TextView），完美解决！<br><img src="7770b02/5.jpg" alt></p>
 <p>OK！字体大小适配中最常用的三种场景都讲了，如果还有其他场景欢迎补充~</p>
 <p>项目地址：<a href="https://github.com/wildma/FontAdaptation" target="_blank" rel="noopener">FontAdaptation</a></p>
 

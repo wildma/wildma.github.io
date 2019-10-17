@@ -456,13 +456,13 @@ ButterKnife的github地址">
 <p>ButterKnife的github地址：<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="noopener">https://github.com/JakeWharton/butterknife</a></p>
 <h2 id="一、添加依赖"><a href="#一、添加依赖" class="headerlink" title="一、添加依赖"></a>一、添加依赖</h2><p>（1）在项目的的build.gredle 文件中的dependencies标签内添加如下：</p>
 <pre class="line-numbers language-java"><code class="language-java">classpath <span class="token string">'com.jakewharton:butterknife-gradle-plugin:8.5.1'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>如图所示：<br><img src="1.jpg" alt></p>
+<p>如图所示：<br><img src="46f3e95d/1.jpg" alt></p>
 <p>（2）在Module的的build.gredle 文件中的最上面添加如下：</p>
 <pre class="line-numbers language-java"><code class="language-java">apply plugin<span class="token operator">:</span> <span class="token string">'com.jakewharton.butterknife'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（3）在Module的的build.gredle 文件中的dependencies标签内添加如下：</p>
 <pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.jakewharton:butterknife:8.5.1'</span>
 annotationProcessor <span class="token string">'com.jakewharton:butterknife-compiler:8.5.1'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>如图所示：<br><img src="2.jpg" alt></p>
+<p>如图所示：<br><img src="46f3e95d/2.jpg" alt></p>
 <h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p>例如在布局文件中我们有个控件tv_text需要绑定</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>TextView
         android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/tv_text"</span>
@@ -474,7 +474,7 @@ annotationProcessor <span class="token string">'com.jakewharton:butterknife-comp
 <p>（2）绑定控件id</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@BindView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>tv_text<span class="token punctuation">)</span>
     TextView mTvText<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>（3）使用该控件，如下图所示<br><img src="3.jpg" alt></p>
+<p>（3）使用该控件，如下图所示<br><img src="46f3e95d/3.jpg" alt></p>
 <p><strong>如果是绑定fragment，则添加如下代码</strong></p>
 <pre class="line-numbers language-java"><code class="language-java">ButterKnife<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> view<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>如果是绑定RecyclerView的item，则在ViewHolder中添加如下代码</strong></p>
@@ -489,13 +489,13 @@ annotationProcessor <span class="token string">'com.jakewharton:butterknife-comp
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三、配合Butterknife插件使用更简单"><a href="#三、配合Butterknife插件使用更简单" class="headerlink" title="三、配合Butterknife插件使用更简单"></a>三、配合Butterknife插件使用更简单</h2><p>让我们写上面的代码还是比较麻烦的，高手都是用插件的。使用步骤如下：<br><strong>插件的安装：</strong></p>
-<p>（1）在settings中搜索插件Zelezny<br><img src="4.jpg" alt></p>
-<p>（2）点击安装，安装后需要重启android studio<br><img src="5.jpg" alt></p>
+<p>（1）在settings中搜索插件Zelezny<br><img src="46f3e95d/4.jpg" alt></p>
+<p>（2）点击安装，安装后需要重启android studio<br><img src="46f3e95d/5.jpg" alt></p>
 <p><strong>插件的使用：</strong></p>
-<p>（1）选中布局文件，点击右键，选择Generate-&gt;Generate Butterknife Injections-&gt;Confirm，如图：<br><img src="6.jpg" alt></p>
-<p><img src="7.jpg" alt></p>
-<p><img src="8.jpg" alt></p>
-<p>（2）点击Confirm后，会自动生成BindView等代码:<br><img src="9.jpg" alt></p>
+<p>（1）选中布局文件，点击右键，选择Generate-&gt;Generate Butterknife Injections-&gt;Confirm，如图：<br><img src="46f3e95d/6.jpg" alt></p>
+<p><img src="46f3e95d/7.jpg" alt></p>
+<p><img src="46f3e95d/8.jpg" alt></p>
+<p>（2）点击Confirm后，会自动生成BindView等代码:<br><img src="46f3e95d/9.jpg" alt></p>
 <p>OK，Butterknife使用就到这里结束。</p>
 
             </div>

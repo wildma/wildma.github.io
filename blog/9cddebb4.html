@@ -468,22 +468,22 @@ Android Butterknife Zele">
 <li>首先需要下载开发工具 IntelliJ IDEA，<a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">点击下载</a>。</li>
 <li>下载后点击安装，安装成功打开界面是这样的：</li>
 </ol>
-<p><img src="1.png" alt></p>
+<p><img src="9cddebb4/1.png" alt></p>
 <ol start="3">
 <li>点击 Create New Project 创建一个新的项目，因为是开发插件，所以这里选择 IntelliJ Platform Plugin，然后选择项目的 SDK，点击到 “Next” 下一步。具体如下图所示：</li>
 </ol>
-<p><img src="2.png" alt></p>
+<p><img src="9cddebb4/2.png" alt></p>
 <ol start="4">
 <li>最后填写项目名称，选择项目的存储路径，点击 “Finish” 即可。具体如下图所示：</li>
 </ol>
-<p><img src="3.png" alt></p>
+<p><img src="9cddebb4/3.png" alt></p>
 <ol start="5">
 <li>创建完成项目的结构如下图所示：</li>
 </ol>
-<p><img src="4.png" alt></p>
+<p><img src="9cddebb4/4.png" alt></p>
 <p>其中 plugin.xml 为插件的一些相关信息，src 用来存放编写的代码。</p>
 <h2 id="二、编写插件"><a href="#二、编写插件" class="headerlink" title="二、编写插件"></a>二、编写插件</h2><h3 id="2-1-填写插件相关信息"><a href="#2-1-填写插件相关信息" class="headerlink" title="2.1 填写插件相关信息"></a>2.1 填写插件相关信息</h3><p>插件相关信息需要在 plugin.xml 文件中填写，具体如下图所示：</p>
-<p><img src="5.png" alt></p>
+<p><img src="9cddebb4/5.png" alt></p>
 <p>每个标签的意思为：</p>
 <ul>
 <li>id：插件 id，需要唯一值</li>
@@ -498,11 +498,11 @@ Android Butterknife Zele">
 <li>actions：插件动作，后面创建 Action 的时候会自动配置</li>
 </ul>
 <p>这些信息会在搜索该插件的时候展示，例如搜索 GsonFormat ：</p>
-<p><img src="6.png" alt></p>
+<p><img src="9cddebb4/6.png" alt></p>
 <h3 id="2-2-新建-Action"><a href="#2-2-新建-Action" class="headerlink" title="2.2 新建 Action"></a>2.2 新建 Action</h3><p>不能直接在 src 文件夹下新建 Action（原因见文末注意事项），包括后面我们插件的功能代码也不能直接放在 src 文件夹下，而是在 src 文件夹下新建一个包（方法与 Android Studio 一样），然后在这个包下新建 Action。即在包上右键点击如下选项：</p>
-<p><img src="7.png" alt></p>
+<p><img src="9cddebb4/7.png" alt></p>
 <p>然后填写 Action 相关信息，如下图所示：</p>
-<p><img src="8.png" alt></p>
+<p><img src="9cddebb4/8.png" alt></p>
 <ul>
 <li>Action ID: 代表该 Action 的唯一 ID，一般的格式为：pluginName.ID</li>
 <li>Class Name：Action 的类名</li>
@@ -513,7 +513,7 @@ Android Butterknife Zele">
 <li>Keyboard Shortcuts：使用插件的快捷键</li>
 </ul>
 <p>点击 “OK” 后会创建一个刚刚命名的 ShowDialog 类继承 AnAction 并实现 actionPerformed 方法，而且在 plugin.xml 文件中会自动配置我们刚刚填写的 Action 信息。如下图所示：</p>
-<p><img src="9.png" alt></p>
+<p><img src="9cddebb4/9.png" alt></p>
 <h3 id="2-3-编写-Action"><a href="#2-3-编写-Action" class="headerlink" title="2.3 编写 Action"></a>2.3 编写 Action</h3><p>我们仿照 <a href="http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/creating_an_action.html" target="_blank" rel="noopener">官方例子</a>，在 actionPerformed  方法中添加如下代码，表示点击插件的时候弹出一个dialog</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ShowDialogAction</span> <span class="token keyword">extends</span> <span class="token class-name">AnAction</span> <span class="token punctuation">{</span>
 
@@ -524,32 +524,32 @@ Android Butterknife Zele">
         Messages<span class="token punctuation">.</span><span class="token function">showMessageDialog</span><span class="token punctuation">(</span>project<span class="token punctuation">,</span> <span class="token string">"Hello, "</span> <span class="token operator">+</span> txt <span class="token operator">+</span> <span class="token string">"!\n I am glad to see you."</span><span class="token punctuation">,</span> <span class="token string">"Information"</span><span class="token punctuation">,</span> Messages<span class="token punctuation">.</span><span class="token function">getInformationIcon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-4-使用插件"><a href="#2-4-使用插件" class="headerlink" title="2.4 使用插件"></a>2.4 使用插件</h3><p>Action 代码完成后，点击 Run Plugin 运行项目，会自动启动一个新的 IntelliJ IDEA 项目，在这个项目中就可以使用我们刚刚制作的插件了。如下图所示：<br><img src="10.png" alt></p>
-<p><img src="11.png" alt></p>
-<p><img src="12.png" alt></p>
+<h3 id="2-4-使用插件"><a href="#2-4-使用插件" class="headerlink" title="2.4 使用插件"></a>2.4 使用插件</h3><p>Action 代码完成后，点击 Run Plugin 运行项目，会自动启动一个新的 IntelliJ IDEA 项目，在这个项目中就可以使用我们刚刚制作的插件了。如下图所示：<br><img src="9cddebb4/10.png" alt></p>
+<p><img src="9cddebb4/11.png" alt></p>
+<p><img src="9cddebb4/12.png" alt></p>
 <h2 id="三、生成插件"><a href="#三、生成插件" class="headerlink" title="三、生成插件"></a>三、生成插件</h2><p>点击菜单栏上的 Build  -&gt;  Prepare Plugin Module ‘xxx’ For Deployment 即可，如下图所示：</p>
-<p><img src="13.png" alt></p>
+<p><img src="9cddebb4/13.png" alt></p>
 <p>运行完成会在项目的根目录生成一个 xxx.jar 的文件，这个就是最终生成的插件文件，如下图所示：</p>
-<p><img src="14.png" alt></p>
+<p><img src="9cddebb4/14.png" alt></p>
 <h2 id="四、安装插件"><a href="#四、安装插件" class="headerlink" title="四、安装插件"></a>四、安装插件</h2><p>打开 Andorid Studio，点击菜单栏上的 File -&gt; Settings -&gt; Plugins -&gt; Install plugin from disk，然后选择我们刚刚生成的 jar 文件，如下图所示：</p>
-<p><img src="15.png" alt></p>
+<p><img src="9cddebb4/15.png" alt></p>
 <p>然后点击 “OK”，重启 Andorid Studio 后即可像上面那样使用插件。</p>
 <h2 id="五、上传插件"><a href="#五、上传插件" class="headerlink" title="五、上传插件"></a>五、上传插件</h2><p>前面生成的插件只能从本地选择安装，要想从插件库直接下载安装则需要将插件上传到插件库-<a href="https://plugins.jetbrains.com/" target="_blank" rel="noopener">JetBrains Plugins Repository</a>，打开插件库，注册账号（这里可直接使用 Github 账号授权登录），登录后选择 Upload plugin，填写相关信息，点击 Upload 即可上传。如下图所示：</p>
-<p><img src="16.png" alt></p>
+<p><img src="9cddebb4/16.png" alt></p>
 <ul>
 <li>License：开源许可协议，我这里选择 Apache license 2.0</li>
 <li>Category：插件分类，我这里选择 Android</li>
 </ul>
 <p>出现如下界面表示上传成功，但只是上传成功，还需要等审核通过才能在插件库搜索到。</p>
-<p><img src="17.png" alt></p>
+<p><img src="9cddebb4/17.png" alt></p>
 <p>点击上图的链接，跳转到插件详情，点击编辑可完善插件信息。具体如下图所示：</p>
-<p><img src="18.png" alt></p>
+<p><img src="9cddebb4/18.png" alt></p>
 <p>如果在 plugin.xml 文件中没有指定插件是哪些 IDE 可以使用，也可以在这里指定。具体如下：（<strong>这种方式我试过审核没有通过，所以我自己用的是在 plugin.xml 文件中指定的方式</strong>）</p>
 <p>进入编辑界面滑到最底部可以看到 Supported products，即支持的产品。这里默认是 勾选了 “Determine supported products by dependencies in plugin.xml”，表示根据 plugin.xml 文件中的配置项来确定支持的产品。</p>
-<p><img src="19.png" alt></p>
-<p>这里我们不使用配置 plugin.xml 文件的方式，而是在这里手动选择。即去掉默认勾选，然后选中 Android Studio，表示插件支持在 Android Studio 中使用，其他 3 项 IntelliJ 是默认勾选的不用管，最后点击保存即可。<br><img src="20.png" alt></p>
+<p><img src="9cddebb4/19.png" alt></p>
+<p>这里我们不使用配置 plugin.xml 文件的方式，而是在这里手动选择。即去掉默认勾选，然后选中 Android Studio，表示插件支持在 Android Studio 中使用，其他 3 项 IntelliJ 是默认勾选的不用管，最后点击保存即可。<br><img src="9cddebb4/20.png" alt></p>
 <p>等审核通过后，我们就可以在插件库搜索到啦！如下图所示：</p>
-<p><img src="21.png" alt></p>
+<p><img src="9cddebb4/21.png" alt></p>
 <h2 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h2><p><strong>使用插件出现 NullPointerException</strong></p>
 <ul>
 <li>问题<br>写好插件，然后使用 Android Studio 安装插件并使用，提示<br>java.lang.NullPointerException at com.android.tools.idea.diagnostics.AndroidStudioSystemHealthMonitor.getActionName</li>

@@ -458,12 +458,12 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>当项目中需要使用地图SDK的时候, 是选择高德地图还是百度地图呢?从对开发者友好角度，从容易上手角度：高德完胜百度! 所以我们公司的项目也选择了高德地图。好了！下面就开始高德地图的集成吧！</strong></p>
 <h2 id="一、账号与Key的申请"><a href="#一、账号与Key的申请" class="headerlink" title="一、账号与Key的申请"></a>一、账号与Key的申请</h2><p>注册成为高德开发者需要分三步：<br>第一步，注册高德开发者；第二步，去控制台创建应用；第三步，获取Key。<br>前2步都比较简单，这里说下第三步。</p>
-<p><strong>获取Key：</strong><br>（1）进入控制台，创建一个新应用。如果您之前已经创建过应用，可直接跳过这个步骤。<br><img src="1.jpg" alt><br>（2） 在创建的应用上点击”添加新Key”按钮，在弹出的对话框中，依次：输入应用名名称，选择绑定的服务为“Android平台SDK”，输入发布版安全码  SHA1、调试版安全码 SHA1、以及 Package，如下图所示：<br><img src="2.jpg" alt></p>
+<p><strong>获取Key：</strong><br>（1）进入控制台，创建一个新应用。如果您之前已经创建过应用，可直接跳过这个步骤。<br><img src="63c3ed0a/1.jpg" alt><br>（2） 在创建的应用上点击”添加新Key”按钮，在弹出的对话框中，依次：输入应用名名称，选择绑定的服务为“Android平台SDK”，输入发布版安全码  SHA1、调试版安全码 SHA1、以及 Package，如下图所示：<br><img src="63c3ed0a/2.jpg" alt></p>
 <p>获取SHA1见：<a href="https://lbs.amap.com/api/android-indoorlocation-sdk/guide/create-project/get-key/?sug_index=0#sha1" target="_blank" rel="noopener">如何获取 SHA1</a></p>
-<h2 id="二、Android-Studio-配置工程"><a href="#二、Android-Studio-配置工程" class="headerlink" title="二、Android Studio 配置工程"></a>二、Android Studio 配置工程</h2><p>配置工程前需要到官网下载高德SDK <a href="http://lbs.amap.com/api/android-sdk/download/" target="_blank" rel="noopener">下载地址</a><br>注意：这里根据项目需求选择下载，如果不需要导航，定位就用默认的即可。（这样可以大大减小包的体积）如图：<br><img src="3.jpg" alt><br>下载后会得到如图所示压缩包<br><img src="4.jpg" alt></p>
-<p>（1）添加 jar 包<br>将下载的地图 SDK 的 jar包复制到工程的 libs 目录下，如果有老版本 jar 包在其中，请删除。如图所示：<br><img src="5.jpg" alt></p>
+<h2 id="二、Android-Studio-配置工程"><a href="#二、Android-Studio-配置工程" class="headerlink" title="二、Android Studio 配置工程"></a>二、Android Studio 配置工程</h2><p>配置工程前需要到官网下载高德SDK <a href="http://lbs.amap.com/api/android-sdk/download/" target="_blank" rel="noopener">下载地址</a><br>注意：这里根据项目需求选择下载，如果不需要导航，定位就用默认的即可。（这样可以大大减小包的体积）如图：<br><img src="63c3ed0a/3.jpg" alt><br>下载后会得到如图所示压缩包<br><img src="63c3ed0a/4.jpg" alt></p>
+<p>（1）添加 jar 包<br>将下载的地图 SDK 的 jar包复制到工程的 libs 目录下，如果有老版本 jar 包在其中，请删除。如图所示：<br><img src="63c3ed0a/5.jpg" alt></p>
 <p>（2）添加 so 库<br>说明：3D地图才需要添加so库，2D地图无需这一步骤。</p>
-<p>在 main 目录下创建文件夹 jniLibs (如果有就不需要创建了)，将下载文件的 armeabi 文件夹复制到这个目录下,如果已经有这个目录，将下载的 so 库复制到这个目录即可。如图所示：<br><img src="6.jpg" alt></p>
+<p>在 main 目录下创建文件夹 jniLibs (如果有就不需要创建了)，将下载文件的 armeabi 文件夹复制到这个目录下,如果已经有这个目录，将下载的 so 库复制到这个目录即可。如图所示：<br><img src="63c3ed0a/6.jpg" alt></p>
 <p>（3）在清单文件中配置高德 Key：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>application
          android<span class="token operator">:</span>icon<span class="token operator">=</span><span class="token string">"@drawable/icon"</span>
@@ -505,7 +505,7 @@ android<span class="token operator">:</span>layout_height<span class="token oper
 <span class="token comment" spellcheck="true">//在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图</span>
 mapView<span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
 AMap aMap <span class="token operator">=</span> mapView<span class="token punctuation">.</span><span class="token function">getMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化地图控制器对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="7.jpg" alt></p>
+<p><img src="63c3ed0a/7.jpg" alt></p>
 <p><strong>大功告成！集成高德地图就是这么简单！</strong><br><strong>如果对你有帮助点个赞支持下吧！</strong></p>
 
             </div>

@@ -459,12 +459,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先介绍一下所谓的MVP，美国职业篮球联赛最有价值球员奖（National Basketball Association Most Valuable Player Award ，简称MVP）是一个自1955-1956赛季以来每年对美国职业篮球联赛（NBA）常规赛中全场表现最佳的球员所颁发的一个奖项。<br><img src="1.jpg" alt></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先介绍一下所谓的MVP，美国职业篮球联赛最有价值球员奖（National Basketball Association Most Valuable Player Award ，简称MVP）是一个自1955-1956赛季以来每年对美国职业篮球联赛（NBA）常规赛中全场表现最佳的球员所颁发的一个奖项。<br><img src="81ad7a6/1.jpg" alt></p>
 <p>哎呀！不好意思，讲错了！<br>言归正传，作为一个Android攻城狮（虽然也是一位篮球爱好者），这里要介绍的MVP当然是一种软件设计模式啦！下面进入正题！</p>
 <h2 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h2><ul>
 <li><p><strong>概念</strong>：MVC全称为Model-View-Controller，也就是 模型-视图-控制器。是最常见的一种软件设计模式。<br>Model：对应Android中的数据实体模型、数据访问接口、数据库操作等，用于存取数据和处理业务逻辑。<br>View：对应Android中的布局文件，用来展示UI。<br>Controller：对应Android中的Activity、Fragment等，用于更新UI界面与数据。</p>
 </li>
-<li><p><strong>它们之间的关系图如下</strong>：<br><img src="2.jpg" alt></p>
+<li><p><strong>它们之间的关系图如下</strong>：<br><img src="81ad7a6/2.jpg" alt></p>
 </li>
 </ul>
 <p>MVC的工作原理是用户在View层触发事件，Controller层接收到View层的事件后就会更新Model层数据，Model层数据改变后就通知Controller层更新UI。（View层也可以直接更新Model层的数据）</p>
@@ -472,7 +472,7 @@
 <h2 id="二、MVP"><a href="#二、MVP" class="headerlink" title="二、MVP"></a>二、MVP</h2><ul>
 <li><p><strong>概念</strong>：MVP全称为Model-View-Presenter，也就是 模型-视图-表示器。是MVC模式的演化版。<br>Model：与MVC一样，对应Android中的数据实体模型、数据访问接口、数据库操作等，用于存取数据和处理业务逻辑。<br>View：对应Android中的Activity、Fragment等，用来展示UI、与用户进行交互。<br>Presenter：充当Model和View之间的桥梁，负责它们之间的交互。</p>
 </li>
-<li><p><strong>它们之间的关系图如下</strong>：<br><img src="3.jpg" alt></p>
+<li><p><strong>它们之间的关系图如下</strong>：<br><img src="81ad7a6/3.jpg" alt></p>
 </li>
 </ul>
 <p>由上图可以明显的看到Model与View之间的交互由Presenter完成，即View与Model是完全解耦的。而View与Presenter的交互也不是直接交互的，而是通过接口来完成。随之带来的好处：</p>
@@ -480,9 +480,9 @@
 <li>解耦了Model与View，简化了Activity中的代码，方便维护。</li>
 <li>将复杂的逻辑代码提取到了Presenter中，方便单元测试。</li>
 </ul>
-<h2 id="三、实践出真理"><a href="#三、实践出真理" class="headerlink" title="三、实践出真理"></a>三、实践出真理</h2><p>好了，说了这么多，相信大部分人还是一脸懵逼！那就让我来举个例子吧！保证能让你通俗易懂的理解MVC与MVP。<br><img src="4.jpg" alt></p>
-<p>举得例子非常简单，主要为了让大家更容易理解。<br>点击按钮，发起网络请求获取用户信息，然后直接显示在界面。效果图如下：<br><img src="5.gif" alt></p>
-<h3 id="3-1-MVC-代码实现"><a href="#3-1-MVC-代码实现" class="headerlink" title="3.1 MVC 代码实现"></a>3.1 MVC 代码实现</h3><p>工程结构图如下：<br><img src="6.png" alt></p>
+<h2 id="三、实践出真理"><a href="#三、实践出真理" class="headerlink" title="三、实践出真理"></a>三、实践出真理</h2><p>好了，说了这么多，相信大部分人还是一脸懵逼！那就让我来举个例子吧！保证能让你通俗易懂的理解MVC与MVP。<br><img src="81ad7a6/4.jpg" alt></p>
+<p>举得例子非常简单，主要为了让大家更容易理解。<br>点击按钮，发起网络请求获取用户信息，然后直接显示在界面。效果图如下：<br><img src="81ad7a6/5.gif" alt></p>
+<h3 id="3-1-MVC-代码实现"><a href="#3-1-MVC-代码实现" class="headerlink" title="3.1 MVC 代码实现"></a>3.1 MVC 代码实现</h3><p>工程结构图如下：<br><img src="81ad7a6/6.png" alt></p>
 <h4 id="3-1-1-Model层"><a href="#3-1-1-Model层" class="headerlink" title="3.1.1 Model层"></a>3.1.1 Model层</h4><ul>
 <li><p><strong>UserInfobean：</strong> 数据实体模型，也就是网络请求回来的数据存储到这里。</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfobean</span> <span class="token punctuation">{</span>
@@ -665,7 +665,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>看完MVC的代码，相信你也发现了，ProgressBar的隐藏与显示，TextView显示用户的昵称这些逻辑其实都是属于View层的，但是都写在了Activity里面了，这就像我在前面说的Activity既像View又像Controller。复杂点的界面就造成Activity过于臃肿。</p>
-<h3 id="3-2-MVP-代码实现"><a href="#3-2-MVP-代码实现" class="headerlink" title="3.2 MVP 代码实现"></a>3.2 MVP 代码实现</h3><p>工程结构图如下：<br><img src="7.png" alt></p>
+<h3 id="3-2-MVP-代码实现"><a href="#3-2-MVP-代码实现" class="headerlink" title="3.2 MVP 代码实现"></a>3.2 MVP 代码实现</h3><p>工程结构图如下：<br><img src="81ad7a6/7.png" alt></p>
 <p>由结构图可知MVP就比MVC多了UserInfoPresenter与UserInfoView。</p>
 <h4 id="3-2-1-Model层"><a href="#3-2-1-Model层" class="headerlink" title="3.2.1 Model层"></a>3.2.1 Model层</h4><p>前面说了，MVP中的Model层与MVC是一样的。所以代码也是一样的。这里就不列出来了，可以看上面的。</p>
 <h4 id="3-2-2-View层"><a href="#3-2-2-View层" class="headerlink" title="3.2.2 View层"></a>3.2.2 View层</h4><p>MVP中的VIew层对应UserInfoActivity，但它不是直接与Presenter交互的，他们之间的交互是通过接口来实现的。所以这里需要先写一个接口，然后再让UserInfoActivity实现该接口。</p>

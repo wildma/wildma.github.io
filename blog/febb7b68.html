@@ -457,38 +457,38 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开发中为了方便，我们通常会使用第三方开源库，例如经常使用的图片加载库Glide（如下）。那么我们有没有想过自己也发布一个开源库让别人使用呢？虽然之前也发布过，但只是自己随便写的测试开源库，这次发布的也算是自己真正意义上可以给别人使用的开源库了吧！所以也顺便教大家怎么使用JitPack发布自己的开源库。</p>
 <pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.github.bumptech.glide:glide:3.7.0'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="一、为什么选择JitPack"><a href="#一、为什么选择JitPack" class="headerlink" title="一、为什么选择JitPack"></a>一、为什么选择JitPack</h2><p>目前比较常用的Android Library仓库主要有Jcenter、Maven Central和JitPack。一开始Android Studio选择Maven Central作为默认仓库，但是后来因为上传开源库复杂度与安全方面等原因，Android Studio把默认的仓库替换成jcenter，即当你新建一个项目的时候，你会发现Android Studio已经自动在项目的build.gradle中帮你配制好了jcenter。如下：<br><img src="1.png" alt><br>但是前2种发布过程是比较麻烦的，需要验证、审核、踩一系列的坑等等。而JitPack发布过程那就简单多了，几分钟搞定，所以我选择了JitPack。</p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p><strong>1 创建开源库</strong><br>新建好一个Android项目后，我们需要创建自己的开源库，如下：<br><img src="2.png" alt></p>
-<p><img src="3.png" alt></p>
-<p>创建完成后是这样的，如下：<br><img src="4.png" alt><br>注意：由于JitPack最终生成的依赖名称（如下）是以项目名称命名的，<br>所以最好一开始创建项目的时候项目名称就要命名好，也可以后续在Github上修改项目的名称。</p>
+<h2 id="一、为什么选择JitPack"><a href="#一、为什么选择JitPack" class="headerlink" title="一、为什么选择JitPack"></a>一、为什么选择JitPack</h2><p>目前比较常用的Android Library仓库主要有Jcenter、Maven Central和JitPack。一开始Android Studio选择Maven Central作为默认仓库，但是后来因为上传开源库复杂度与安全方面等原因，Android Studio把默认的仓库替换成jcenter，即当你新建一个项目的时候，你会发现Android Studio已经自动在项目的build.gradle中帮你配制好了jcenter。如下：<br><img src="febb7b68/1.png" alt><br>但是前2种发布过程是比较麻烦的，需要验证、审核、踩一系列的坑等等。而JitPack发布过程那就简单多了，几分钟搞定，所以我选择了JitPack。</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p><strong>1 创建开源库</strong><br>新建好一个Android项目后，我们需要创建自己的开源库，如下：<br><img src="febb7b68/2.png" alt></p>
+<p><img src="febb7b68/3.png" alt></p>
+<p>创建完成后是这样的，如下：<br><img src="febb7b68/4.png" alt><br>注意：由于JitPack最终生成的依赖名称（如下）是以项目名称命名的，<br>所以最好一开始创建项目的时候项目名称就要命名好，也可以后续在Github上修改项目的名称。</p>
 <pre class="line-numbers language-java"><code class="language-java">    compile <span class="token string">'com.github.wildma:idcardcamera:1.0.0'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>很多博客说需要步骤2和3，但是经过自己验证不加上也是可以的。 </p>
 </blockquote>
-<p><strong>2 在项目的build.gradle中添加android-maven-gradle-plugin依赖，如下：</strong><br><img src="5.png" alt></p>
-<p><strong>3  在library的build.gradle中启用android-maven-gradle-plugin和配置你的group，如下：</strong><br><img src="6.png" alt></p>
+<p><strong>2 在项目的build.gradle中添加android-maven-gradle-plugin依赖，如下：</strong><br><img src="febb7b68/5.png" alt></p>
+<p><strong>3  在library的build.gradle中启用android-maven-gradle-plugin和配置你的group，如下：</strong><br><img src="febb7b68/6.png" alt></p>
 <p><strong>4 将项目上传到Github</strong></p>
 <ol>
 <li>配置忽略文件</li>
-<li>上传项目，如下：<br><img src="7.png" alt></li>
+<li>上传项目，如下：<br><img src="febb7b68/7.png" alt></li>
 </ol>
 <p><strong>5  打开项目主页，创建releases</strong></p>
 <ol>
-<li><p>点击releases，如下：<br><img src="8.png" alt></p>
+<li><p>点击releases，如下：<br><img src="febb7b68/8.png" alt></p>
 </li>
-<li><p>选择Releases或Tags都可以，然后点击创建。如下：<br><img src="9.png" alt></p>
+<li><p>选择Releases或Tags都可以，然后点击创建。如下：<br><img src="febb7b68/9.png" alt></p>
 </li>
 </ol>
-<p><strong>6  填写发布信息进行Releases或Tags代码发布</strong><br><img src="10.png" alt></p>
+<p><strong>6  填写发布信息进行Releases或Tags代码发布</strong><br><img src="febb7b68/10.png" alt></p>
 <p><strong>7 将项目发布到JitPack</strong></p>
 <ol>
 <li>进入JitPack官网 <a href="https://link.jianshu.com/?t=https://jitpack.io/" target="_blank" rel="noopener">https://jitpack.io/</a>，找到自己的项目，如下：</li>
 </ol>
-<p><img src="11.png" alt></p>
+<p><img src="febb7b68/11.png" alt></p>
 <ol start="2">
-<li>点击获取后，就会列出library的信息，并告诉你怎么使用，如下：<br><img src="12.png" alt></li>
+<li>点击获取后，就会列出library的信息，并告诉你怎么使用，如下：<br><img src="febb7b68/12.png" alt></li>
 </ol>
-<p><strong>8 给Github仓库添加徽章</strong><br>在第7步完成后，底部会有个JitPack 1.0.0的图标(如下图)，点击它会弹出一段链接，将它复制到GitHub项目的readme.md里面去就可以显示了，效果如图中小图标，这样看起来显得高端一点。<br><img src="13.png" alt></p>
+<p><strong>8 给Github仓库添加徽章</strong><br>在第7步完成后，底部会有个JitPack 1.0.0的图标(如下图)，点击它会弹出一段链接，将它复制到GitHub项目的readme.md里面去就可以显示了，效果如图中小图标，这样看起来显得高端一点。<br><img src="febb7b68/13.png" alt></p>
 <p>OK，到这里就发布完成了，拿去你的项目中试试吧！</p>
 <p>开源库地址：<a href="https://github.com/wildma/IDCardCamera" target="_blank" rel="noopener">IDCardCamera</a></p>
 

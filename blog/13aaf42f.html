@@ -470,61 +470,61 @@
 <li>Git：Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。简单说，它就是一个管理项目版本的工具。</li>
 <li>GitLab：GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务。简单说，GitLab的性质是和GitHub一样的，都是用来存储项目的仓库。</li>
 </ul>
-<h2 id="三、准备Git"><a href="#三、准备Git" class="headerlink" title="三、准备Git"></a>三、准备Git</h2><h3 id="3-1-安装Git"><a href="#3-1-安装Git" class="headerlink" title="3.1 安装Git"></a>3.1 安装Git</h3><p>下载地址：<a href="http://git-scm.com/download/" target="_blank" rel="noopener">http://git-scm.com/download/</a><br>安装步骤：双击安装，按默认选项一路下去即可。<br>安装完成后，在开始菜单里找到“Git”–&gt;“Git Bash”，出现如下图，就说明Git安装成功！<img src="1.png" alt></p>
+<h2 id="三、准备Git"><a href="#三、准备Git" class="headerlink" title="三、准备Git"></a>三、准备Git</h2><h3 id="3-1-安装Git"><a href="#3-1-安装Git" class="headerlink" title="3.1 安装Git"></a>3.1 安装Git</h3><p>下载地址：<a href="http://git-scm.com/download/" target="_blank" rel="noopener">http://git-scm.com/download/</a><br>安装步骤：双击安装，按默认选项一路下去即可。<br>安装完成后，在开始菜单里找到“Git”–&gt;“Git Bash”，出现如下图，就说明Git安装成功！<img src="13aaf42f/1.png" alt></p>
 <h3 id="3-2-配置信息"><a href="#3-2-配置信息" class="headerlink" title="3.2 配置信息"></a>3.2 配置信息</h3><p>在上图命令行中输入你的用户名与邮箱</p>
 <pre class="line-numbers language-java"><code class="language-java">$ git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>name <span class="token string">"Your Name"</span>
 $ git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>email <span class="token string">"email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>命令中的 –global 参数表示你这台机器上所有的Git仓库都会使用这个配置。</p>
-<h3 id="3-3-Android-Studio中配置Git"><a href="#3-3-Android-Studio中配置Git" class="headerlink" title="3.3 Android Studio中配置Git"></a>3.3 Android Studio中配置Git</h3><p>在Android Studio中点击Settings–&gt;Version Control –&gt; Git，然后在Path To Git executable上输入你刚刚安装Git的位置，最后点击Test按钮出现Git executed successfully说明配置成功，如下图：<img src="2.png" alt></p>
+<h3 id="3-3-Android-Studio中配置Git"><a href="#3-3-Android-Studio中配置Git" class="headerlink" title="3.3 Android Studio中配置Git"></a>3.3 Android Studio中配置Git</h3><p>在Android Studio中点击Settings–&gt;Version Control –&gt; Git，然后在Path To Git executable上输入你刚刚安装Git的位置，最后点击Test按钮出现Git executed successfully说明配置成功，如下图：<img src="13aaf42f/2.png" alt></p>
 <h2 id="四、GitLab使用"><a href="#四、GitLab使用" class="headerlink" title="四、GitLab使用"></a>四、GitLab使用</h2><h3 id="4-1-注册账号"><a href="#4-1-注册账号" class="headerlink" title="4.1 注册账号"></a>4.1 注册账号</h3><p>这里说下注册账号的时候需要注意的事项。<br>如果注册账号的时候提示如下错误</p>
 <pre class="line-numbers language-java"><code class="language-java">there was an error with the reCAPTCHA<span class="token punctuation">,</span>please solve the reCAPTCHA again<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>那是因为注册时需要验证码验证，就是reCAPTCHA，是一个图形验证码。但是这个验证码需要翻Q才能看得到，否则你一直都注册不了。如图：<img src="3.png" alt></p>
+<p>那是因为注册时需要验证码验证，就是reCAPTCHA，是一个图形验证码。但是这个验证码需要翻Q才能看得到，否则你一直都注册不了。如图：<img src="13aaf42f/3.png" alt></p>
 <h3 id="4-2-GitLab账户配置SSH-Keys"><a href="#4-2-GitLab账户配置SSH-Keys" class="headerlink" title="4.2 GitLab账户配置SSH Keys"></a>4.2 GitLab账户配置SSH Keys</h3><h4 id="4-2-1-首先需要检查你电脑是否已经有-SSH-Keys"><a href="#4-2-1-首先需要检查你电脑是否已经有-SSH-Keys" class="headerlink" title="4.2.1 首先需要检查你电脑是否已经有 SSH Keys"></a>4.2.1 首先需要检查你电脑是否已经有 SSH Keys</h4><p>在Git Bash 客户端，输入如下代码：</p>
 <pre class="line-numbers language-java"><code class="language-java">$ cd <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh
 $ ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>如下说明已经存在，存在就可以忽略步骤4.2.2，直接进入步骤4.2.3<br><img src="4.png" alt></p>
+<p>如下说明已经存在，存在就可以忽略步骤4.2.2，直接进入步骤4.2.3<br><img src="13aaf42f/4.png" alt></p>
 <h4 id="4-2-2-创建一个-SSH-Keys"><a href="#4-2-2-创建一个-SSH-Keys" class="headerlink" title="4.2.2 创建一个 SSH Keys"></a>4.2.2 创建一个 SSH Keys</h4><p>在Git Bash 客户端，输入如下代码：</p>
 <pre class="line-numbers language-java"><code class="language-java">$ ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span>C <span class="token string">"your_email"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后根据提示进行相应操作，如下图所示：<br>第一个Enter表示Keys存储的位置，默认按回车键即可。第二个和第三个Enter表示Push文件的时候要输入的密码，不需要密码就默认按回车键即可，然后出现如图底部信息就说明创建成功了！<br><img src="5.png" alt></p>
-<h4 id="4-2-3-GitLab配置SSH-Keys"><a href="#4-2-3-GitLab配置SSH-Keys" class="headerlink" title="4.2.3 GitLab配置SSH Keys"></a>4.2.3 GitLab配置SSH Keys</h4><p>进入上图所示存储 id_rsa.pub 的文件夹拷贝该文件中的内容，然后登录你的GitLab账号，点击网页右上角的头像–&gt;Settings，点击左边菜单栏的 SSH Keys 进入页面添加 SSH key。如下操作：<img src="6.png" alt><br><img src="7.png" alt></p>
-<h3 id="4-3-创建项目"><a href="#4-3-创建项目" class="headerlink" title="4.3 创建项目"></a>4.3 创建项目</h3><p>在GitLab网站点击导航条上的 “+” 即可进入创建项目的页面，然后根据提示填写相应信息，如下图：<img src="8.png" alt></p>
-<p><img src="9.png" alt></p>
+<p>然后根据提示进行相应操作，如下图所示：<br>第一个Enter表示Keys存储的位置，默认按回车键即可。第二个和第三个Enter表示Push文件的时候要输入的密码，不需要密码就默认按回车键即可，然后出现如图底部信息就说明创建成功了！<br><img src="13aaf42f/5.png" alt></p>
+<h4 id="4-2-3-GitLab配置SSH-Keys"><a href="#4-2-3-GitLab配置SSH-Keys" class="headerlink" title="4.2.3 GitLab配置SSH Keys"></a>4.2.3 GitLab配置SSH Keys</h4><p>进入上图所示存储 id_rsa.pub 的文件夹拷贝该文件中的内容，然后登录你的GitLab账号，点击网页右上角的头像–&gt;Settings，点击左边菜单栏的 SSH Keys 进入页面添加 SSH key。如下操作：<img src="13aaf42f/6.png" alt><br><img src="13aaf42f/7.png" alt></p>
+<h3 id="4-3-创建项目"><a href="#4-3-创建项目" class="headerlink" title="4.3 创建项目"></a>4.3 创建项目</h3><p>在GitLab网站点击导航条上的 “+” 即可进入创建项目的页面，然后根据提示填写相应信息，如下图：<img src="13aaf42f/8.png" alt></p>
+<p><img src="13aaf42f/9.png" alt></p>
 <ul>
 <li>Project path：项目路径</li>
 <li>Project name：项目名称</li>
 <li>Project description (optional)：项目描述（可选项）</li>
 <li>Visibility Level：可见登记，Private表示私有的，只有你自己或者组内的成员能访问，Internal表示所有登录的用户，Public表示公开的，所有人都可以访问。</li>
 </ul>
-<p>创建完成后是这样的：<img src="10.png" alt></p>
+<p>创建完成后是这样的：<img src="13aaf42f/10.png" alt></p>
 <h2 id="五、Android-Studio中使用Git"><a href="#五、Android-Studio中使用Git" class="headerlink" title="五、Android Studio中使用Git"></a>五、Android Studio中使用Git</h2><h3 id="5-1-将项目上传到GitLab"><a href="#5-1-将项目上传到GitLab" class="headerlink" title="5.1 将项目上传到GitLab"></a>5.1 将项目上传到GitLab</h3><p>本地已创建好的项目为WildmaGit</p>
-<h4 id="5-1-1-配置忽略文件"><a href="#5-1-1-配置忽略文件" class="headerlink" title="5.1.1 配置忽略文件"></a>5.1.1 配置忽略文件</h4><p>Android Studio创建项目后会自动生成.gitignore文件，这个文件可以用来忽略那些不用加入到仓库的文件。项目根目录下与module目录下都会生成该文件，如下：<img src="11.png" alt></p>
-<p>一般情况下我们只需要将项目根目录下的/.idea/workspace.xml与/.idea/libraries改成.idea即可，其他没有特殊要求就用默认的。如下：<br>修改前：<img src="12.png" alt><br>修改后：<img src="13.png" alt></p>
-<h4 id="5-1-2-初始化本地Git仓库"><a href="#5-1-2-初始化本地Git仓库" class="headerlink" title="5.1.2 初始化本地Git仓库"></a>5.1.2 初始化本地Git仓库</h4><p>点击Android Studio顶部菜单栏上的VCS–&gt;Import into Version Control–&gt;Create Git Repository，如图：<img src="14.png" alt></p>
-<p>然后选择需要初始化的项目根目录，如图：<img src="15.png" alt></p>
-<p>初始化之后发现文件名由原来的白色变成了红色，这表示文件已经被git跟踪了，但是并没有添加到仓库中。如图：<img src="16.png" alt></p>
+<h4 id="5-1-1-配置忽略文件"><a href="#5-1-1-配置忽略文件" class="headerlink" title="5.1.1 配置忽略文件"></a>5.1.1 配置忽略文件</h4><p>Android Studio创建项目后会自动生成.gitignore文件，这个文件可以用来忽略那些不用加入到仓库的文件。项目根目录下与module目录下都会生成该文件，如下：<img src="13aaf42f/11.png" alt></p>
+<p>一般情况下我们只需要将项目根目录下的/.idea/workspace.xml与/.idea/libraries改成.idea即可，其他没有特殊要求就用默认的。如下：<br>修改前：<img src="13aaf42f/12.png" alt><br>修改后：<img src="13aaf42f/13.png" alt></p>
+<h4 id="5-1-2-初始化本地Git仓库"><a href="#5-1-2-初始化本地Git仓库" class="headerlink" title="5.1.2 初始化本地Git仓库"></a>5.1.2 初始化本地Git仓库</h4><p>点击Android Studio顶部菜单栏上的VCS–&gt;Import into Version Control–&gt;Create Git Repository，如图：<img src="13aaf42f/14.png" alt></p>
+<p>然后选择需要初始化的项目根目录，如图：<img src="13aaf42f/15.png" alt></p>
+<p>初始化之后发现文件名由原来的白色变成了红色，这表示文件已经被git跟踪了，但是并没有添加到仓库中。如图：<img src="13aaf42f/16.png" alt></p>
 <h4 id="5-1-3-将本地Git仓库已与远程仓库进行关联"><a href="#5-1-3-将本地Git仓库已与远程仓库进行关联" class="headerlink" title="5.1.3 将本地Git仓库已与远程仓库进行关联"></a>5.1.3 将本地Git仓库已与远程仓库进行关联</h4><p>打开项目文件夹，在该文件夹中打开Git Bash。输入如下命令后就代表本地Git仓库已与远程仓库进行关联了。</p>
 <pre class="line-numbers language-java"><code class="language-java">git remote add origin git<span class="token annotation punctuation">@gitlab</span><span class="token punctuation">.</span>com<span class="token operator">:</span>wildma<span class="token operator">/</span>WildmaGit<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>具体步骤见下图：<img src="17.png" alt><br><img src="18.png" alt></p>
-<p>其中 <a href="mailto:git@gitlab.com" target="_blank" rel="noopener">git@gitlab.com</a>:wildma/WildmaGit.git 为我们项目的远程地址，可以到我们前面创建项目中复制，如下：<br><img src="19.png" alt></p>
-<h4 id="5-1-4-添加文件"><a href="#5-1-4-添加文件" class="headerlink" title="5.1.4 添加文件"></a>5.1.4 添加文件</h4><p>选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Add…，如下图：<img src="20.png" alt></p>
-<p>添加文件后发现文件名由原来的红色变成了绿色，说明已经将文件添加进仓库了。如下图：<img src="21.png" alt></p>
-<h4 id="5-1-5-提交文件"><a href="#5-1-5-提交文件" class="headerlink" title="5.1.5 提交文件"></a>5.1.5 提交文件</h4><p>每次提交前需要先更新项目，原因是如果是多人合作的项目，需要先将远程仓库中他人提交的最新代码更新到本地仓库。如图：<img src="22.png" alt></p>
-<p>然后选中Merge，点击OK，如果本地代码与远程代码有冲突就会弹出冲突提示，根据需求Merge即可，如图：<img src="23.png" alt></p>
-<p>Update后就可以提交文件了，选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Commit Directory…，如图：<img src="24.png" alt></p>
-<p>然后会弹出如下提交框，这里可以选择你要提交的文件和填写提交信息，如图：<img src="25.png" alt></p>
-<p>提交文件后发现文件名由原来的绿色又变成了最开始的白色，说明已经将文件提交上仓库了。如图：<img src="26.png" alt></p>
-<h4 id="5-1-6-将提交的文件推送到远程仓库"><a href="#5-1-6-将提交的文件推送到远程仓库" class="headerlink" title="5.1.6 将提交的文件推送到远程仓库"></a>5.1.6 将提交的文件推送到远程仓库</h4><p>选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Push…，如下图：<img src="27.png" alt></p>
-<p>然后会弹出如下推送框<img src="28.png" alt></p>
-<p>点击Push后，就可以在GitLab上看到刚刚推送的内容了。如下图：<img src="29.png" alt></p>
-<h3 id="5-2-从GitLab上clone项目"><a href="#5-2-从GitLab上clone项目" class="headerlink" title="5.2 从GitLab上clone项目"></a>5.2 从GitLab上clone项目</h3><p>首先到GitLab上复制项目的地址，如图：<img src="30.png" alt></p>
-<p>然后点击Android Studio顶部菜单栏上的VCS–&gt;Checkout from Version Control–&gt;Git ，如图：<img src="31.png" alt></p>
+<p>具体步骤见下图：<img src="13aaf42f/17.png" alt><br><img src="13aaf42f/18.png" alt></p>
+<p>其中 <a href="mailto:git@gitlab.com" target="_blank" rel="noopener">git@gitlab.com</a>:wildma/WildmaGit.git 为我们项目的远程地址，可以到我们前面创建项目中复制，如下：<br><img src="13aaf42f/19.png" alt></p>
+<h4 id="5-1-4-添加文件"><a href="#5-1-4-添加文件" class="headerlink" title="5.1.4 添加文件"></a>5.1.4 添加文件</h4><p>选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Add…，如下图：<img src="13aaf42f/20.png" alt></p>
+<p>添加文件后发现文件名由原来的红色变成了绿色，说明已经将文件添加进仓库了。如下图：<img src="13aaf42f/21.png" alt></p>
+<h4 id="5-1-5-提交文件"><a href="#5-1-5-提交文件" class="headerlink" title="5.1.5 提交文件"></a>5.1.5 提交文件</h4><p>每次提交前需要先更新项目，原因是如果是多人合作的项目，需要先将远程仓库中他人提交的最新代码更新到本地仓库。如图：<img src="13aaf42f/22.png" alt></p>
+<p>然后选中Merge，点击OK，如果本地代码与远程代码有冲突就会弹出冲突提示，根据需求Merge即可，如图：<img src="13aaf42f/23.png" alt></p>
+<p>Update后就可以提交文件了，选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Commit Directory…，如图：<img src="13aaf42f/24.png" alt></p>
+<p>然后会弹出如下提交框，这里可以选择你要提交的文件和填写提交信息，如图：<img src="13aaf42f/25.png" alt></p>
+<p>提交文件后发现文件名由原来的绿色又变成了最开始的白色，说明已经将文件提交上仓库了。如图：<img src="13aaf42f/26.png" alt></p>
+<h4 id="5-1-6-将提交的文件推送到远程仓库"><a href="#5-1-6-将提交的文件推送到远程仓库" class="headerlink" title="5.1.6 将提交的文件推送到远程仓库"></a>5.1.6 将提交的文件推送到远程仓库</h4><p>选中项目的根目录，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Push…，如下图：<img src="13aaf42f/27.png" alt></p>
+<p>然后会弹出如下推送框<img src="13aaf42f/28.png" alt></p>
+<p>点击Push后，就可以在GitLab上看到刚刚推送的内容了。如下图：<img src="13aaf42f/29.png" alt></p>
+<h3 id="5-2-从GitLab上clone项目"><a href="#5-2-从GitLab上clone项目" class="headerlink" title="5.2 从GitLab上clone项目"></a>5.2 从GitLab上clone项目</h3><p>首先到GitLab上复制项目的地址，如图：<img src="13aaf42f/30.png" alt></p>
+<p>然后点击Android Studio顶部菜单栏上的VCS–&gt;Checkout from Version Control–&gt;Git ，如图：<img src="13aaf42f/31.png" alt></p>
 <p>最后填写相应的信息即可，如下图：</p>
 <ul>
 <li>Git Repository URL：填写刚刚复制的项目地址</li>
 <li>Parent Directory：项目路径</li>
 <li>Directory Name：项目文件夹名称</li>
 </ul>
-<p><img src="32.png" alt></p>
+<p><img src="13aaf42f/32.png" alt></p>
 <p>点击clone后，项目就clone下来了！</p>
 <h3 id="5-3-分支管理"><a href="#5-3-分支管理" class="headerlink" title="5.3 分支管理"></a>5.3 分支管理</h3><h4 id="5-3-1-分支策略"><a href="#5-3-1-分支策略" class="headerlink" title="5.3.1 分支策略"></a>5.3.1 分支策略</h4><p>在实际开发中，我们会用到很多分支。这里说下各分支的作用。</p>
 <ul>
@@ -534,41 +534,41 @@ $ ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 </ul>
 <p>实际开发中我主要用到这三个分支，当然每个人都不同，有些人还会细分到功能分支，预发分支。其中master分支与dev分支都需要推送到远程，为了其他成员能共同开发，bug分支则放在本地即可，你自己修复完bug删掉即可。</p>
 <h4 id="5-3-2-分支操作"><a href="#5-3-2-分支操作" class="headerlink" title="5.3.2 分支操作"></a>5.3.2 分支操作</h4><ol>
-<li>创建分支<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，如图：<img src="33.png" alt></li>
+<li>创建分支<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，如图：<img src="13aaf42f/33.png" alt></li>
 </ol>
-<p>然后选择New Branch，输入分支的名字，例如“dev”，如图：<img src="34.png" alt></p>
-<p><img src="35.png" alt></p>
-<p>点击OK，分支dev就创建成功了，并且默认切换到该分支。重复上面的步骤可以看到当前分支显示的是dev，如图：<img src="36.png" alt></p>
+<p>然后选择New Branch，输入分支的名字，例如“dev”，如图：<img src="13aaf42f/34.png" alt></p>
+<p><img src="13aaf42f/35.png" alt></p>
+<p>点击OK，分支dev就创建成功了，并且默认切换到该分支。重复上面的步骤可以看到当前分支显示的是dev，如图：<img src="13aaf42f/36.png" alt></p>
 <ol start="2">
-<li>推送分支到远程<br>这时候我们在dev分支上修改内容，然后按照前面说的提交文件（步骤5.1.5），将提交的文件推送到远程仓库（步骤5.1.6）即可。如图：<img src="37.png" alt> <img src="38.png" alt></li>
+<li>推送分支到远程<br>这时候我们在dev分支上修改内容，然后按照前面说的提交文件（步骤5.1.5），将提交的文件推送到远程仓库（步骤5.1.6）即可。如图：<img src="13aaf42f/37.png" alt> <img src="13aaf42f/38.png" alt></li>
 </ol>
-<p>点击push，然后就可以到Gitlab上看到我们刚刚推送的dev分支了，如图：<img src="39.png" alt></p>
+<p>点击push，然后就可以到Gitlab上看到我们刚刚推送的dev分支了，如图：<img src="13aaf42f/39.png" alt></p>
 <ol start="3">
-<li>切换分支<br>dev分支上版本V1.0开发完了，需要将代码合并到master上进行发布。因为当前在dev分支，所以需要先切换到master分支，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，然后选择本地分支栏下的master-&gt;origin/master，然后点击Checkout。如图：<img src="40.png" alt></li>
+<li>切换分支<br>dev分支上版本V1.0开发完了，需要将代码合并到master上进行发布。因为当前在dev分支，所以需要先切换到master分支，点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，然后选择本地分支栏下的master-&gt;origin/master，然后点击Checkout。如图：<img src="13aaf42f/40.png" alt></li>
 </ol>
 <ol start="4">
-<li>合并分支<br>第三步已经将分支切换到master了，现在进行分支合并。点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，然后选择远程分支栏下的origin/dev，然后点击Merge。如图：<img src="41.png" alt></li>
+<li>合并分支<br>第三步已经将分支切换到master了，现在进行分支合并。点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，然后选择远程分支栏下的origin/dev，然后点击Merge。如图：<img src="13aaf42f/41.png" alt></li>
 </ol>
-<p>这个时候到GitLab上却发现master分支上并没有合并到dev分支修改的内容，那是因为刚刚只是将远程dev分支的内容合并到本地master分支，本地master分支还没有push到远程，push一下就可以啦~ 如图：<img src="42.png" alt></p>
+<p>这个时候到GitLab上却发现master分支上并没有合并到dev分支修改的内容，那是因为刚刚只是将远程dev分支的内容合并到本地master分支，本地master分支还没有push到远程，push一下就可以啦~ 如图：<img src="13aaf42f/42.png" alt></p>
 <p>这个时候发现GitLab上master分支与dev分支是保持一致的了。然后将最新的master分支打包发布即可！</p>
 <ol start="5">
-<li>删除分支<br>删除本地分支：<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，选中本地dev分支，选择Delete即可。如图：<img src="43.png" alt></li>
+<li>删除分支<br>删除本地分支：<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，选中本地dev分支，选择Delete即可。如图：<img src="13aaf42f/43.png" alt></li>
 </ol>
-<p>删除远程分支：<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，选中远程dev分支，选择Delete即可。如图：<img src="44.png" alt></p>
+<p>删除远程分支：<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，打开Git Branches窗口，选中远程dev分支，选择Delete即可。如图：<img src="13aaf42f/44.png" alt></p>
 <h3 id="5-4-标签-Tag-管理"><a href="#5-4-标签-Tag-管理" class="headerlink" title="5.4 标签(Tag)管理"></a>5.4 标签(Tag)管理</h3><p>标签一般是用于标记某个发布的版本， 例如你发布了版本v1.0，这个时候会打一个v1.0的Tag，主要是方便以后查看和管理某个版本的代码。</p>
 <ol>
-<li>创建标签<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Tag…，如图：<img src="45.png" alt></li>
+<li>创建标签<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Tag…，如图：<img src="13aaf42f/45.png" alt></li>
 </ol>
-<p>然后填写Tag名称与Tag信息，点击Create Tag即可创建本地标签。其中Commit可填写以前某次提交记录的id，表示在该次提交上打Tag。如果不填表示Tag打在最新提交的commit上。如图：<img src="46.png" alt></p>
+<p>然后填写Tag名称与Tag信息，点击Create Tag即可创建本地标签。其中Commit可填写以前某次提交记录的id，表示在该次提交上打Tag。如果不填表示Tag打在最新提交的commit上。如图：<img src="13aaf42f/46.png" alt></p>
 <ol start="2">
-<li>推送标签到远程<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Push…，如图：<br><img src="47.png" alt></li>
+<li>推送标签到远程<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Push…，如图：<br><img src="13aaf42f/47.png" alt></li>
 </ol>
-<p>然后弹出Push框，选中Push Tags，点击Push即可推送到远程。如图：<br><img src="48.png" alt></p>
-<p>最后到GitLab就可以看到刚刚创建的Tag了，如图：<br><img src="49.png" alt></p>
+<p>然后弹出Push框，选中Push Tags，点击Push即可推送到远程。如图：<br><img src="13aaf42f/48.png" alt></p>
+<p>最后到GitLab就可以看到刚刚创建的Tag了，如图：<br><img src="13aaf42f/49.png" alt></p>
 <ol start="3">
-<li>checkout某个标签的代码<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，如图：<img src="50.png" alt></li>
+<li>checkout某个标签的代码<br>点击Android Studio顶部菜单栏上的VCS–&gt;Git–&gt;Branches…，如图：<img src="13aaf42f/50.png" alt></li>
 </ol>
-<p>然后选择Checkout Tag or Revision…，最后在弹出的Checkout框中填入Tag的名称即可。如图：<img src="51.png" alt><br><img src="52.png" alt></p>
+<p>然后选择Checkout Tag or Revision…，最后在弹出的Checkout框中填入Tag的名称即可。如图：<img src="13aaf42f/51.png" alt><br><img src="13aaf42f/52.png" alt></p>
 <ol start="4">
 <li>删除标签<br>在Android Studio中没找到删除Tag的操作，所以这里用Git命令。（有发现的小伙伴可以告诉我）</li>
 </ol>
@@ -578,7 +578,7 @@ $ ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <pre class="line-numbers language-java"><code class="language-java">git tag <span class="token operator">-</span>d tagName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>删除远程标签：</p>
 <pre class="line-numbers language-java"><code class="language-java">git push origin <span class="token operator">:</span>refs<span class="token operator">/</span>tags<span class="token operator">/</span>tagName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>以上命令需要在Android Studio自带的命令行中输入，如图：<img src="53.png" alt></p>
+<p>以上命令需要在Android Studio自带的命令行中输入，如图：<img src="13aaf42f/53.png" alt></p>
 <p>希望这种图文结合的方式大家都能看懂吧！写的不好的地方请多交流~</p>
 <p>项目地址：<a href="https://gitlab.com/wildma/WildmaGit" target="_blank" rel="noopener">WildmaGit</a></p>
 
