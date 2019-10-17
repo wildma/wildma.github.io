@@ -622,7 +622,7 @@
 </li>
 </ul>
 <p>打印结果如下：</p>
-<p><img src="1.jpg" alt><br>由图可知，图片数量出现了负数，显然是错误的。</p>
+<p><img src="7ac296bb/1.jpg" alt><br>由图可知，图片数量出现了负数，显然是错误的。</p>
 <p>原因：<br>出现这种错误的原因是有多个线程在操作共享的数据。即一个线程在操作共享数据的过程中CPU切换到其他线程又对该数据进行操作，这就是所谓的多线程并发。</p>
 <p>解决：<br>把操作数据的那段代码用synchronized进行同步, 这样就能保证在同一时刻只能有一个线程能够访问。<br>代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
@@ -663,7 +663,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打印结果如下：</p>
-<p><img src="2.jpg" alt></p>
+<p><img src="7ac296bb/2.jpg" alt></p>
 <h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="关于线程池"><a href="#关于线程池" class="headerlink" title="关于线程池"></a>关于线程池</h3><p>前面举的朋友圈发表图片的多线程例子中，为了提高CPU的使用率和程序的工作效率就需要创建9个线程来上传图片。但是线程的创建和销毁是非常耗CPU和内存的，因为它涉及到要与操作系统进行交互。这样就可能导致创建与销毁线程的开销比实际业务还大，而线程池就能很好的解决这些问题。线程池里的每一个线程结束后，并不会销毁（可以设置超时销毁），而是回到线程池中成为空闲状态，等待下一个对象来使用。</p>
 <h3 id="使用线程池的优点"><a href="#使用线程池的优点" class="headerlink" title="使用线程池的优点"></a>使用线程池的优点</h3><p>1、减少创建与销毁线程带来的性能开销。<br>2、可控制最大并发线程数，避免过多资源竞争而导致系统内存消耗完。<br>3、能更好的控制线程的开启与回收，并且能定时执行任务。</p>
 <h3 id="线程池中重要的几个类"><a href="#线程池中重要的几个类" class="headerlink" title="线程池中重要的几个类"></a>线程池中重要的几个类</h3><ul>
@@ -714,7 +714,7 @@
       <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 打印结果：</li>
 </ul>
-<p><img src="3.jpg" alt><br>由打印结果可知，10个任务始终在3个线程中执行。</p>
+<p><img src="7ac296bb/3.jpg" alt><br>由打印结果可知，10个任务始终在3个线程中执行。</p>
 <ul>
 <li><p><strong>newSingleThreadExecutor</strong>：创建一个单线程的线程池，即这个线程池永远只有一个线程在运行，这样能保证所有任务按指定顺序来执行。如果这个线程异常结束，那么会有一个新的线程来替代它。<br>例子：</p>
 <pre class="line-numbers language-java"><code class="language-java">      ExecutorService newSingleThreadExecutor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newSingleThreadExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -732,7 +732,7 @@
               <span class="token punctuation">}</span>
           <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>打印结果：<br><img src="4.jpg" alt><br>由打印结果可知，10个任务始终在1个线程中执行。</p>
+<p>打印结果：<br><img src="7ac296bb/4.jpg" alt><br>由打印结果可知，10个任务始终在1个线程中执行。</p>
 </li>
 <li><p><strong>newCachedThreadPool</strong>：创建带有缓存的线程池，在执行新的任务时，当线程池中有之前创建的可用线程就重用之前的线程，否则就新建一条线程。如果线程池中的线程在60秒未被使用，就会将它从线程池中移除。<br>例子：</p>
 <pre class="line-numbers language-java"><code class="language-java">      ExecutorService newCachedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -745,7 +745,7 @@
               <span class="token punctuation">}</span>
           <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="5.jpg" alt><br>由打印结果可知，线程1出现了很多次，说明有重用之前创建的线程。</p>
+<p><img src="7ac296bb/5.jpg" alt><br>由打印结果可知，线程1出现了很多次，说明有重用之前创建的线程。</p>
 </li>
 <li><p><strong>newScheduledThreadPool</strong>：创建定时和周期性执行的线程池。</p>
 <pre class="line-numbers language-java"><code class="language-java">      ScheduledExecutorService newScheduledThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newScheduledThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -770,7 +770,7 @@
       <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<p><img src="6.jpg" alt><br>由打印结果可知，定时任务是2秒后执行任务，周期性任务是延迟1秒后每2秒执行一次任务。</p>
+<p><img src="7ac296bb/6.jpg" alt><br>由打印结果可知，定时任务是2秒后执行任务，周期性任务是延迟1秒后每2秒执行一次任务。</p>
 
             </div>
             <hr />

@@ -465,15 +465,15 @@
 <li>省流量：使用云端优化技术使流量节省20+%；</li>
 <li>解决系统webview播放视频不能全屏的问题；<br>其他更多优势见-<a href="https://x5.tencent.com/tbs/guide/sdkInit.html" target="_blank" rel="noopener">TBS(腾讯浏览服务)的优势</a></li>
 </ol>
-<h2 id="一、集成"><a href="#一、集成" class="headerlink" title="一、集成"></a>一、集成</h2><h3 id="1-1-导入jar包"><a href="#1-1-导入jar包" class="headerlink" title="1.1 导入jar包"></a>1.1 导入jar包</h3><p>（1）下载SDK，下载地址：<a href="https://x5.tencent.com/tbs/sdk.html" target="_blank" rel="noopener">https://x5.tencent.com/tbs/sdk.html</a> （选择第一个完整版即可-“Android SDK（3.5完整版）”）<br>（2）将下载的 SDK中的 jar 包放到工程的libs目录下，如图：<br><img src="1.jpg" alt></p>
+<h2 id="一、集成"><a href="#一、集成" class="headerlink" title="一、集成"></a>一、集成</h2><h3 id="1-1-导入jar包"><a href="#1-1-导入jar包" class="headerlink" title="1.1 导入jar包"></a>1.1 导入jar包</h3><p>（1）下载SDK，下载地址：<a href="https://x5.tencent.com/tbs/sdk.html" target="_blank" rel="noopener">https://x5.tencent.com/tbs/sdk.html</a> （选择第一个完整版即可-“Android SDK（3.5完整版）”）<br>（2）将下载的 SDK中的 jar 包放到工程的libs目录下，如图：<br><img src="71dca980/1.jpg" alt></p>
 <h3 id="1-2-导入so库"><a href="#1-2-导入so库" class="headerlink" title="1.2 导入so库"></a>1.2 导入so库</h3><p>（1）下载Demo, 下载地址：<a href="https://x5.tencent.com/tbs/sdk.html" target="_blank" rel="noopener">https://x5.tencent.com/tbs/sdk.html</a> （选择“SDK接入示例-Android Studio”下载即可）<br>（2）将下载的Demo中的so库-liblbs.so拷贝到项目相应目录下，如图：</p>
-<p><img src="2.jpg" alt></p>
+<p><img src="71dca980/2.jpg" alt></p>
 <p>x5暂时不提供64位so文件，为了保证64位手机能正常加载x5内核。需要在app.build文件的defaultConfig{}中添加如下配置：</p>
 <pre class="line-numbers language-java"><code class="language-java">        ndk <span class="token punctuation">{</span>
             abiFilters <span class="token string">"armeabi"</span><span class="token punctuation">,</span> <span class="token string">"armeabi-v7a"</span><span class="token punctuation">,</span> <span class="token string">"x86"</span><span class="token punctuation">,</span> <span class="token string">"mips"</span>
         <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>配置后如图：</p>
-<p><img src="3.jpg" alt></p>
+<p><img src="71dca980/3.jpg" alt></p>
 <h3 id="1-3-AndroidManifest-xml里加入权限"><a href="#1-3-AndroidManifest-xml里加入权限" class="headerlink" title="1.3 AndroidManifest.xml里加入权限"></a>1.3 AndroidManifest.xml里加入权限</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="token operator">/</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="token operator">/</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.ACCESS_WIFI_STATE"</span> <span class="token operator">/</span><span class="token operator">></span>
@@ -568,7 +568,7 @@
         mWebView<span class="token punctuation">.</span><span class="token function">loadUrl</span><span class="token punctuation">(</span><span class="token string">"http://mp.weixin.qq.com/s/6QiZXzpUSuJKjoIoKovgtg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、辨别是否使用x5webview的方法"><a href="#三、辨别是否使用x5webview的方法" class="headerlink" title="三、辨别是否使用x5webview的方法"></a>三、辨别是否使用x5webview的方法</h2><p>（1）显示网页文字时，可通过长按选择文字的标识判断，如下水滴状选择效果是x5webview 的标志。如图：<br><img src="4.jpg" alt><br>（2）是否可以全屏播放网页视频</p>
+<h2 id="三、辨别是否使用x5webview的方法"><a href="#三、辨别是否使用x5webview的方法" class="headerlink" title="三、辨别是否使用x5webview的方法"></a>三、辨别是否使用x5webview的方法</h2><p>（1）显示网页文字时，可通过长按选择文字的标识判断，如下水滴状选择效果是x5webview 的标志。如图：<br><img src="71dca980/4.jpg" alt><br>（2）是否可以全屏播放网页视频</p>
 <p>Demo下载地址：<a href="https://github.com/wildma/WildmaX5Web" target="_blank" rel="noopener">WildmaX5Web</a></p>
 
             </div>

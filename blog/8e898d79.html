@@ -462,13 +462,13 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三方分享几乎是每个APP的必须功能。有些人说看官方的文档实在让人眼花缭乱，以前自己第一次做这些功能的时候也会遇到很多坑。这里整理了一份比较详细的，主要给新手学习。有任何问题欢迎提出来！</p>
 <h2 id="一、获取ShareSDK的AppKey"><a href="#一、获取ShareSDK的AppKey" class="headerlink" title="一、获取ShareSDK的AppKey"></a>一、获取ShareSDK的AppKey</h2><p>（照着流程来，很简单！）<br><a href="http://bbs.mob.com/forum.php?mod=viewthread&amp;tid=8212&amp;extra=page%3D1" target="_blank" rel="noopener">http://bbs.mob.com/forum.php?mod=viewthread&amp;tid=8212&amp;extra=page%3D1</a></p>
-<h2 id="二、下载SDK"><a href="#二、下载SDK" class="headerlink" title="二、下载SDK"></a>二、下载SDK</h2><p>下载地址：<a href="http://www.mob.com/downloadDetail/ShareSDK/android" target="_blank" rel="noopener">http://www.mob.com/downloadDetail/ShareSDK/android</a><br>下载的时候一般用默认的就足够了<br><img src="1.jpg" alt></p>
-<p>下载后解压出来是这样的<br><img src="2.jpg" alt></p>
-<h2 id="三、准备资源"><a href="#三、准备资源" class="headerlink" title="三、准备资源"></a>三、准备资源</h2><p>点击第一个文件夹，进去如下，双击QuickIntegrater.jar<br><img src="3.jpg" alt></p>
-<p>只需要填写项目名称和项目包名即可，其他默认。如图：<br><img src="4.jpg" alt></p>
-<p>点击确认后会生成如下文件夹，如图：<br><img src="5.jpg" alt></p>
-<p><img src="6.jpg" alt></p>
-<h2 id="四、开始集成"><a href="#四、开始集成" class="headerlink" title="四、开始集成"></a>四、开始集成</h2><p>（1）将上面的文件夹依次粘贴到工程相应的文件夹即可，如图：<br><img src="7.jpg" alt></p>
+<h2 id="二、下载SDK"><a href="#二、下载SDK" class="headerlink" title="二、下载SDK"></a>二、下载SDK</h2><p>下载地址：<a href="http://www.mob.com/downloadDetail/ShareSDK/android" target="_blank" rel="noopener">http://www.mob.com/downloadDetail/ShareSDK/android</a><br>下载的时候一般用默认的就足够了<br><img src="8e898d79/1.jpg" alt></p>
+<p>下载后解压出来是这样的<br><img src="8e898d79/2.jpg" alt></p>
+<h2 id="三、准备资源"><a href="#三、准备资源" class="headerlink" title="三、准备资源"></a>三、准备资源</h2><p>点击第一个文件夹，进去如下，双击QuickIntegrater.jar<br><img src="8e898d79/3.jpg" alt></p>
+<p>只需要填写项目名称和项目包名即可，其他默认。如图：<br><img src="8e898d79/4.jpg" alt></p>
+<p>点击确认后会生成如下文件夹，如图：<br><img src="8e898d79/5.jpg" alt></p>
+<p><img src="8e898d79/6.jpg" alt></p>
+<h2 id="四、开始集成"><a href="#四、开始集成" class="headerlink" title="四、开始集成"></a>四、开始集成</h2><p>（1）将上面的文件夹依次粘贴到工程相应的文件夹即可，如图：<br><img src="8e898d79/7.jpg" alt></p>
 <p>（2）在清单文件AndroidManifest.xml添加权限</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.GET_TASKS"</span> <span class="token operator">/</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.INTERNET"</span> <span class="token operator">/</span><span class="token operator">></span>
@@ -520,7 +520,7 @@
      android<span class="token operator">:</span>exported<span class="token operator">=</span><span class="token string">"true"</span>
      android<span class="token operator">:</span>screenOrientation<span class="token operator">=</span><span class="token string">"portrait"</span> <span class="token operator">/</span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>（4）在刚刚拷贝进去的ShareSDK中替换mob后台申请的Appkey与各个平台申请的key<br>注意：<br>mob后台申请的Appkey：就是第一部中获取ShareSDK的AppKey<br>各个平台申请的key：需要到各个平台申请，例如需要微信分享，则需要到微信开放平台进行申请</p>
-<p><img src="8.jpg" alt></p>
+<p><img src="8e898d79/8.jpg" alt></p>
 <p>（5）添加分享代码<br>在您程序启动的时候添加初始化代码（注：不要等调用ShareSDK功能之前才初始化）<br>即自己添加一个类继承Application，在onCreate方法添加下面的代码，如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyApplication</span> <span class="token keyword">extends</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
 
@@ -532,7 +532,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意: 该类需要在清单文件中注册，如图：<br><img src="9.jpg" alt></p>
+<p>注意: 该类需要在清单文件中注册，如图：<br><img src="8e898d79/9.jpg" alt></p>
 <p>在您的代码中调用此方法，即可打开一键分享功能进行分享</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">showShare</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  OnekeyShare oks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OnekeyShare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -560,7 +560,7 @@
 <span class="token comment" spellcheck="true">// 启动分享GUI</span>
  oks<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：<br><img src="10.jpg" alt></p>
+<p>效果如下：<br><img src="8e898d79/10.jpg" alt></p>
 <p>Demo下载地址：<a href="https://github.com/wildma/ShareSDKThirdPartyShareLogin" target="_blank" rel="noopener">https://github.com/wildma/ShareSDKThirdPartyShareLogin</a></p>
 <p><strong>如果对你有帮助记得点赞，star支持下哈~</strong></p>
 

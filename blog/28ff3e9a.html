@@ -452,9 +452,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一开始公司的电脑运行Android Studio的项目那叫一个慢呀! 每次都要2-5分钟。但是电脑的内存又是8G，CPU是I7的，按道理不应该这么慢呀。后来我实在不能忍受了， 经过一番折腾，终于将运行速度提升到10-30秒以内。下面总结下几种方法。</p>
-<h2 id="一、加大分配的内存"><a href="#一、加大分配的内存" class="headerlink" title="一、加大分配的内存"></a>一、加大分配的内存</h2><p>打开Android Studio的安装目录，找到下面的文件进行修改，如图：<br>bin\studio64.exe.vmoptions<br><img src="1.jpg" alt></p>
-<h2 id="二、Android-Studio设置自动编译工程"><a href="#二、Android-Studio设置自动编译工程" class="headerlink" title="二、Android Studio设置自动编译工程"></a>二、Android Studio设置自动编译工程</h2><p>打开Android Studio的设置，找到如图所示，打上勾即可。如图：<br><img src="2.jpg" alt></p>
-<h2 id="三、打开Android-Studio的-instant-run-功能，如图："><a href="#三、打开Android-Studio的-instant-run-功能，如图：" class="headerlink" title="三、打开Android Studio的 instant run 功能，如图："></a>三、打开Android Studio的 instant run 功能，如图：</h2><p><img src="3.jpg" alt></p>
+<h2 id="一、加大分配的内存"><a href="#一、加大分配的内存" class="headerlink" title="一、加大分配的内存"></a>一、加大分配的内存</h2><p>打开Android Studio的安装目录，找到下面的文件进行修改，如图：<br>bin\studio64.exe.vmoptions<br><img src="28ff3e9a/1.jpg" alt></p>
+<h2 id="二、Android-Studio设置自动编译工程"><a href="#二、Android-Studio设置自动编译工程" class="headerlink" title="二、Android Studio设置自动编译工程"></a>二、Android Studio设置自动编译工程</h2><p>打开Android Studio的设置，找到如图所示，打上勾即可。如图：<br><img src="28ff3e9a/2.jpg" alt></p>
+<h2 id="三、打开Android-Studio的-instant-run-功能，如图："><a href="#三、打开Android-Studio的-instant-run-功能，如图：" class="headerlink" title="三、打开Android Studio的 instant run 功能，如图："></a>三、打开Android Studio的 instant run 功能，如图：</h2><p><img src="28ff3e9a/3.jpg" alt></p>
 <h2 id="四、打开dex增量编译"><a href="#四、打开dex增量编译" class="headerlink" title="四、打开dex增量编译"></a>四、打开dex增量编译</h2><p>在Module的build.gradle中添加如下代码</p>
 <pre><code>dexOptions {
         incremental true
@@ -462,7 +462,7 @@
 <pre><code>org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.configureondemand=true
-org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</code></pre><h2 id="六、使用本地gradle"><a href="#六、使用本地gradle" class="headerlink" title="六、使用本地gradle"></a>六、使用本地gradle</h2><p>在Android studio–&gt;Settings–&gt;Gradle 将offline work勾选上，如图：<br><img src="4.jpg" alt></p>
+org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</code></pre><h2 id="六、使用本地gradle"><a href="#六、使用本地gradle" class="headerlink" title="六、使用本地gradle"></a>六、使用本地gradle</h2><p>在Android studio–&gt;Settings–&gt;Gradle 将offline work勾选上，如图：<br><img src="28ff3e9a/4.jpg" alt></p>
 
             </div>
             <hr />

@@ -462,10 +462,10 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>app上线后，一般公司都希望跟踪app在市场上的使用情况。包括新增用户、活跃用户、渠道信息、错误信息等，还有例如商城类的app，需要跟踪用户最喜欢浏览哪种类型的店铺或商品。这些都可以通过集成友盟统计来轻松实现。</p>
 <p>（小提示：由于截的都是大图，可能显示比较模糊，需要查看清晰图片则鼠标点击图片放大即可）</p>
-<h2 id="一、集成"><a href="#一、集成" class="headerlink" title="一、集成"></a>一、集成</h2><h3 id="1-1-获取Appkey"><a href="#1-1-获取Appkey" class="headerlink" title="1.1 获取Appkey"></a>1.1 获取Appkey</h3><p>集成友盟SDK之前，首先需要到<a href="http://www.umeng.com/" target="_blank" rel="noopener">友盟官网</a>注册并且添加新应用，获取Appkey（一般公司项目不需要自己申请账号，跟项目经理要即可）。每个应用对应的Appkey是唯一的，如下：<br><img src="1.png" alt></p>
+<h2 id="一、集成"><a href="#一、集成" class="headerlink" title="一、集成"></a>一、集成</h2><h3 id="1-1-获取Appkey"><a href="#1-1-获取Appkey" class="headerlink" title="1.1 获取Appkey"></a>1.1 获取Appkey</h3><p>集成友盟SDK之前，首先需要到<a href="http://www.umeng.com/" target="_blank" rel="noopener">友盟官网</a>注册并且添加新应用，获取Appkey（一般公司项目不需要自己申请账号，跟项目经理要即可）。每个应用对应的Appkey是唯一的，如下：<br><img src="2e8cc733/1.png" alt></p>
 <h3 id="1-2-导入SDK"><a href="#1-2-导入SDK" class="headerlink" title="1.2 导入SDK"></a>1.2 导入SDK</h3><p>有两种方法：（本Demo中采用第二种方法）</p>
 <ul>
-<li><p>方法一：下载SDK，将解压出来的jar包复制到工程libs/目录下。<br>下载地址：<a href="http://mobile.umeng.com/custom_sdk" target="_blank" rel="noopener">http://mobile.umeng.com/custom_sdk</a><br>只需要下载Analytics SDK即可，如下：<br><img src="2.png" alt></p>
+<li><p>方法一：下载SDK，将解压出来的jar包复制到工程libs/目录下。<br>下载地址：<a href="http://mobile.umeng.com/custom_sdk" target="_blank" rel="noopener">http://mobile.umeng.com/custom_sdk</a><br>只需要下载Analytics SDK即可，如下：<br><img src="2e8cc733/2.png" alt></p>
 </li>
 <li><p>方法二：添加SDK在maven中心库的线上依赖<br>1、在app的builde.gradle中添加依赖</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*友盟统计需要的最新版本组件化基础库和统计SDK*/</span>
@@ -621,12 +621,12 @@ public class MyApplication extends Application {
 </li>
 </ul>
 <p>安装app启动后。在友盟后台就可以看到统计的数据了。如下：</p>
-<p>新增用户、启动次数、日活等数据：<br><img src="3.png" alt><br>渠道分析数据：<br><img src="4.png" alt></p>
+<p>新增用户、启动次数、日活等数据：<br><img src="2e8cc733/3.png" alt><br>渠道分析数据：<br><img src="2e8cc733/4.png" alt></p>
 <h3 id="2-2-自定义事件统计"><a href="#2-2-自定义事件统计" class="headerlink" title="2.2 自定义事件统计"></a>2.2 自定义事件统计</h3><p>自定义事件可以实现在应用程序中埋点来统计用户的点击行为。例如我们的应用是商城类的，就需要统计用户是喜欢进入“nike”店铺，还是“new banlance”店铺。自定义事件目前包括”计数事件”和”计算事件”，这里主要讲下计数事件。</p>
-<p>1、首先需要在友盟后台添加自定义事件：设置-事件-手工添加-添加事件。如下：<br><img src="5.png" alt></p>
+<p>1、首先需要在友盟后台添加自定义事件：设置-事件-手工添加-添加事件。如下：<br><img src="2e8cc733/5.png" alt></p>
 <p>2、在需要监听自定义事件的地方添加代码，如下模拟点击进入”nike“店铺。<br>第二个参数为当前统计的事件ID，需要与友盟后台设置的事件ID一致（即上图的事件ID）。</p>
 <pre class="line-numbers language-java"><code class="language-java">MobclickAgent<span class="token punctuation">.</span><span class="token function">onEvent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">"nike"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//参数二为当前统计的事件ID</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>3、运行app，触发该事件后。在友盟后台就可以看到统计的数据了。如下：<br>其中消息数量即为事件被触发的次数。<br><img src="6.png" alt></p>
+<p>3、运行app，触发该事件后。在友盟后台就可以看到统计的数据了。如下：<br>其中消息数量即为事件被触发的次数。<br><img src="2e8cc733/6.png" alt></p>
 <h3 id="2-3-错误统计"><a href="#2-3-错误统计" class="headerlink" title="2.3 错误统计"></a>2.3 错误统计</h3><p>错误分析是友盟为移动开发者提供的Crash收集和分析工具，帮助开发者监测App在移动设备上的运行状况，及时发现并解决错误，提升App的稳定性。</p>
 <p>Android统计SDK从V4.6版本开始内建错误统计，不需要开发者再手动集成。<br>SDK通过Thread.UncaughtExceptionHandler 捕获程序崩溃日志，并在程序下次启动时发送到服务器。 如不需要错误统计功能，可通过此方法关闭</p>
 <pre class="line-numbers language-java"><code class="language-java">MobclickAgent<span class="token punctuation">.</span><span class="token function">setCatchUncaughtExceptions</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -642,7 +642,7 @@ public class MyApplication extends Application {
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">createError</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>再到友盟后台查看错误，如下：<br><img src="7.png" alt></p>
+<p>再到友盟后台查看错误，如下：<br><img src="2e8cc733/7.png" alt></p>
 <h3 id="2-4-其他统计"><a href="#2-4-其他统计" class="headerlink" title="2.4 其他统计"></a>2.4 其他统计</h3><p>上面三个统计是比较常用的统计，还有很多统计，例如账号统计、页面统计等就不一一列举了。有需求的可以参考<a href="http://dev.umeng.com/sdk_integate/android_sdk/analytics_doc#1" target="_blank" rel="noopener">友盟统计集成文档</a></p>
 <p>本文demo源码地址：<a href="https://github.com/wildma/UMengAnalytics" target="_blank" rel="noopener">https://github.com/wildma/UMengAnalytics</a></p>
 

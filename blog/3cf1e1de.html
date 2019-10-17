@@ -467,10 +467,10 @@
 <li><a href="https://www.jianshu.com/p/ec5a1a30694b" target="_blank" rel="noopener">Android 屏幕适配：最全面的解决方案</a></li>
 <li><a href="https://blog.csdn.net/lmj623565791/article/details/45460089" target="_blank" rel="noopener">Android 屏幕适配方案</a></li>
 </ul>
-<h2 id="二、屏幕分辨率限定符与-smallestWidth-限定符适配原理"><a href="#二、屏幕分辨率限定符与-smallestWidth-限定符适配原理" class="headerlink" title="二、屏幕分辨率限定符与 smallestWidth 限定符适配原理"></a>二、屏幕分辨率限定符与 smallestWidth 限定符适配原理</h2><h3 id="2-1-屏幕分辨率限定符适配原理"><a href="#2-1-屏幕分辨率限定符适配原理" class="headerlink" title="2.1 屏幕分辨率限定符适配原理"></a>2.1 屏幕分辨率限定符适配原理</h3><p>屏幕分辨率限定符适配需要在 res 文件夹下创建各种屏幕分辨率对应的 values-xxx 文件夹，如下图：<br><img src="1.png" alt></p>
-<p>然后根据一个基准分辨率，例如基准分辨率为 1280x720，将宽度分成 720 份，取值为 1px~720px，将高度分成 1280 份，取值为 1px~1280px，生成各种分辨率对应的 dimens.xml 文件。如下分别为分辨率 1280x720 与 1920x1080 所对应的横向dimens.xml 文件：<br><img src="2.png" alt></p>
+<h2 id="二、屏幕分辨率限定符与-smallestWidth-限定符适配原理"><a href="#二、屏幕分辨率限定符与-smallestWidth-限定符适配原理" class="headerlink" title="二、屏幕分辨率限定符与 smallestWidth 限定符适配原理"></a>二、屏幕分辨率限定符与 smallestWidth 限定符适配原理</h2><h3 id="2-1-屏幕分辨率限定符适配原理"><a href="#2-1-屏幕分辨率限定符适配原理" class="headerlink" title="2.1 屏幕分辨率限定符适配原理"></a>2.1 屏幕分辨率限定符适配原理</h3><p>屏幕分辨率限定符适配需要在 res 文件夹下创建各种屏幕分辨率对应的 values-xxx 文件夹，如下图：<br><img src="3cf1e1de/1.png" alt></p>
+<p>然后根据一个基准分辨率，例如基准分辨率为 1280x720，将宽度分成 720 份，取值为 1px~720px，将高度分成 1280 份，取值为 1px~1280px，生成各种分辨率对应的 dimens.xml 文件。如下分别为分辨率 1280x720 与 1920x1080 所对应的横向dimens.xml 文件：<br><img src="3cf1e1de/2.png" alt></p>
 <p>假设设计图上的一个控件的宽度为 720px，那么布局中就写 android:layout_width=”@dimen/x720” ，当运行程序的时候，系统会根据设备的分辨率去寻找对应的 dimens.xml 文件。例如运行在分辨率为 1280x720 的设备上，系统会自动找到对应的 values-1280x720 文件夹下的 lay_x.xml 文件，由上图可知 x720 对应的值为<br> 720.px，可铺满该屏幕宽度。运行在分辨率为 1920x1080 的设备上，系统会自动找到对应的 values-1920x1080 文件夹下的 lay_x.xml 文件，由上图可知 x720 对应的值为 1080.0px，可铺满该屏幕宽度。这样就达到了屏幕适配的要求！</p>
-<h3 id="2-2-smallestWidth-限定符-适配原理"><a href="#2-2-smallestWidth-限定符-适配原理" class="headerlink" title="2.2 smallestWidth 限定符 适配原理"></a>2.2 smallestWidth 限定符 适配原理</h3><p> smallestWidth 限定符适配原理与屏幕分辨率限定符适配原理一样，系统都是根据限定符去寻找对应的 dimens.xml 文件。例如程序运行在最小宽度为 360dp 的设备上，系统会自动找到对应的 values-sw360dp 文件夹下的 dimens.xml 文件。区别就在于屏幕分辨率限定符适配是拿 px 值等比例缩放，而 smallestWidth 限定符适配是拿 dp 值来等比缩放而已。需要注意的是“最小宽度”是不区分方向的，即无论是宽度还是高度，哪一边小就认为哪一边是“最小宽度”。如下分别为最小宽度为 360dp 与最小宽度为 640dp 所对应的 dimens.xml 文件：<br><img src="3.png" alt></p>
+<h3 id="2-2-smallestWidth-限定符-适配原理"><a href="#2-2-smallestWidth-限定符-适配原理" class="headerlink" title="2.2 smallestWidth 限定符 适配原理"></a>2.2 smallestWidth 限定符 适配原理</h3><p> smallestWidth 限定符适配原理与屏幕分辨率限定符适配原理一样，系统都是根据限定符去寻找对应的 dimens.xml 文件。例如程序运行在最小宽度为 360dp 的设备上，系统会自动找到对应的 values-sw360dp 文件夹下的 dimens.xml 文件。区别就在于屏幕分辨率限定符适配是拿 px 值等比例缩放，而 smallestWidth 限定符适配是拿 dp 值来等比缩放而已。需要注意的是“最小宽度”是不区分方向的，即无论是宽度还是高度，哪一边小就认为哪一边是“最小宽度”。如下分别为最小宽度为 360dp 与最小宽度为 640dp 所对应的 dimens.xml 文件：<br><img src="3cf1e1de/3.png" alt></p>
 <ul>
 <li>获取设备最小宽度代码为：<pre class="line-numbers language-java"><code class="language-java">      DisplayMetrics dm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DisplayMetrics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token function">getWindowManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDefaultDisplay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getMetrics</span><span class="token punctuation">(</span>dm<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -503,28 +503,28 @@ ScreenUtils——&gt;<a href="https://github.com/wildma/ScreenAdaptation/blob/ma
 <ol>
 <li>在 Android Studio 中安装 ScreenMatch 插件<br>下载插件 <a href="https://github.com/wildma/ScreenAdaptation/raw/master/ScreenMatch.jar" target="_blank" rel="noopener">ScreenMatch</a> 到本地，点击菜单栏上的 File -&gt; Settings -&gt; Plugins -&gt; Install plugin from disk，然后选择我们刚刚下载的插件，最后点击 “OK”，重启 Andorid Studio 即可。如下图所示：</li>
 </ol>
-<p><img src="4.png" alt></p>
+<p><img src="3cf1e1de/4.png" alt></p>
 <ol start="2">
 <li>在项目的默认 values 文件夹中需要一份 dimens.xml 文件<br>我在 <a href="https://github.com/wildma/ScreenAdaptation/blob/master/app/src/main/res/values/dimens.xml" target="_blank" rel="noopener">github 源码</a>已经提供了一份，直接复制过来即可。</li>
 </ol>
-<p><img src="5.png" alt></p>
+<p><img src="3cf1e1de/5.png" alt></p>
 <ol start="3">
 <li>执行生成<br>插件安装好后，在项目的任意目录或文件上右键，选择 ScreenMatch 选项。如下图：</li>
 </ol>
-<p><img src="6.png" alt></p>
+<p><img src="3cf1e1de/6.png" alt></p>
 <p>然后选择在哪个 module 下执行适配。即基于哪个 module 下的 res/values/dimens.xml 文件作为基准 dimens.xml 文件，生成的其他尺寸 dimens.xml 文件放在哪个 module 下。例如选择 app，然后点击 OK ，出现如下界面表示生成文件成功。如下图：</p>
-<p><img src="7.png" alt></p>
+<p><img src="3cf1e1de/7.png" alt></p>
 <p>然后再看看 res 目录下会自动生成一堆 dimens.xml 文件，如下图：</p>
-<p><img src="8.png" alt></p>
+<p><img src="3cf1e1de/8.png" alt></p>
 <p>通过上面的步骤就已经生成了所有设备对应的 dimens.xml 文件。</p>
 <ol start="4">
 <li>根据设计图填写最小宽度基准值，并填写需要适配的设备最小宽度 dp 值</li>
 </ol>
 <p>步骤 3 是以插件默认的最小宽度基准值为 360dp，适配的设备最小宽度为<br>320,360,384,392.7272,400,410,411.4285,432,480,533,592,600,640,662,720,768,800,811,820,960,961,1024,1280,1365（包含了平板和 TV ）生成的文件，但实际情况要根据设计图和需求设置。</p>
 <p>例如设计图的最小宽度为 375dp，则需要更改最小宽度基准值为 375dp。如果项目只需要适配手机的话，适配的设备最小宽度保留 320,360,384,392.7272,400,410,411.4285,432,480 即可，若发现手机还有其他最小宽度自行加上即可，也麻烦把该最小宽度提供给我，我们一起来完善该份适配。</p>
-<p>以上修改需要在配置文件里修改，即 screenMatch.properties 文件，该配置文件是执行完上面第 3 步后自动生成在项目的跟目录下的。如下图：<br><img src="9.png" alt></p>
+<p>以上修改需要在配置文件里修改，即 screenMatch.properties 文件，该配置文件是执行完上面第 3 步后自动生成在项目的跟目录下的。如下图：<br><img src="3cf1e1de/9.png" alt></p>
 <p>打开配置文件，修改下图中 1、3、4 的值即可。(图中单位均为 dp)<br>1：最小宽度基准值，填写设计图的最小宽度值即可。<br>2：插件默认适配的最小宽度值，即默认情况下会生成如下值的 dimens.xml 文件。<br>3：需要适配的最小宽度值（如果是小数，则保留4位小数。例如 392.727272…，则取 392.7272），即你想生成哪些 dimens.xml 文件。<br>4：忽略不需要适配的最小宽度值，即忽略掉插件默认生成的 dimens.xml 文件。</p>
-<p><img src="10.png" alt></p>
+<p><img src="3cf1e1de/10.png" alt></p>
 <p>配置文件修改完成后，重新执行第 3 步，生成新的 dimens.xml 文件。</p>
 <p>当然！如果你的设计图也是标准的 360dp，那么上面的步骤你可以忽略。直接复制我 github 上你需要的 dimens.xml 文件到你的项目即可，<strong>默认的 values 文件夹下也需要一份</strong>。</p>
 <h3 id="4-2-根据设计图标注，在布局写上对应的值。"><a href="#4-2-根据设计图标注，在布局写上对应的值。" class="headerlink" title="4.2 根据设计图标注，在布局写上对应的值。"></a>4.2 根据设计图标注，在布局写上对应的值。</h3><p><strong>设计图标注多少 dp，布局中就写多少 dp ，非常方便！</strong></p>

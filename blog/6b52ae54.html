@@ -470,37 +470,37 @@
 </li>
 <li>小型传输，开销很小（固定长度的头部是 2 字节），协议交换最小化，以降低网络流量。<br>使用 Last Will 和 Testament 特性通知有关各方客户端异常中断的机制。</li>
 </ol>
-<h3 id="1-3-MQTT体系结构"><a href="#1-3-MQTT体系结构" class="headerlink" title="1.3 MQTT体系结构"></a>1.3 MQTT体系结构</h3><p><img src="1.png" alt></p>
+<h3 id="1-3-MQTT体系结构"><a href="#1-3-MQTT体系结构" class="headerlink" title="1.3 MQTT体系结构"></a>1.3 MQTT体系结构</h3><p><img src="6b52ae54/1.png" alt></p>
 <p>该体系结构图是结合文章开头说的例子画出来的，能很好的描述MQTT在实际运用中的三种身份。即进景区入口配置一台闸机设备作为发布者（Publisher），当闸机设备监控到有游客进入的时候会发布一个带主题（Topic）的消息（例如主题为“tourist_enter”）给服务器（MQTT-Broker），当服务器接收到发布过来的消息后，会进行基于主题的过滤，将消息转发给订阅了该主题的订阅者。 而景区大屏幕作为订阅者（Subscriber）,订阅的主题也是“tourist_enter”，这样就能接收到服务器转发过来的消息，收到消息后在大屏幕上实时显示当前景区人数即可。</p>
 <p>该结构图中的闸机设备和大屏幕都是客户端，都可以进行发布和订阅。例如大屏幕收到消息后也可以发布一个消息通知闸机设备已经收到了它发过来的消息。</p>
 <h2 id="二、MQTT服务器搭建"><a href="#二、MQTT服务器搭建" class="headerlink" title="二、MQTT服务器搭建"></a>二、MQTT服务器搭建</h2><p>想要使用MQTT，首先需要搭建一个MQTT的服务器（在公司一般是后台人员负责搭建）。一般前端人员为了方便测试都会先使用第三方提供的服务器，<a href="https://github.com/mqtt/mqtt.github.io/wiki/servers" target="_blank" rel="noopener">官方</a>推荐了很多种服务器，我这里选用的是Apollo（属于Apache ActiveMQ）。</p>
 <ol>
-<li><p>下载、解压<br>点击<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">下载地址</a>，选择最适合你的操作系统的版本进行下载，我这里用的是Windows，进行如下选择：<img src="2.png" alt> <img src="3.png" alt>下载后进行解压，我这里解压到D盘根目录下（D:\apache-apollo-1.7.1）。</p>
+<li><p>下载、解压<br>点击<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">下载地址</a>，选择最适合你的操作系统的版本进行下载，我这里用的是Windows，进行如下选择：<img src="6b52ae54/2.png" alt> <img src="6b52ae54/3.png" alt>下载后进行解压，我这里解压到D盘根目录下（D:\apache-apollo-1.7.1）。</p>
 </li>
-<li><p>创建服务器实例<br>命令行进入解压文件的bin目录下（例如：cd D:\apache-apollo-1.7.1\bin），然后输入apollo create mybroker（其中mybroker为自定义的服务器名称）创建服务器实例。具体如下图：<img src="4.png" alt><br>之后会在bin目录下生成mybroker文件夹，其中mybroker文件夹下的etc\apollo.xml文件下是配置服务器信息的文件，etc\users.properties文件包含连接MQTT服务器时用到的用户名和密码，注意这里只能修改密码（发现很多博客在没有验证的情况下就说用户名和密码都在这里修改），如果要修改用户名需要到etc\groups.properties文件下去修改。etc\groups.properties文件下的用户名与etc\users.properties文件下的密码是一一对应的，如下表示一个组中配置了两个用户分别是admin与wildma，然后这两个用户名对应的密码分别是password与123456<br><img src="5.png" alt></p>
+<li><p>创建服务器实例<br>命令行进入解压文件的bin目录下（例如：cd D:\apache-apollo-1.7.1\bin），然后输入apollo create mybroker（其中mybroker为自定义的服务器名称）创建服务器实例。具体如下图：<img src="6b52ae54/4.png" alt><br>之后会在bin目录下生成mybroker文件夹，其中mybroker文件夹下的etc\apollo.xml文件下是配置服务器信息的文件，etc\users.properties文件包含连接MQTT服务器时用到的用户名和密码，注意这里只能修改密码（发现很多博客在没有验证的情况下就说用户名和密码都在这里修改），如果要修改用户名需要到etc\groups.properties文件下去修改。etc\groups.properties文件下的用户名与etc\users.properties文件下的密码是一一对应的，如下表示一个组中配置了两个用户分别是admin与wildma，然后这两个用户名对应的密码分别是password与123456<br><img src="6b52ae54/5.png" alt></p>
 </li>
 </ol>
 <ol start="3">
 <li>开启服务器<br>进入mybroker文件夹下的bin目录下，输入apollo-broker.cmd run开启服务器。看到如下界面表示开启成功。</li>
 </ol>
-<p><img src="6.png" alt></p>
+<p><img src="6b52ae54/6.png" alt></p>
 <ol start="4">
 <li>验证是否安装成功<br>最后在浏览器输入<a href="http://127.0.0.1:61680/，能成功打开界面就表示安装成功了。可以用上面配置的两个用户名进行登录。" target="_blank" rel="noopener">http://127.0.0.1:61680/，能成功打开界面就表示安装成功了。可以用上面配置的两个用户名进行登录。</a></li>
 </ol>
 <h2 id="三、调试MQTT的客户端——mqttfx-的使用"><a href="#三、调试MQTT的客户端——mqttfx-的使用" class="headerlink" title="三、调试MQTT的客户端——mqttfx 的使用"></a>三、调试MQTT的客户端——mqttfx 的使用</h2><p>为了方便调试MQTT，我这里选用mqttfx作为闸机设备客户端。具体使用如下：</p>
 <ol>
-<li><p>下载<br>点击<a href="http://www.jensd.de/apps/mqttfx/" target="_blank" rel="noopener">下载地址</a>，选择最适合你的操作系统的版本进行下载。如下图：<img src="7.png" alt></p>
+<li><p>下载<br>点击<a href="http://www.jensd.de/apps/mqttfx/" target="_blank" rel="noopener">下载地址</a>，选择最适合你的操作系统的版本进行下载。如下图：<img src="6b52ae54/7.png" alt></p>
 </li>
-<li><p>安装<br>下载后一路点击下一步即可安装成功，安装成功后打开软件界面。如下图：<img src="8.png" alt></p>
+<li><p>安装<br>下载后一路点击下一步即可安装成功，安装成功后打开软件界面。如下图：<img src="6b52ae54/8.png" alt></p>
 </li>
-<li><p>配置<br>点击上图中的设置，添加一个新的配置文件。分别填写配置文件名称、服务器地址（由于服务器就是本机，所以这里用本机的IP地址即可，ipconfig/all可获取IP地址）、端口号（开启服务器后会显示接受连接的地址：Accepting connections at: tcp://0.0.0.0:61613，用这里的端口号61613即可，见上文中“开启服务器”后的图片）、用户名、密码，点击OK即可。如下图：<img src="9.png" alt></p>
+<li><p>配置<br>点击上图中的设置，添加一个新的配置文件。分别填写配置文件名称、服务器地址（由于服务器就是本机，所以这里用本机的IP地址即可，ipconfig/all可获取IP地址）、端口号（开启服务器后会显示接受连接的地址：Accepting connections at: tcp://0.0.0.0:61613，用这里的端口号61613即可，见上文中“开启服务器”后的图片）、用户名、密码，点击OK即可。如下图：<img src="6b52ae54/9.png" alt></p>
 </li>
-<li><p>订阅消息<br>选择刚刚添加的配置文件“闸机设备”，点击”Connect”连接服务器。点击“Subscribe”，设置一个Topic（例如tourist_enter）,点击Topic右侧的“Subscribe”进行消息订阅。如下图：<img src="10.png" alt></p>
+<li><p>订阅消息<br>选择刚刚添加的配置文件“闸机设备”，点击”Connect”连接服务器。点击“Subscribe”，设置一个Topic（例如tourist_enter）,点击Topic右侧的“Subscribe”进行消息订阅。如下图：<img src="6b52ae54/10.png" alt></p>
 </li>
-<li><p>发布消息<br>点击“Publish”，输入刚刚订阅的Topic (tourist_enter)，输入需要发布的消息内容（tourist enter）,点击Topic右侧的“Publish”进行消息发布。如下图：<img src="11.png" alt></p>
+<li><p>发布消息<br>点击“Publish”，输入刚刚订阅的Topic (tourist_enter)，输入需要发布的消息内容（tourist enter）,点击Topic右侧的“Publish”进行消息发布。如下图：<img src="6b52ae54/11.png" alt></p>
 </li>
 </ol>
-<p>再返回订阅界面就能看到刚刚发布的消息，如下图：<img src="12.png" alt></p>
+<p>再返回订阅界面就能看到刚刚发布的消息，如下图：<img src="6b52ae54/12.png" alt></p>
 <h2 id="四、Android中MQTT的使用"><a href="#四、Android中MQTT的使用" class="headerlink" title="四、Android中MQTT的使用"></a>四、Android中MQTT的使用</h2><p>Android中使用MQTT需要使用到Paho Android Service库，Paho Android Service是一个用Java编写的MQTT客户端库。<br>GitHub地址：<a href="https://github.com/eclipse/paho.mqtt.android" target="_blank" rel="noopener">https://github.com/eclipse/paho.mqtt.android</a></p>
 <h3 id="4-1-集成"><a href="#4-1-集成" class="headerlink" title="4.1 集成"></a>4.1 集成</h3><ol>
 <li>在module的build.gradle文件中添加依赖<pre class="line-numbers language-java"><code class="language-java">repositories <span class="token punctuation">{</span>
@@ -786,13 +786,13 @@ dependencies <span class="token punctuation">{</span>
 <ol>
 <li><p>将大屏幕与服务器连接<br>即将大屏幕APK运行到Android TV上，没有TV可以用Android手机代替。记得代码中的发布主题设置为“tourist_enter”，响应主题设置为“message_arrived”。</p>
 </li>
-<li><p>将闸机设备与服务器连接<br>选择闸机设备——点击连接——发布主题设置为“tourist_enter”，如下图：<img src="13.png" alt><br>切换到Subscribe界面——响应主题设置为“message_arrived”——点击Subscribe按钮进行订阅，如下图：<br><img src="14.png" alt></p>
+<li><p>将闸机设备与服务器连接<br>选择闸机设备——点击连接——发布主题设置为“tourist_enter”，如下图：<img src="6b52ae54/13.png" alt><br>切换到Subscribe界面——响应主题设置为“message_arrived”——点击Subscribe按钮进行订阅，如下图：<br><img src="6b52ae54/14.png" alt></p>
 </li>
 <li><p>发布<br>点击步骤2图中的Publish按钮进行发布</p>
 </li>
 <li><p>大屏幕收到消息<br>这时候大屏幕收到服务器转发过来的消息，就会在大屏幕上显示进场人数，并响应给对方告知消息已到达。代码中为了简单就弹个Toast表示，具体显示就不贴图了。</p>
 </li>
-<li><p>闸机设备收到消息<br>这时候mqttfx切换到Subscribe界面就可以看到大屏幕响应回来的消息，如下：<img src="15.png" alt></p>
+<li><p>闸机设备收到消息<br>这时候mqttfx切换到Subscribe界面就可以看到大屏幕响应回来的消息，如下：<img src="6b52ae54/15.png" alt></p>
 </li>
 </ol>
 <p>如上流程就是大概模拟我在开发中用到的MQTT使用流程，当然我的真实项目并没有那么简单，还包括各种数据和UI交互显示。希望模拟这种真实的使用流程进行讲解能让各位更好的理解MQTT的使用，有不足的请指出。</p>

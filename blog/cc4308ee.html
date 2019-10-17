@@ -461,7 +461,7 @@ OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也�
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很多公司考虑到安全问题，项目中都采用https加密协议进行数据传输。但是一些公司又不想花一笔钱去CA申请证书，所以就采用自签名的证书。</p>
-<p>OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也是https链接（<a href="https://www.baidu.com/）。" target="_blank" rel="noopener">https://www.baidu.com/）。</a> 但是如果是你们公司自签名(即自己用keytool生成的证书，而不是采用通过CA认证的证书)的服务器，OkHttp是无法访问的，例如访问12306网站（<a href="https://kyfw.12306.cn/otn/）" target="_blank" rel="noopener">https://kyfw.12306.cn/otn/）</a> ，会报如下错误：<br><img src="1.jpg" alt></p>
+<p>OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也是https链接（<a href="https://www.baidu.com/）。" target="_blank" rel="noopener">https://www.baidu.com/）。</a> 但是如果是你们公司自签名(即自己用keytool生成的证书，而不是采用通过CA认证的证书)的服务器，OkHttp是无法访问的，例如访问12306网站（<a href="https://kyfw.12306.cn/otn/）" target="_blank" rel="noopener">https://kyfw.12306.cn/otn/）</a> ，会报如下错误：<br><img src="cc4308ee/1.jpg" alt></p>
 <h2 id="一、HTTPS的工作原理"><a href="#一、HTTPS的工作原理" class="headerlink" title="一、HTTPS的工作原理"></a>一、HTTPS的工作原理</h2><p>HTTPS在传输数据之前需要客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。握手过程的简单描述如下：</p>
 <ol>
 <li>浏览器将自己支持的一套加密算法、HASH算法发送给网站。</li>
@@ -472,8 +472,8 @@ OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也�
 </ol>
 <p>握手过程中如果有任何错误，都会使加密连接断开，从而阻止了隐私信息的传输。</p>
 <h2 id="二、使用OKHTTP请求自签名的https服务器数据"><a href="#二、使用OKHTTP请求自签名的https服务器数据" class="headerlink" title="二、使用OKHTTP请求自签名的https服务器数据"></a>二、使用OKHTTP请求自签名的https服务器数据</h2><p><strong>以下我们使用12306网站为例</strong></p>
-<p>（1） 首先去12306网站首页下载证书 <a href="http://www.12306.cn/" target="_blank" rel="noopener">http://www.12306.cn/</a><br><img src="2.jpg" alt></p>
-<p>（2） 将下载的证书srca.cer放到工程的assets文件夹下。<br><img src="3.jpg" alt></p>
+<p>（1） 首先去12306网站首页下载证书 <a href="http://www.12306.cn/" target="_blank" rel="noopener">http://www.12306.cn/</a><br><img src="cc4308ee/2.jpg" alt></p>
+<p>（2） 将下载的证书srca.cer放到工程的assets文件夹下。<br><img src="cc4308ee/3.jpg" alt></p>
 <p>（3） 添加HTTPS工具类</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> android<span class="token punctuation">.</span>content<span class="token punctuation">.</span>Context<span class="token punctuation">;</span>
 
@@ -631,7 +631,7 @@ OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也�
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（5） 最后能打印出这些信息就说明请求成功啦！<br><img src="4.jpg" alt></p>
+<p>（5） 最后能打印出这些信息就说明请求成功啦！<br><img src="cc4308ee/4.jpg" alt></p>
 <p><strong>注意：别忘了加权限和依赖okhttp库</strong></p>
 <p>Demo地址：<a href="https://github.com/wildma/okhttps" target="_blank" rel="noopener">https://github.com/wildma/okhttps</a><br>参考博客：<a href="http://blog.csdn.Net/lmj623565791/article/details/48129405" target="_blank" rel="noopener">http://blog.csdn.Net/lmj623565791/article/details/48129405</a></p>
 

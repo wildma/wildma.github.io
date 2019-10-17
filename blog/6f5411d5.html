@@ -463,12 +463,12 @@
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近项目需要加入第三方分享和登录功能，之前其他项目的第三方分享和登录一直都使用ShareSDK实现的。为了统一使用友盟的全家桶，所以三方分享和登录也就选择了友盟。这里记录一下完整的集成与使用流程。</p>
 <h2 id="一、申请友盟Appkey"><a href="#一、申请友盟Appkey" class="headerlink" title="一、申请友盟Appkey"></a>一、申请友盟Appkey</h2><p>直接到<a href="http://www.umeng.com/" target="_blank" rel="noopener">友盟官网</a>申请即可。一般都不用自己去申请，跟项目经理要即可。<br>（我这里的Demo为了方便就直接用友盟Demo里面提供的Appkey，但是创建的项目包名也要和友盟一样。真实项目要自己另外申请）</p>
 <h2 id="二、下载SDK"><a href="#二、下载SDK" class="headerlink" title="二、下载SDK"></a>二、下载SDK</h2><p>下载地址：<a href="http://dev.umeng.com/social/android/sdk-download" target="_blank" rel="noopener">http://dev.umeng.com/social/android/sdk-download</a></p>
-<p>下载的时候根据自己需求进行选择，我这里选择选择的是精简版（包含常用的分享与登录功能），只测试微信，QQ，新浪微博。<br><img src="1.jpg" alt></p>
-<p>下载后解压出来是这样的：<br><img src="2.jpg" alt></p>
-<h2 id="三、准备资源"><a href="#三、准备资源" class="headerlink" title="三、准备资源"></a>三、准备资源</h2><p>使用友盟的集成工具快速集成友盟的分享SDK：双击 友盟集成工具.jar–&gt;选择使用的平台和IDE，如图：<br><img src="3.jpg" alt></p>
-<p>点击OK键，会在当前目录生成名为umeng_integratetool_result的文件夹，如图：<br><img src="4.jpg" alt></p>
-<h2 id="四、开始集成"><a href="#四、开始集成" class="headerlink" title="四、开始集成"></a>四、开始集成</h2><p>（1）将上面的文件夹依次粘贴到工程相应的文件夹即可，如图：<br><img src="5.jpg" alt></p>
-<p>（2）将debug.keystore文件拷贝到项目的app目录下（对应app build中相应的位置），目的是为了使用友盟的签名，如图：<br><img src="6.jpg" alt></p>
+<p>下载的时候根据自己需求进行选择，我这里选择选择的是精简版（包含常用的分享与登录功能），只测试微信，QQ，新浪微博。<br><img src="6f5411d5/1.jpg" alt></p>
+<p>下载后解压出来是这样的：<br><img src="6f5411d5/2.jpg" alt></p>
+<h2 id="三、准备资源"><a href="#三、准备资源" class="headerlink" title="三、准备资源"></a>三、准备资源</h2><p>使用友盟的集成工具快速集成友盟的分享SDK：双击 友盟集成工具.jar–&gt;选择使用的平台和IDE，如图：<br><img src="6f5411d5/3.jpg" alt></p>
+<p>点击OK键，会在当前目录生成名为umeng_integratetool_result的文件夹，如图：<br><img src="6f5411d5/4.jpg" alt></p>
+<h2 id="四、开始集成"><a href="#四、开始集成" class="headerlink" title="四、开始集成"></a>四、开始集成</h2><p>（1）将上面的文件夹依次粘贴到工程相应的文件夹即可，如图：<br><img src="6f5411d5/5.jpg" alt></p>
+<p>（2）将debug.keystore文件拷贝到项目的app目录下（对应app build中相应的位置），目的是为了使用友盟的签名，如图：<br><img src="6f5411d5/6.jpg" alt></p>
 <p>（3）添加回调Activity<br>微信回调：<br>其实在第一步拷贝的时候已经添加了。即在包名目录下创建wxapi文件夹，新建一个名为WXEntryActivity的activity继承WXCallbackActivity</p>
 <p>QQ与新浪微博的回调：<br>QQ与新浪不需要添加Activity，但需要在使用QQ分享或者授权的Activity中添加如下代码：<br>（注意onActivityResult不可在fragment中实现，如果在fragment中调用登录或分享，需要在fragment依赖的Activity中实现）</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
@@ -625,7 +625,7 @@
         UMShareAPI<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">onActivityResult</span><span class="token punctuation">(</span>requestCode<span class="token punctuation">,</span> resultCode<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：<br><img src="7.jpg" alt></p>
+<p>效果如下：<br><img src="6f5411d5/7.jpg" alt></p>
 <p>Demo下载地址：<a href="https://github.com/wildma/UMengThirdPartyShareLogin" target="_blank" rel="noopener">https://github.com/wildma/UMengThirdPartyShareLogin</a></p>
 
             </div>
