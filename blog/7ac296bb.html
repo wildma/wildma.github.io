@@ -8,10 +8,10 @@
     <meta name="baidu-site-verification" content="FLsnLJ6eF1">
     <meta name="google-site-verification" content="16Gna8-Ho0L5gq5QusQ01kiKooeZUaUSmH--RyCrrro">
     <meta name="360-site-verification" content>
-    <meta name="description" content="进程与线程
+    <meta name="description" content="一、进程与线程
 进程：进程就是正在执行的程序。
 线程：是程序执行的一条路径, 一个进程中可以包含多条线程。通俗理解：例如你打开微信就是打开一个进程，在微信里面和好友视频聊天就是开启了一条线程。
-两者之间的关系：一个进程里面可以有多条线程，至少有">
+两者之间的关系：一个进程里面可以有多条线程，至">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -470,13 +470,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><ul>
+                <h2 id="一、进程与线程"><a href="#一、进程与线程" class="headerlink" title="一、进程与线程"></a>一、进程与线程</h2><ul>
 <li><strong>进程</strong>：进程就是正在执行的程序。</li>
 <li><strong>线程</strong>：是程序执行的一条路径, 一个进程中可以包含多条线程。<br>通俗理解：例如你打开微信就是打开一个进程，在微信里面和好友视频聊天就是开启了一条线程。</li>
 <li><strong>两者之间的关系</strong>：<br>一个进程里面可以有多条线程，至少有一条线程。<br>一条线程一定会在一个进程里面。</li>
 </ul>
 <p>关于进程与线程的讲解，这篇文章讲的挺好的–&gt;<a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释</a></p>
-<h2 id="创建线程的三种方式"><a href="#创建线程的三种方式" class="headerlink" title="创建线程的三种方式"></a>创建线程的三种方式</h2><h3 id="一、继承Thread"><a href="#一、继承Thread" class="headerlink" title="一、继承Thread"></a>一、继承Thread</h3><p>1、定义一个类MyThread继承Thread，并重写run方法。<br>2、将要执行的代码写在run方法中。<br>3、创建该类的实例，并调用start()方法开启线程。<br>代码如下：</p>
+<h2 id="二、创建线程的三种方式"><a href="#二、创建线程的三种方式" class="headerlink" title="二、创建线程的三种方式"></a>二、创建线程的三种方式</h2><h3 id="2-1-继承Thread"><a href="#2-1-继承Thread" class="headerlink" title="2.1 继承Thread"></a>2.1 继承Thread</h3><p>1、定义一个类MyThread继承Thread，并重写run方法。<br>2、将要执行的代码写在run方法中。<br>3、创建该类的实例，并调用start()方法开启线程。<br>代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -501,7 +501,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="二、实现Runnable接口"><a href="#二、实现Runnable接口" class="headerlink" title="二、实现Runnable接口"></a>二、实现Runnable接口</h3><p>1、定义一个类MyRunnable实现Runnable接口，并重写run方法。<br>2、将要执行的代码写在run方法中。<br>3、创建Thread对象, 传入MyRunnable的实例，并调用start()方法开启线程。<br>代码如下：</p>
+<h3 id="2-2-实现Runnable接口"><a href="#2-2-实现Runnable接口" class="headerlink" title="2.2 实现Runnable接口"></a>2.2 实现Runnable接口</h3><p>1、定义一个类MyRunnable实现Runnable接口，并重写run方法。<br>2、将要执行的代码写在run方法中。<br>3、创建Thread对象, 传入MyRunnable的实例，并调用start()方法开启线程。<br>代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -527,7 +527,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="三、实现Callable接口"><a href="#三、实现Callable接口" class="headerlink" title="三、实现Callable接口"></a>三、实现Callable接口</h3><p>Callable是类似于Runnable的接口，实现Callable接口的类和实现Runnable的类都是可被其它线程执行的任务。</p>
+<h3 id="2-3-实现Callable接口"><a href="#2-3-实现Callable接口" class="headerlink" title="2.3 实现Callable接口"></a>2.3 实现Callable接口</h3><p>Callable是类似于Runnable的接口，实现Callable接口的类和实现Runnable的类都是可被其它线程执行的任务。</p>
 <p>1、自定义一个类MyCallable实现Callable接口，并重写call()方法<br>2、将要执行的代码写在call()方法中<br>3、创建线程池对象，调用submit()方法执行MyCallable任务，并返回Future对象<br>4、调用Future对象的get()方法获取call()方法执行完后的值<br>代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
@@ -570,16 +570,16 @@
 
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="创建线程的三种方式对比"><a href="#创建线程的三种方式对比" class="headerlink" title="创建线程的三种方式对比"></a>创建线程的三种方式对比</h2><h3 id="一、继承Thread类与实现Runnable接口的区别"><a href="#一、继承Thread类与实现Runnable接口的区别" class="headerlink" title="一、继承Thread类与实现Runnable接口的区别"></a>一、继承Thread类与实现Runnable接口的区别</h3><p>我们都知道java支持单继承，多实现。实现Runnable接口还可以继承其他类，而使用继承Thread就不能继承其他类了。所以当你想创建一个线程又希望继承其他类的时候就该选择实现Runnable接口的方式。</p>
-<h3 id="二、实现Callable接口与Runnable接口的区别"><a href="#二、实现Callable接口与Runnable接口的区别" class="headerlink" title="二、实现Callable接口与Runnable接口的区别"></a>二、实现Callable接口与Runnable接口的区别</h3><p>Callable执行的方法是call() ，而Runnable执行的方法是run()。<br> call() 方法有返回值还能抛出异常， run() 方法则没有没有返回值，也不能抛出异常。</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>一个进程中开启了不止一个线程。</p>
-<h3 id="二、多线程的优缺点"><a href="#二、多线程的优缺点" class="headerlink" title="二、多线程的优缺点"></a>二、多线程的优缺点</h3><ul>
+<h2 id="三、创建线程的三种方式对比"><a href="#三、创建线程的三种方式对比" class="headerlink" title="三、创建线程的三种方式对比"></a>三、创建线程的三种方式对比</h2><h3 id="3-1-继承Thread类与实现Runnable接口的区别"><a href="#3-1-继承Thread类与实现Runnable接口的区别" class="headerlink" title="3.1 继承Thread类与实现Runnable接口的区别"></a>3.1 继承Thread类与实现Runnable接口的区别</h3><p>我们都知道java支持单继承，多实现。实现Runnable接口还可以继承其他类，而使用继承Thread就不能继承其他类了。所以当你想创建一个线程又希望继承其他类的时候就该选择实现Runnable接口的方式。</p>
+<h3 id="3-2-实现Callable接口与Runnable接口的区别"><a href="#3-2-实现Callable接口与Runnable接口的区别" class="headerlink" title="3.2 实现Callable接口与Runnable接口的区别"></a>3.2 实现Callable接口与Runnable接口的区别</h3><p>Callable执行的方法是call() ，而Runnable执行的方法是run()。<br> call() 方法有返回值还能抛出异常， run() 方法则没有没有返回值，也不能抛出异常。</p>
+<h2 id="四、多线程"><a href="#四、多线程" class="headerlink" title="四、多线程"></a>四、多线程</h2><h3 id="4-1-概念"><a href="#4-1-概念" class="headerlink" title="4.1 概念"></a>4.1 概念</h3><p>一个进程中开启了不止一个线程。</p>
+<h3 id="4-2-多线程的优缺点"><a href="#4-2-多线程的优缺点" class="headerlink" title="4.2 多线程的优缺点"></a>4.2 多线程的优缺点</h3><ul>
 <li><p><strong>优点</strong><br>1、提高CPU的使用率<br>例如朋友圈发表图片，当你上传9张图片的时候，如果开启一个线程用同步的方式一张张上传图片，假设每次上传图片的线程只占用了CPU 1%d的资源，剩下的99%资源就浪费了。但是如果你开启9个线程同时上传图片，CPU就可以使用9%的资源了。<br>2、提高程序的工作效率<br>还是拿朋友圈发表图片来说，假设开启一个线程上传一张图片的时间是1秒，那么同步的方式上传9张就需要9秒，但是你开启9个线程同时上传图片，那么就只需要1秒就完成了。</p>
 </li>
 <li><p><strong>缺点</strong><br>1、如果有大量的线程,会影响性能,因为CPU需要在它们之间切换。<br>2、更多的线程需要更多的内存空间。<br>3、多线程操作可能会出现线程安全或者死锁等问题。</p>
 </li>
 </ul>
-<h3 id="三、多线程并行和并发的区别"><a href="#三、多线程并行和并发的区别" class="headerlink" title="三、多线程并行和并发的区别"></a>三、多线程并行和并发的区别</h3><ul>
+<h3 id="4-3-多线程并行和并发的区别"><a href="#4-3-多线程并行和并发的区别" class="headerlink" title="4.3 多线程并行和并发的区别"></a>4.3 多线程并行和并发的区别</h3><ul>
 <li><p><strong>概念</strong><br>并行：多个处理器或者多核处理器同时执行多个不同的任务。<br>并发：一个处理器处理多个任务。</p>
 </li>
 <li><p><strong>打个比喻</strong><br>并行就是一个人用他的左手喂女儿吃饭，同时用右手喂儿子吃饭。<br>并发就是一个人先喂女儿吃一口饭，接着喂儿子吃一口，然后再喂女儿吃一口，轮流喂。</p>
@@ -664,9 +664,9 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打印结果如下：</p>
 <p><img src="7ac296bb/2.jpg" alt></p>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="关于线程池"><a href="#关于线程池" class="headerlink" title="关于线程池"></a>关于线程池</h3><p>前面举的朋友圈发表图片的多线程例子中，为了提高CPU的使用率和程序的工作效率就需要创建9个线程来上传图片。但是线程的创建和销毁是非常耗CPU和内存的，因为它涉及到要与操作系统进行交互。这样就可能导致创建与销毁线程的开销比实际业务还大，而线程池就能很好的解决这些问题。线程池里的每一个线程结束后，并不会销毁（可以设置超时销毁），而是回到线程池中成为空闲状态，等待下一个对象来使用。</p>
-<h3 id="使用线程池的优点"><a href="#使用线程池的优点" class="headerlink" title="使用线程池的优点"></a>使用线程池的优点</h3><p>1、减少创建与销毁线程带来的性能开销。<br>2、可控制最大并发线程数，避免过多资源竞争而导致系统内存消耗完。<br>3、能更好的控制线程的开启与回收，并且能定时执行任务。</p>
-<h3 id="线程池中重要的几个类"><a href="#线程池中重要的几个类" class="headerlink" title="线程池中重要的几个类"></a>线程池中重要的几个类</h3><ul>
+<h2 id="五、线程池"><a href="#五、线程池" class="headerlink" title="五、线程池"></a>五、线程池</h2><h3 id="5-1-关于线程池"><a href="#5-1-关于线程池" class="headerlink" title="5.1 关于线程池"></a>5.1 关于线程池</h3><p>前面举的朋友圈发表图片的多线程例子中，为了提高CPU的使用率和程序的工作效率就需要创建9个线程来上传图片。但是线程的创建和销毁是非常耗CPU和内存的，因为它涉及到要与操作系统进行交互。这样就可能导致创建与销毁线程的开销比实际业务还大，而线程池就能很好的解决这些问题。线程池里的每一个线程结束后，并不会销毁（可以设置超时销毁），而是回到线程池中成为空闲状态，等待下一个对象来使用。</p>
+<h3 id="5-2-使用线程池的优点"><a href="#5-2-使用线程池的优点" class="headerlink" title="5.2 使用线程池的优点"></a>5.2 使用线程池的优点</h3><p>1、减少创建与销毁线程带来的性能开销。<br>2、可控制最大并发线程数，避免过多资源竞争而导致系统内存消耗完。<br>3、能更好的控制线程的开启与回收，并且能定时执行任务。</p>
+<h3 id="5-3-线程池中重要的几个类"><a href="#5-3-线程池中重要的几个类" class="headerlink" title="5.3 线程池中重要的几个类"></a>5.3 线程池中重要的几个类</h3><ul>
 <li><strong>Executor</strong>：java中线程池的顶级接口，可以称它为一个执行器，通过查看源码也知道，他只有一个简单的方法execute(Runnable command)，就是用来执行提交的任务。源码如下：<br>【Executor.java】<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Executor</span> <span class="token punctuation">{</span>
   <span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span>Runnable command<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -679,15 +679,18 @@
                                     60L<span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">,</span>
                                     <span class="token keyword">new</span> <span class="token class-name">SynchronousQueue</span><span class="token operator">&lt;</span>Runnable<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="ThreadPoolExecutor构造函数参数说明"><a href="#ThreadPoolExecutor构造函数参数说明" class="headerlink" title="ThreadPoolExecutor构造函数参数说明"></a>ThreadPoolExecutor构造函数参数说明</h3>下面从源码中拿一个参数最完整的来讲解，如下：<br>【ThreadPoolExecutor.java】<pre class="line-numbers language-java"><code class="language-java">  <span class="token keyword">public</span> <span class="token function">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token keyword">int</span> corePoolSize<span class="token punctuation">,</span>
-                            <span class="token keyword">int</span> maximumPoolSize<span class="token punctuation">,</span>
-                            <span class="token keyword">long</span> keepAliveTime<span class="token punctuation">,</span>
-                            TimeUnit unit<span class="token punctuation">,</span>
-                            BlockingQueue<span class="token operator">&lt;</span>Runnable<span class="token operator">></span> workQueue<span class="token punctuation">,</span>
-                            ThreadFactory threadFactory<span class="token punctuation">,</span>
-                            RejectedExecutionHandler handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
+</ul>
+<h3 id="5-4-ThreadPoolExecutor构造函数参数说明"><a href="#5-4-ThreadPoolExecutor构造函数参数说明" class="headerlink" title="5.4 ThreadPoolExecutor构造函数参数说明"></a>5.4 ThreadPoolExecutor构造函数参数说明</h3><p>下面从源码中拿一个参数最完整的来讲解，如下：<br>【ThreadPoolExecutor.java】</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token function">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token keyword">int</span> corePoolSize<span class="token punctuation">,</span>
+                              <span class="token keyword">int</span> maximumPoolSize<span class="token punctuation">,</span>
+                              <span class="token keyword">long</span> keepAliveTime<span class="token punctuation">,</span>
+                              TimeUnit unit<span class="token punctuation">,</span>
+                              BlockingQueue<span class="token operator">&lt;</span>Runnable<span class="token operator">></span> workQueue<span class="token punctuation">,</span>
+                              ThreadFactory threadFactory<span class="token punctuation">,</span>
+                              RejectedExecutionHandler handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
 <li><strong>corePoolSize</strong>：核心线程数，如果运行的线程数少于corePoolSize，当有新的任务过来时会创建新的线程来执行这个任务，即使线程池中有其他空闲的线程。</li>
 <li><strong>maximumPoolSize</strong>：线程池中允许的最大线程数。</li>
 <li><strong>keepAliveTime</strong>：如果线程数多于核心线程数，那么这些多出来的线程如果空闲时间超过keepAliveTime将会被终止。</li>
@@ -696,7 +699,7 @@
 <li><strong>threadFactory</strong>：线程工厂，用来创建新线程。</li>
 <li><strong>handler</strong>：添加任务出错时的策略捕获器，默认是ThreadPoolExecutor.AbortPolicy ，即添加任务出错就直接抛出异常 。</li>
 </ul>
-<h3 id="四种线程池"><a href="#四种线程池" class="headerlink" title="四种线程池"></a>四种线程池</h3><ul>
+<h3 id="5-5-四种线程池"><a href="#5-5-四种线程池" class="headerlink" title="5.5 四种线程池"></a>5.5 四种线程池</h3><ul>
 <li><strong>newFixedThreadPool</strong>：创建固定大小的线程池，这样可以控制线程最大并发数，超出的线程会在队列中等待。如果线程池中的某个线程由于异常而结束，线程池则会再补充一条新线程。<br>例子：创建线程数为3的线程池<pre class="line-numbers language-java"><code class="language-java">      ExecutorService newFixedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">final</span> <span class="token keyword">int</span> finalI <span class="token operator">=</span> i<span class="token punctuation">;</span>
