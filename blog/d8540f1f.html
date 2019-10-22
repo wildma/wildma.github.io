@@ -399,6 +399,10 @@
                             <span class="chip bg-color">OkHttp</span>
                         </a>
                         
+                        <a href="/tags/源码解析/" target="_blank">
+                            <span class="chip bg-color">源码解析</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -413,6 +417,10 @@
                         
                         <a href="/categories/Android/网络编程/" class="post-category" target="_blank">
                             网络编程
+                        </a>
+                        
+                        <a href="/categories/Android/网络编程/源码解析/" class="post-category" target="_blank">
+                            源码解析
                         </a>
                         
                     </div>
@@ -504,7 +512,7 @@ call<span class="token punctuation">.</span><span class="token function">enqueue
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看到不管是同步请求还是异步请求，OkHttp 的基本使用就只有 5 步。同步请求与异步请求唯一不同的就是第 （4） 步，前者使用同步方法 execute()，后者使用异步方法 enqueue()。接下来我们就根据这 5 步进行源码阅读。</p>
-<p>更多 OkHttp 的使用方法可以看我之前写的文章 <a href="https://github.com/wildma/AndroidNotes/blob/master/blogs/Android%20OkHttp%20%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3.md" target="_blank" rel="noopener">Android OkHttp 使用详解</a></p>
+<p>更多 OkHttp 的使用方法可以看我之前写的文章 <a href="https://wildma.github.io/blog/6d0008b.html">Android 主流开源框架（二）OkHttp 使用详解</a></p>
 <h1 id="二、OkHttp-源码分析"><a href="#二、OkHttp-源码分析" class="headerlink" title="二、OkHttp 源码分析"></a>二、OkHttp 源码分析</h1><p>源码版本：3.11.0</p>
 <h2 id="2-1-（1）创建-OkHttpClient-对象"><a href="#2-1-（1）创建-OkHttpClient-对象" class="headerlink" title="2.1 （1）创建 OkHttpClient 对象"></a>2.1 （1）创建 OkHttpClient 对象</h2><pre class="line-numbers language-java"><code class="language-java">OkHttpClient client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>首先我们点击创建的 OkHttpClient 对象进去源码是这样的：</p>
@@ -1042,7 +1050,7 @@ call<span class="token punctuation">.</span><span class="token function">enqueue
 <li>没有更多的路线可供尝试</li>
 </ul>
 <p>（5）（6）：检查是否需要重定向，如果不需要则返回之前的 response，需要则进行重定向，也就是继续循环请求重试。是否需要重定向主要根据响应码来决定，具体可以去看看 followUpRequest() 方法，这里就不贴代码了。</p>
-<p>ps：如果你想拿重定向的域名来跟一遍源码中重定向的流程，那么你可以试试郭霖的域名（<a href="http://guolin.tech），该域名会重定向到他的" target="_blank" rel="noopener">http://guolin.tech），该域名会重定向到他的</a> csdn 博客（<a href="https://blog.csdn.net/guolin_blog），走一遍流程会让你对源码中重定向的原理有更深的理解。" target="_blank" rel="noopener">https://blog.csdn.net/guolin_blog），走一遍流程会让你对源码中重定向的原理有更深的理解。</a></p>
+<p>ps：如果你想拿重定向的域名来跟一遍源码中重定向的流程，那么你可以试试郭霖的域名（<a href="http://guolin.tech），" target="_blank" rel="noopener">http://guolin.tech），</a> 该域名会重定向到他的 csdn 博客（<a href="https://blog.csdn.net/guolin_blog），" target="_blank" rel="noopener">https://blog.csdn.net/guolin_blog），</a> 走一遍流程会让你对源码中重定向的原理有更深的理解。</p>
 <h4 id="2-4-3-2-桥拦截器（BridgeInterceptor）"><a href="#2-4-3-2-桥拦截器（BridgeInterceptor）" class="headerlink" title="2.4.3.2 桥拦截器（BridgeInterceptor）"></a>2.4.3.2 桥拦截器（BridgeInterceptor）</h4><p>该拦截器相当于一个桥梁，首先将用户的请求转换为发给服务器的请求，然后使用该请求访问网络，最后将服务器返回的响应转换为用户可用的响应。</p>
 <p>我们看看该拦截器中的 intercept() 方法：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">BridgeInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">Interceptor</span> <span class="token punctuation">{</span>
@@ -1900,7 +1908,7 @@ call<span class="token punctuation">.</span><span class="token function">enqueue
     <span class="token keyword">return</span> body<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到这里的 body 就是 ResponseBody，它是一个抽象类，不能被实例化，一般用它的子类 RealResponseBody 进行实例化。它是在前面讲的 <a href>2.4.3.5 服务器请求拦截器（CallServerInterceptor）</a>小节中赋值的：</p>
+<p>可以看到这里的 body 就是 ResponseBody，它是一个抽象类，不能被实例化，一般用它的子类 RealResponseBody 进行实例化。它是在前面讲的 “2.4.3.5 服务器请求拦截器（CallServerInterceptor）” 小节中赋值的：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">CallServerInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">Interceptor</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>forWebSocket <span class="token operator">&amp;&amp;</span> code <span class="token operator">==</span> <span class="token number">101</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       response <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2398,6 +2406,10 @@ W<span class="token operator">/</span>System<span class="token punctuation">.</s
                                     网络编程
                                 </a>
                             
+                            <a href="/categories/Android/网络编程/源码解析/" class="post-category" target="_blank">
+                                    源码解析
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -2412,6 +2424,10 @@ W<span class="token operator">/</span>System<span class="token punctuation">.</s
                     
                     <a href="/tags/OkHttp/" target="_blank">
                         <span class="chip bg-color">OkHttp</span>
+                    </a>
+                    
+                    <a href="/tags/源码解析/" target="_blank">
+                        <span class="chip bg-color">源码解析</span>
                     </a>
                     
                 </div>
@@ -2624,7 +2640,7 @@ W<span class="token operator">/</span>System<span class="token punctuation">.</s
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">71.5k</span>
+            <span class="white-color">71.6k</span>
             
             
             
