@@ -619,11 +619,12 @@ call<span class="token punctuation">.</span><span class="token function">enqueue
 <p>发现 Request 还是比较简单的，只是用来设置一些请求链接（url）、请求方法（method）、请求头（headers）、请求体（body）、标签（tag，可作为取消请求的标记）。</p>
 <h2 id="2-3-（3）创建-Call-对象"><a href="#2-3-（3）创建-Call-对象" class="headerlink" title="2.3 （3）创建 Call 对象"></a>2.3 （3）创建 Call 对象</h2><pre class="line-numbers language-java"><code class="language-java">Call call <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">newCall</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>我们点击 newCall() 方法进去看看：</p>
-<pre><code>public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
-  @Override public Call newCall(Request request) {
-    return RealCall.newRealCall(this, request, false /* for web socket */);
-  }
-}</code></pre><p>发现是调用了 RealCall 的 newRealCall() 方法，并传入了 OkHttpClient 与 Request 对象。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OkHttpClient</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span><span class="token punctuation">,</span> Call<span class="token punctuation">.</span>Factory<span class="token punctuation">,</span> WebSocket<span class="token punctuation">.</span>Factory <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> Call <span class="token function">newCall</span><span class="token punctuation">(</span>Request request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> RealCall<span class="token punctuation">.</span><span class="token function">newRealCall</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">/* for web socket */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发现是调用了 RealCall 的 newRealCall() 方法，并传入了 OkHttpClient 与 Request 对象。</p>
 <p>再跟进到 newRealCall() 方法：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">RealCall</span> <span class="token keyword">implements</span> <span class="token class-name">Call</span> <span class="token punctuation">{</span>
   <span class="token keyword">static</span> RealCall <span class="token function">newRealCall</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">,</span> Request originalRequest<span class="token punctuation">,</span> <span class="token keyword">boolean</span> forWebSocket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -634,7 +635,7 @@ call<span class="token punctuation">.</span><span class="token function">enqueue
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>发现是创建了一个 RealCall 对象，并返回给上一层。RealCall 是 Call 的实现类，Call 定义了请求相关的操作，例如同步异步、取消请求等方法。所以后续的请求相关操作基本都是在调用 Call 定义的方法，而这些方法真正的执行是它的实现类 RealCall。</p>
-<p>最后看看 RealCal 的构造函数，该函数是比较简单的，只是赋值一些常量，然后创建了重试与重定向拦截器（RetryAndFollowUpInterceptor）（这个后面会讲）：</p>
+<p>最后看看 RealCall 的构造函数，该函数是比较简单的，只是赋值一些常量，然后创建了重试与重定向拦截器（RetryAndFollowUpInterceptor）（这个后面会讲）：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">RealCall</span> <span class="token keyword">implements</span> <span class="token class-name">Call</span> <span class="token punctuation">{</span>
   <span class="token keyword">private</span> <span class="token function">RealCall</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">,</span> Request originalRequest<span class="token punctuation">,</span> <span class="token keyword">boolean</span> forWebSocket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> client<span class="token punctuation">;</span>
