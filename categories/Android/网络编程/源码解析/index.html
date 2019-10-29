@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 热修复, Android 知识分享">
+    <meta name="keywords" content="分类: 源码解析, Android 知识分享">
     <meta name="baidu-site-verification" content="FLsnLJ6eF1">
     <meta name="google-site-verification" content="16Gna8-Ho0L5gq5QusQ01kiKooeZUaUSmH--RyCrrro">
     <meta name="360-site-verification" content>
-    <meta name="description" content="分类: 热修复 | wildma的博客">
+    <meta name="description" content="分类: 源码解析 | wildma的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类: 热修复 | wildma的博客</title>
+    <title>分类: 源码解析 | wildma的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -360,7 +360,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/Android/第三方集成/热修复/" title="热修复: 3">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #F8F9F9;">热修复
                         <span class="tag-length">3</span>
                     </span>
@@ -405,7 +405,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/Android/源码解析/" title="源码解析: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #F8C471;">源码解析
                         <span class="tag-length">1</span>
                     </span>
@@ -432,7 +432,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/Android/网络编程/源码解析/" title="源码解析: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #A3E4D7;">源码解析
                         <span class="tag-length">1</span>
                     </span>
@@ -451,24 +451,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/blog/493565be.html">
+                    <a href="/blog/d8540f1f.html">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Android 主流开源框架（三）OkHttp 源码解析">
                             
-                            <span class="card-title">热修复框架 Tinker 最完整讲解（03）——使用 Tinker 常见问题</span>
+                            <span class="card-title">Android 主流开源框架（三）OkHttp 源码解析</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言该系列第一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 主要讲了tinker的集成，第二篇文章热修复框架Tinker最完整讲解（02）——加入Walle多渠道打包主要讲了Tinker与Walle多渠道打包在项目中的使用。
+                                前言最近有个想法——就是把 Android 主流开源框架进行深入分析，然后写成一系列文章，包括该框架的详细使用与源码解析。目的是通过鉴赏大神的源码来了解框架底层的原理，也就是做到不仅要知其然，还要知其所以然。
+这里我说下自己阅读源码的经验，
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-21
                             </span>
                             <span class="publish-author">
                                 
@@ -478,12 +479,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                                     Android
                                 </a>
                                 
-                                <a href="/categories/Android/第三方集成/" class="post-category" target="_blank">
-                                    第三方集成
+                                <a href="/categories/Android/网络编程/" class="post-category" target="_blank">
+                                    网络编程
                                 </a>
                                 
-                                <a href="/categories/Android/第三方集成/热修复/" class="post-category" target="_blank">
-                                    热修复
+                                <a href="/categories/Android/网络编程/源码解析/" class="post-category" target="_blank">
+                                    源码解析
                                 </a>
                                 
                                 
@@ -494,139 +495,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/热修复/" target="_blank">
-                            <span class="chip bg-color">热修复</span>
+                        <a href="/tags/OkHttp/" target="_blank">
+                            <span class="chip bg-color">OkHttp</span>
                         </a>
                         
-                        <a href="/tags/Tinker/" target="_blank">
-                            <span class="chip bg-color">Tinker</span>
+                        <a href="/tags/网络编程/" target="_blank">
+                            <span class="chip bg-color">网络编程</span>
                         </a>
                         
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/blog/d74c6f53.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包">
-                            
-                            <span class="card-title">热修复框架 Tinker 最完整讲解（02）——加入 Walle 多渠道打包</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言上一篇文章 热修复框架Tinker最完整讲解（01）——集成之路 已经介绍我们的项目渠道包有20个，并且我们多渠道打包是采用productFlavors实现的。但是这种多渠道打包会造成20个渠道包的热更新就需要20个补丁，这样肯定是不合
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Android/" class="post-category" target="_blank">
-                                    Android
-                                </a>
-                                
-                                <a href="/categories/Android/第三方集成/" class="post-category" target="_blank">
-                                    第三方集成
-                                </a>
-                                
-                                <a href="/categories/Android/第三方集成/热修复/" class="post-category" target="_blank">
-                                    热修复
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/热修复/" target="_blank">
-                            <span class="chip bg-color">热修复</span>
-                        </a>
-                        
-                        <a href="/tags/Tinker/" target="_blank">
-                            <span class="chip bg-color">Tinker</span>
-                        </a>
-                        
-                        <a href="/tags/多渠道打包/" target="_blank">
-                            <span class="chip bg-color">多渠道打包</span>
-                        </a>
-                        
-                        <a href="/tags/Walle/" target="_blank">
-                            <span class="chip bg-color">Walle</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/blog/fdabc636.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="热修复框架 Tinker 最完整讲解（01）——集成之路">
-                            
-                            <span class="card-title">热修复框架 Tinker 最完整讲解（01）——集成之路</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-2017/09/22 更新：为了同步Tinker官方，故将github上的Demo中的Tinker版本升级到了1.8.1（不要使用1.8.0的版本，该版本不支持加固）。
-
-前言上个月我们的产品又更新了一个版本，当一个测试把产品上传了十几个
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Android/" class="post-category" target="_blank">
-                                    Android
-                                </a>
-                                
-                                <a href="/categories/Android/第三方集成/" class="post-category" target="_blank">
-                                    第三方集成
-                                </a>
-                                
-                                <a href="/categories/Android/第三方集成/热修复/" class="post-category" target="_blank">
-                                    热修复
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/热修复/" target="_blank">
-                            <span class="chip bg-color">热修复</span>
-                        </a>
-                        
-                        <a href="/tags/Tinker/" target="_blank">
-                            <span class="chip bg-color">Tinker</span>
+                        <a href="/tags/源码解析/" target="_blank">
+                            <span class="chip bg-color">源码解析</span>
                         </a>
                         
                     </div>

@@ -53,7 +53,7 @@
     <link href="https://wildma.github.io/blog/d8540f1f.html"/>
     <id>https://wildma.github.io/blog/d8540f1f.html</id>
     <published>2019-10-21T14:01:55.000Z</published>
-    <updated>2019-10-23T14:28:20.988Z</updated>
+    <updated>2019-10-29T14:17:00.833Z</updated>
     
     <summary type="html">
     
@@ -69,14 +69,14 @@
     
       <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
     
-      <category term="源码解析" scheme="https://wildma.github.io/categories/Android/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+      <category term="网络编程" scheme="https://wildma.github.io/categories/Android/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="网络编程" scheme="https://wildma.github.io/categories/Android/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+      <category term="源码解析" scheme="https://wildma.github.io/categories/Android/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
     
-    
-      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
       <category term="OkHttp" scheme="https://wildma.github.io/tags/OkHttp/"/>
+    
+      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
       <category term="源码解析" scheme="https://wildma.github.io/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
     
@@ -106,9 +106,9 @@
       <category term="网络编程" scheme="https://wildma.github.io/categories/Android/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="OkHttp" scheme="https://wildma.github.io/tags/OkHttp/"/>
+    
+      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -435,9 +435,9 @@
       <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
     
     
-      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
-    
       <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
+    
+      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
@@ -587,9 +587,9 @@
       <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
     
     
-      <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
-    
       <category term="友盟登录" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%99%BB%E5%BD%95/"/>
+    
+      <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
     
   </entry>
   
