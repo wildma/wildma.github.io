@@ -13,10 +13,6 @@
       
       <categories>
           
-          <category> Android </category>
-          
-          <category> 网络编程 </category>
-          
           <category> Android主流开源框架 </category>
           
       </categories>
@@ -44,22 +40,18 @@
       
       <categories>
           
-          <category> Android </category>
-          
-          <category> 网络编程 </category>
-          
-          <category> 源码解析 </category>
+          <category> Android主流开源框架 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> OkHttp </tag>
-            
             <tag> 网络编程 </tag>
             
-            <tag> 源码解析 </tag>
+            <tag> OkHttp </tag>
+            
+            <tag> 源码分析 </tag>
             
         </tags>
       
@@ -77,18 +69,16 @@
       
       <categories>
           
-          <category> Android </category>
-          
-          <category> 网络编程 </category>
+          <category> Android主流开源框架 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> OkHttp </tag>
-            
             <tag> 网络编程 </tag>
+            
+            <tag> OkHttp </tag>
             
         </tags>
       
@@ -106,9 +96,7 @@
       
       <categories>
           
-          <category> Android </category>
-          
-          <category> 网络编程 </category>
+          <category> Android主流开源框架 </category>
           
       </categories>
       
@@ -395,9 +383,9 @@
       
         <tags>
             
-            <tag> 多渠道打包 </tag>
-            
             <tag> 友盟统计 </tag>
+            
+            <tag> 多渠道打包 </tag>
             
         </tags>
       
@@ -542,9 +530,9 @@
       
         <tags>
             
-            <tag> 友盟登录 </tag>
-            
             <tag> 第三方登录 </tag>
+            
+            <tag> 友盟登录 </tag>
             
         </tags>
       
@@ -633,11 +621,11 @@
       
         <tags>
             
+            <tag> 多渠道打包 </tag>
+            
             <tag> 热修复 </tag>
             
             <tag> Tinker </tag>
-            
-            <tag> 多渠道打包 </tag>
             
             <tag> Walle </tag>
             
@@ -715,11 +703,7 @@
       
       <categories>
           
-          <category> Android </category>
-          
           <category> 源码解析 </category>
-          
-          <category> 面试 </category>
           
       </categories>
       
@@ -729,8 +713,6 @@
             <tag> Handler </tag>
             
             <tag> 面试 </tag>
-            
-            <tag> 源码解析 </tag>
             
         </tags>
       
