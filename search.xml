@@ -402,9 +402,9 @@
       
         <tags>
             
-            <tag> 多渠道打包 </tag>
-            
             <tag> 友盟统计 </tag>
+            
+            <tag> 多渠道打包 </tag>
             
         </tags>
       
@@ -549,9 +549,9 @@
       
         <tags>
             
-            <tag> 第三方登录 </tag>
-            
             <tag> 友盟登录 </tag>
+            
+            <tag> 第三方登录 </tag>
             
         </tags>
       
@@ -640,11 +640,11 @@
       
         <tags>
             
+            <tag> 多渠道打包 </tag>
+            
             <tag> 热修复 </tag>
             
             <tag> Tinker </tag>
-            
-            <tag> 多渠道打包 </tag>
             
             <tag> Walle </tag>
             
