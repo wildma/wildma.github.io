@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2019-10-31T15:42:30.283Z</updated>
+  <updated>2019-11-02T14:00:57.910Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全部文章</title>
+    <link href="https://wildma.github.io/blog/f1e2edad.html"/>
+    <id>https://wildma.github.io/blog/f1e2edad.html</id>
+    <published>2019-11-02T13:17:15.000Z</published>
+    <updated>2019-11-02T14:00:57.910Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;2019&quot;&gt;&lt;a href=&quot;#2019&quot; class=&quot;headerlink&quot; title=&quot;2019&quot;&gt;&lt;/a&gt;2019&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;24 Oct 2019 » &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="全部文章" scheme="https://wildma.github.io/categories/%E5%85%A8%E9%83%A8%E6%96%87%E7%AB%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Android 主流开源框架（四）Retrofit 使用详解</title>
@@ -423,9 +448,9 @@
       <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
     
     
-      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
-    
       <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
+    
+      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
@@ -578,36 +603,6 @@
       <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
     
       <category term="友盟登录" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%99%BB%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用友盟集成 QQ、微信、微博等第三方分享</title>
-    <link href="https://wildma.github.io/blog/f2bfcfcb.html"/>
-    <id>https://wildma.github.io/blog/f2bfcfcb.html</id>
-    <published>2017-07-16T12:45:12.000Z</published>
-    <updated>2019-10-17T15:47:15.272Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="第三方分享" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="友盟分享" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
