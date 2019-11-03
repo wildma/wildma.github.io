@@ -216,6 +216,32 @@
   </entry>
   
   <entry>
+    <title>设计模式</title>
+    <link href="https://wildma.github.io/blog/364ea8cc.html"/>
+    <id>https://wildma.github.io/blog/364ea8cc.html</id>
+    <published>2019-04-23T14:32:27.000Z</published>
+    <updated>2019-11-03T06:51:26.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、设计模式概括&quot;&gt;&lt;a href=&quot;#一、设计模式概括&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://wildma.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://wildma.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>聊聊 Android 中的字体大小适配</title>
     <link href="https://wildma.github.io/blog/7770b02.html"/>
     <id>https://wildma.github.io/blog/7770b02.html</id>
@@ -448,9 +474,9 @@
       <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
     
     
-      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
-    
       <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
+    
+      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
@@ -573,36 +599,6 @@
       <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
     
       <category term="图片高度" scheme="https://wildma.github.io/tags/%E5%9B%BE%E7%89%87%E9%AB%98%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用友盟集成 QQ、微信、微博等第三方登录</title>
-    <link href="https://wildma.github.io/blog/6f5411d5.html"/>
-    <id>https://wildma.github.io/blog/6f5411d5.html</id>
-    <published>2017-07-16T12:54:59.000Z</published>
-    <updated>2019-10-17T15:46:33.575Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="友盟登录" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%99%BB%E5%BD%95/"/>
-    
-      <category term="第三方登录" scheme="https://wildma.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"/>
     
   </entry>
   
