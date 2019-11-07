@@ -1568,10 +1568,12 @@
       discountedGoods<span class="token punctuation">.</span><span class="token function">activityBegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
 <p>运行结果：</p>
 <pre><code>活动开始啦！
 我要开始买啦！</code></pre><h4 id="Java-中自带的观察者模式"><a href="#Java-中自带的观察者模式" class="headerlink" title="Java 中自带的观察者模式"></a>Java 中自带的观察者模式</h4><p>其实 Java 语言中已经提供了自带的观察者模式， 分别是 java.util 包下的 Observable 类和 Observer 接口，他们分别对应我们上面例子中的抽象观察者（Observer）与抽象被观察者（Subject）。代码实现如下：</p>
-</li>
+<ul>
 <li><p>具体观察者（买家）<br>将自定义中的 Observer 换成 java.util 包下的 Observer，update() 方法同样换成该包下的，其他不变。如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Observable<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Observer<span class="token punctuation">;</span>
@@ -1612,9 +1614,9 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
 <pre><code>活动开始啦！
-我要开始买啦！</code></pre><p>可以看到，使用 Java 中自带的观察者模式实现可以少写 2 个类，分别是抽象观察者（Observer）与抽象被观察者（Subject），但是运行结果还是一样的。</p>
-</li>
+我要开始买啦！</code></pre></li>
 </ul>
+<p>可以看到，使用 Java 中自带的观察者模式实现可以少写 2 个类，分别是抽象观察者（Observer）与抽象被观察者（Subject），但是运行结果还是一样的。</p>
 <p><strong>优点</strong></p>
 <ul>
 <li>观察者和被观察者是抽象耦合的，容易扩展。</li>
