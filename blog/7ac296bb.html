@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
                 
@@ -604,37 +604,45 @@
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
   <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//图片数量</span>
+  <span class="token keyword">private</span>       <span class="token keyword">int</span>    mImgNum<span class="token punctuation">;</span>
 
   <span class="token annotation punctuation">@Override</span>
   <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-      <span class="token comment" spellcheck="true">//开启2条线程上传图片</span>
-      MyRunnable myRunnable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyRunnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">,</span> <span class="token string">"线程1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">,</span> <span class="token string">"线程2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
   <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">multiThread</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      mImgNum <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//开启3条线程上传图片</span>
+      MyRunnable myRunnable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyRunnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
   <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRunnable</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
-      <span class="token keyword">private</span> <span class="token keyword">int</span> imgNum <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//图片数量</span>
 
       <span class="token annotation punctuation">@Override</span>
       <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-              <span class="token keyword">if</span> <span class="token punctuation">(</span>imgNum <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>mImgNum <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"全部上传成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                   <span class="token keyword">break</span><span class="token punctuation">;</span>
               <span class="token punctuation">}</span>
               <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                  Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//模拟上传一张图片需要1秒钟的时间</span>
+                  <span class="token comment" spellcheck="true">//模拟上传一张图片需要1秒钟的时间</span>
+                  Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
               <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                   e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
               <span class="token punctuation">}</span>
-              Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"正在上传图片...，还剩"</span> <span class="token operator">+</span> imgNum<span class="token operator">--</span> <span class="token operator">+</span> <span class="token string">"张图片未上传"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              mImgNum<span class="token operator">--</span><span class="token punctuation">;</span>
+              Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"上传了一张图片...，还剩"</span> <span class="token operator">+</span> mImgNum <span class="token operator">+</span> <span class="token string">"张图片未上传"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
           <span class="token punctuation">}</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <p>打印结果如下：</p>
@@ -644,42 +652,50 @@
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//图片数量</span>
+    <span class="token keyword">private</span>       <span class="token keyword">int</span>    mImgNum<span class="token punctuation">;</span>
 
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-        <span class="token comment" spellcheck="true">//开启2条线程上传图片</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">multiThread</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mImgNum <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//开启3条线程上传图片</span>
         MyRunnable myRunnable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyRunnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">,</span> <span class="token string">"线程1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">,</span> <span class="token string">"线程2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRunnable</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
-        <span class="token keyword">private</span> <span class="token keyword">int</span> imgNum <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//图片数量</span>
 
         <span class="token annotation punctuation">@Override</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>MyRunnable<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//加上synchronized进行同步，保证在同一时刻只能有一个线程能够访问。</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span>imgNum <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//加上synchronized进行同步，保证在同一时刻只能有一个线程能够访问</span>
+                <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>MyRunnable<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>mImgNum <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"全部上传成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                         <span class="token keyword">break</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
                     <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                        Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//模拟上传一张图片需要1秒钟的时间</span>
+                        <span class="token comment" spellcheck="true">//模拟上传一张图片需要1秒钟的时间</span>
+                        Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
-                    Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"正在上传图片...，还剩"</span> <span class="token operator">+</span> imgNum<span class="token operator">--</span> <span class="token operator">+</span> <span class="token string">"张图片未上传"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    mImgNum<span class="token operator">--</span><span class="token punctuation">;</span>
+                    Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"上传了一张图片...，还剩"</span> <span class="token operator">+</span> mImgNum <span class="token operator">+</span> <span class="token string">"张图片未上传"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打印结果如下：</p>
-<p><img src="7ac296bb/2.jpg" alt></p>
+<p><img src="7ac296bb/2.jpg" alt><br>由图可知，图片数量正常了，但是发现一秒钟只上传了一张图片，而且只有一个线程在上传（每次while循环， 哪个线程先访问是随机的，偶尔会出现3个线程都在上传的情况，线程休眠时间设置为100毫秒比较容易复现），并没有实现并发。其实这里的确解决了多线程并发操作同一数据出现线程安全的问题，但是因为这里要模拟上传图片，把休眠时间放到了synchronized中，所以导致没有并发，用线程池就不会有这个问题，这个放到后面去讲。</p>
 <h2 id="五、线程池"><a href="#五、线程池" class="headerlink" title="五、线程池"></a>五、线程池</h2><h3 id="5-1-关于线程池"><a href="#5-1-关于线程池" class="headerlink" title="5.1 关于线程池"></a>5.1 关于线程池</h3><p>前面举的朋友圈发表图片的多线程例子中，为了提高CPU的使用率和程序的工作效率就需要创建9个线程来上传图片。但是线程的创建和销毁是非常耗CPU和内存的，因为它涉及到要与操作系统进行交互。这样就可能导致创建与销毁线程的开销比实际业务还大，而线程池就能很好的解决这些问题。线程池里的每一个线程结束后，并不会销毁（可以设置超时销毁），而是回到线程池中成为空闲状态，等待下一个对象来使用。</p>
 <h3 id="5-2-使用线程池的优点"><a href="#5-2-使用线程池的优点" class="headerlink" title="5.2 使用线程池的优点"></a>5.2 使用线程池的优点</h3><p>1、减少创建与销毁线程带来的性能开销。<br>2、可控制最大并发线程数，避免过多资源竞争而导致系统内存消耗完。<br>3、能更好的控制线程的开启与回收，并且能定时执行任务。</p>
 <h3 id="5-3-线程池中重要的几个类"><a href="#5-3-线程池中重要的几个类" class="headerlink" title="5.3 线程池中重要的几个类"></a>5.3 线程池中重要的几个类</h3><ul>
@@ -790,6 +806,53 @@
 </li>
 </ul>
 <p><img src="7ac296bb/6.jpg" alt><br>由打印结果可知，定时任务是2秒后执行任务，周期性任务是延迟1秒后每2秒执行一次任务。</p>
+<h3 id="5-6-利用线程池解决多线程并发的问题"><a href="#5-6-利用线程池解决多线程并发的问题" class="headerlink" title="5.6 利用线程池解决多线程并发的问题"></a>5.6 利用线程池解决多线程并发的问题</h3><p>前面的例子虽然解决了多线程操作同一数据出现线程安全的问题，但是并发却没了，这里利用多线程可以很好的解决。<br>代码如下：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//图片数量</span>
+    <span class="token keyword">private</span>       <span class="token keyword">int</span>    mImgNum<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//开启3条线程上传图片</span>
+    ExecutorService newFixedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">multiThread</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mImgNum <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+        MyRunnable myRunnable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyRunnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//提交任务</span>
+            newFixedThreadPool<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>myRunnable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRunnable</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//模拟上传一张图片需要1秒钟的时间</span>
+                Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//加上synchronized进行同步，保证在同一时刻只能有一个线程能够访问</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>MyRunnable<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mImgNum<span class="token operator">--</span><span class="token punctuation">;</span>
+                Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"上传了一张图片...，还剩"</span> <span class="token operator">+</span> mImgNum <span class="token operator">+</span> <span class="token string">"张图片未上传"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>mImgNum <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Log<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"全部上传成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>打印结果如下：</p>
+<p><img src="7ac296bb/7.jpg" alt><br>由图可知，每秒中上传了3张图片，确实实现了并发，而且线程安全问题也解决了。</p>
+<p>相关源码：<a href="https://github.com/wildma/AndroidNotes/tree/master/app/src/main/java/com/wildma/androidnotes/thread" target="_blank" rel="noopener">多线程并发 demo</a></p>
 
             </div>
             <hr />
@@ -1193,12 +1256,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/友盟统计/" target="_blank">
-                        <span class="chip bg-color">友盟统计</span>
-                    </a>
-                    
                     <a href="/tags/多渠道打包/" target="_blank">
                         <span class="chip bg-color">多渠道打包</span>
+                    </a>
+                    
+                    <a href="/tags/友盟统计/" target="_blank">
+                        <span class="chip bg-color">友盟统计</span>
                     </a>
                     
                 </div>
@@ -1410,7 +1473,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">93.3k</span>
+            <span class="white-color">93.8k</span>
             
             
             
