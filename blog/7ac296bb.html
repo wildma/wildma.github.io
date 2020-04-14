@@ -806,7 +806,7 @@
 </li>
 </ul>
 <p><img src="7ac296bb/6.jpg" alt><br>由打印结果可知，定时任务是2秒后执行任务，周期性任务是延迟1秒后每2秒执行一次任务。</p>
-<h3 id="5-6-利用线程池解决多线程并发的问题"><a href="#5-6-利用线程池解决多线程并发的问题" class="headerlink" title="5.6 利用线程池解决多线程并发的问题"></a>5.6 利用线程池解决多线程并发的问题</h3><p>前面的例子虽然解决了多线程操作同一数据出现线程安全的问题，但是并发却没了，这里利用多线程可以很好的解决。<br>代码如下：</p>
+<h3 id="5-6-利用线程池实现多线程并发"><a href="#5-6-利用线程池实现多线程并发" class="headerlink" title="5.6 利用线程池实现多线程并发"></a>5.6 利用线程池实现多线程并发</h3><p>前面的例子虽然解决了多线程操作同一数据出现线程安全的问题，但是并发却没了，这里利用多线程可以很好的解决。<br>代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">private</span> <span class="token keyword">final</span> String TAG <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
