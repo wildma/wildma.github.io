@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2020-04-18T07:26:17.551Z</updated>
+  <updated>2020-05-10T07:12:27.000Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 主流开源框架（六）Glide 的执行流程源码解析</title>
+    <link href="https://wildma.github.io/blog/71588abf.html"/>
+    <id>https://wildma.github.io/blog/71588abf.html</id>
+    <published>2020-05-10T07:13:33.000Z</published>
+    <updated>2020-05-10T07:12:27.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近有个想法——就是把 Android
+        
+      
+    
+    </summary>
+    
+      <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
+    
+  </entry>
   
   <entry>
     <title>全部文章</title>
@@ -119,9 +145,9 @@
       <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="OkHttp" scheme="https://wildma.github.io/tags/OkHttp/"/>
+    
+      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
       <category term="源码分析" scheme="https://wildma.github.io/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     
@@ -149,9 +175,9 @@
       <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="OkHttp" scheme="https://wildma.github.io/tags/OkHttp/"/>
+    
+      <category term="网络编程" scheme="https://wildma.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -569,34 +595,6 @@
       <category term="腾讯 X5 内核" scheme="https://wildma.github.io/tags/%E8%85%BE%E8%AE%AF-X5-%E5%86%85%E6%A0%B8/"/>
     
       <category term="webview 增强版" scheme="https://wildma.github.io/tags/webview-%E5%A2%9E%E5%BC%BA%E7%89%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 仿微信朋友圈全文、收起功能</title>
-    <link href="https://wildma.github.io/blog/a020565d.html"/>
-    <id>https://wildma.github.io/blog/a020565d.html</id>
-    <published>2017-08-03T14:49:00.000Z</published>
-    <updated>2019-10-17T13:19:03.450Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-    
-      <category term="折叠文本" scheme="https://wildma.github.io/tags/%E6%8A%98%E5%8F%A0%E6%96%87%E6%9C%AC/"/>
-    
-      <category term="全文、收起功能" scheme="https://wildma.github.io/tags/%E5%85%A8%E6%96%87%E3%80%81%E6%94%B6%E8%B5%B7%E5%8A%9F%E8%83%BD/"/>
     
   </entry>
   
