@@ -2785,7 +2785,7 @@ List<span class="token operator">&lt;</span>LoadData<span class="token operator"
 <p>到这里终于将图片显示到我们的 ImageView 中了！into() 方法也结束了。</p>
 <h4 id="2-3-4-小结"><a href="#2-3-4-小结" class="headerlink" title="2.3.4 小结"></a>2.3.4 小结</h4><p>要我总结的话，只能说 into() 方法实在是太复杂了，with() 与 load() 方法在它面前就是小喽喽。<br>into() 方法主要做了发起网络请求、缓存数据、解码并显示图片。</p>
 <p>大概流程为：<br>发起网络请求前先判断是否有内存缓存，有则直接从内存缓存那里获取数据进行显示，没有则判断是否有磁盘缓存；有磁盘缓存则直接从磁盘缓存那里获取数据进行显示，没有才发起网络请求；网络请求成功后将返回的数据存储到内存与磁盘缓存（如果有配置），最后将返回的输入流解码成 Drawable 显示在 ImageView 上。</p>
-<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>Glide 源码相对于我之前写的其他源码文章来说确实难啃，但是耐心看完发现收获也很多。例如利用一个隐藏的 Fragment 来管理 Glide 请求的生命周期，利用三级缓存来提升加载图片的效率，还有网络请求成功后是在哪里切换到主线程的等等。</p>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>Glide 源码相对于我之前写的其他源码文章来说确实难啃，但是耐心看完发现收获也很多。例如利用一个隐藏的 Fragment 来管理 Glide 请求的生命周期，利用四级缓存来提升加载图片的效率，还有网络请求成功后是在哪里切换到主线程的等等。</p>
 <p>参考资料：</p>
 <ul>
 <li><a href="https://muyangmin.github.io/glide-docs-cn/" target="_blank" rel="noopener">glide-docs-cn</a></li>
