@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
                 
@@ -697,7 +697,11 @@
 <p>打印结果如下：</p>
 <p><img src="7ac296bb/2.jpg" alt><br>由图可知，图片数量正常了，但是发现一秒钟只上传了一张图片，而且只有一个线程在上传（每次while循环， 哪个线程先访问是随机的，偶尔会出现3个线程都在上传的情况，线程休眠时间设置为100毫秒比较容易复现），并没有实现并发。其实这里的确解决了多线程并发操作同一数据出现线程安全的问题，但是因为这里要模拟上传图片，把休眠时间放到了synchronized中，所以导致没有并发，用线程池就不会有这个问题，这个放到后面去讲。</p>
 <h2 id="五、线程池"><a href="#五、线程池" class="headerlink" title="五、线程池"></a>五、线程池</h2><h3 id="5-1-关于线程池"><a href="#5-1-关于线程池" class="headerlink" title="5.1 关于线程池"></a>5.1 关于线程池</h3><p>前面举的朋友圈发表图片的多线程例子中，为了提高CPU的使用率和程序的工作效率就需要创建9个线程来上传图片。但是线程的创建和销毁是非常耗CPU和内存的，因为它涉及到要与操作系统进行交互。这样就可能导致创建与销毁线程的开销比实际业务还大，而线程池就能很好的解决这些问题。线程池里的每一个线程结束后，并不会销毁（可以设置超时销毁），而是回到线程池中成为空闲状态，等待下一个对象来使用。</p>
-<h3 id="5-2-使用线程池的优点"><a href="#5-2-使用线程池的优点" class="headerlink" title="5.2 使用线程池的优点"></a>5.2 使用线程池的优点</h3><p>1、减少创建与销毁线程带来的性能开销。<br>2、可控制最大并发线程数，避免过多资源竞争而导致系统内存消耗完。<br>3、能更好的控制线程的开启与回收，并且能定时执行任务。</p>
+<h3 id="5-2-使用线程池的优点"><a href="#5-2-使用线程池的优点" class="headerlink" title="5.2 使用线程池的优点"></a>5.2 使用线程池的优点</h3><ol>
+<li>可以重用线程池中的线程，避免因为线程的创建和销毁所带来的性能开销。</li>
+<li>能有效控制线程池的最大并发数，避免大量的线程之间因互相抢占系统资源而导致的阻塞现象。</li>
+<li>能够对线程进行简单的管理（关闭、回收等），并提供定时执行以及指定间隔循环执行等功能。</li>
+</ol>
 <h3 id="5-3-线程池中重要的几个类"><a href="#5-3-线程池中重要的几个类" class="headerlink" title="5.3 线程池中重要的几个类"></a>5.3 线程池中重要的几个类</h3><ul>
 <li><strong>Executor</strong>：java中线程池的顶级接口，可以称它为一个执行器，通过查看源码也知道，他只有一个简单的方法execute(Runnable command)，就是用来执行提交的任务。源码如下：<br>【Executor.java】<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Executor</span> <span class="token punctuation">{</span>
   <span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span>Runnable command<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -732,7 +736,7 @@
 <li><strong>handler</strong>：添加任务出错时的策略捕获器，默认是ThreadPoolExecutor.AbortPolicy ，即添加任务出错就直接抛出异常 。</li>
 </ul>
 <h3 id="5-5-四种线程池"><a href="#5-5-四种线程池" class="headerlink" title="5.5 四种线程池"></a>5.5 四种线程池</h3><ul>
-<li><strong>newFixedThreadPool</strong>：创建固定大小的线程池，这样可以控制线程最大并发数，超出的线程会在队列中等待。如果线程池中的某个线程由于异常而结束，线程池则会再补充一条新线程。<br>例子：创建线程数为3的线程池<pre class="line-numbers language-java"><code class="language-java">      ExecutorService newFixedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li><strong>FixedThreadPool</strong>：线程数量固定的线程池，空闲的线程不会被回收，超出的线程会在队列中等待。由于它只有核心线程并且不会被回收，所以能够快速响应外界的请求。<br>例子：创建线程数为3的线程池<pre class="line-numbers language-java"><code class="language-java">      ExecutorService newFixedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">final</span> <span class="token keyword">int</span> finalI <span class="token operator">=</span> i<span class="token punctuation">;</span>
           newFixedThreadPool<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -751,7 +755,7 @@
 </ul>
 <p><img src="7ac296bb/3.jpg" alt><br>由打印结果可知，10个任务始终在3个线程中执行。</p>
 <ul>
-<li><p><strong>newSingleThreadExecutor</strong>：创建一个单线程的线程池，即这个线程池永远只有一个线程在运行，这样能保证所有任务按指定顺序来执行。如果这个线程异常结束，那么会有一个新的线程来替代它。<br>例子：</p>
+<li><p><strong>SingleThreadExecutor</strong>：只有一个核心线程的线程池，这样能保证所有任务按指定顺序来执行，不需要处理线程同步的问题。<br>例子：</p>
 <pre class="line-numbers language-java"><code class="language-java">      ExecutorService newSingleThreadExecutor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newSingleThreadExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">final</span> <span class="token keyword">int</span> finalI <span class="token operator">=</span> i<span class="token punctuation">;</span>
@@ -769,7 +773,7 @@
       <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打印结果：<br><img src="7ac296bb/4.jpg" alt><br>由打印结果可知，10个任务始终在1个线程中执行。</p>
 </li>
-<li><p><strong>newCachedThreadPool</strong>：创建带有缓存的线程池，在执行新的任务时，当线程池中有之前创建的可用线程就重用之前的线程，否则就新建一条线程。如果线程池中的线程在60秒未被使用，就会将它从线程池中移除。<br>例子：</p>
+<li><p><strong>CachedThreadPool</strong>：线程数量不固定的线程池，它只有非核心线程。在执行新的任务时，当线程池中有之前创建的可用线程就重用之前的线程，否则就新建一条线程。如果线程池中的线程在60秒未被使用就会被回收，这种线程池适合执行大量的耗时较少的任务。<br>例子：</p>
 <pre class="line-numbers language-java"><code class="language-java">      ExecutorService newCachedThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">final</span> <span class="token keyword">int</span> finalI <span class="token operator">=</span> i<span class="token punctuation">;</span>
@@ -782,7 +786,7 @@
       <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="7ac296bb/5.jpg" alt><br>由打印结果可知，线程1出现了很多次，说明有重用之前创建的线程。</p>
 </li>
-<li><p><strong>newScheduledThreadPool</strong>：创建定时和周期性执行的线程池。</p>
+<li><p><strong>ScheduledThreadPool</strong>：核心线程数量固定，非核心线程数量不固定的线程池，非核心线程闲置时会被立即回收，这种线程池主要用于执行定时任务和具有固定周期的重复任务。<br>例子：</p>
 <pre class="line-numbers language-java"><code class="language-java">      ScheduledExecutorService newScheduledThreadPool <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newScheduledThreadPool</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">/**
        * 延迟2秒执行任务
@@ -1473,7 +1477,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">105.2k</span>
+            <span class="white-color">105.3k</span>
             
             
             
