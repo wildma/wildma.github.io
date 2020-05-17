@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2020-05-10T15:05:10.869Z</updated>
+  <updated>2020-05-17T08:07:51.106Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 主流开源框架（七）Glide 的缓存机制</title>
+    <link href="https://wildma.github.io/blog/376183ad.html"/>
+    <id>https://wildma.github.io/blog/376183ad.html</id>
+    <published>2020-05-17T07:32:17.000Z</published>
+    <updated>2020-05-17T08:07:51.106Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近有个想法——就是把 Android
+        
+      
+    
+    </summary>
+    
+      <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="Glide" scheme="https://wildma.github.io/tags/Glide/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 主流开源框架（六）Glide 的执行流程源码解析</title>
@@ -565,36 +591,6 @@
       <category term="多线程" scheme="https://wildma.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
       <category term="线程池" scheme="https://wildma.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一步一步教你集成腾讯浏览服务 X5 内核</title>
-    <link href="https://wildma.github.io/blog/71dca980.html"/>
-    <id>https://wildma.github.io/blog/71dca980.html</id>
-    <published>2017-10-05T08:36:00.000Z</published>
-    <updated>2019-10-17T15:44:52.710Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;腾讯浏览服务（TBS，Tencent Browsing
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="腾讯 X5 内核" scheme="https://wildma.github.io/tags/%E8%85%BE%E8%AE%AF-X5-%E5%86%85%E6%A0%B8/"/>
-    
-      <category term="webview 增强版" scheme="https://wildma.github.io/tags/webview-%E5%A2%9E%E5%BC%BA%E7%89%88/"/>
     
   </entry>
   
