@@ -821,9 +821,9 @@ Glide<span class="token punctuation">.</span><span class="token function">with</
 Map<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> Y<span class="token operator">></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0.75f</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>（2）防止内存泄漏<br>ActiveResources 中的 HashMap 是弱引用维护的，而 LruCache 中的 LinkedHashMap 用的是强引用。因为弱引用对象会随时被 gc 回收，所以可以防止内存泄漏。这里列举下各种引用的区别：</p>
 <ul>
-<li><strong>强引用：</strong>直接的对象引用。</li>
-<li><strong>软引用：</strong>当一个对象只有软引用存在时，系统内存不足时此对象会被 gc 回收。</li>
-<li><strong>弱引用：</strong>当一个对象只有弱引用存在时, 此对象会随时被 gc 回收。</li>
+<li><strong>强引用：</strong> 直接的对象引用。</li>
+<li><strong>软引用：</strong> 当一个对象只有软引用存在时，系统内存不足时此对象会被 gc 回收。</li>
+<li><strong>弱引用：</strong> 当一个对象只有弱引用存在时, 此对象会随时被 gc 回收。</li>
 </ul>
 <h2 id="五、磁盘缓存"><a href="#五、磁盘缓存" class="headerlink" title="五、磁盘缓存"></a>五、磁盘缓存</h2><h3 id="5-1-磁盘缓存策略"><a href="#5-1-磁盘缓存策略" class="headerlink" title="5.1 磁盘缓存策略"></a>5.1 磁盘缓存策略</h3><p>前面说了禁用缓存只需要如下设置即可：</p>
 <pre class="line-numbers language-java"><code class="language-java">Glide<span class="token punctuation">.</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">diskCacheStrategy</span><span class="token punctuation">(</span>DiskCacheStrategy<span class="token punctuation">.</span>NONE<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">into</span><span class="token punctuation">(</span>imageView<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
