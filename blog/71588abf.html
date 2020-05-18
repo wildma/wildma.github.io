@@ -2597,7 +2597,7 @@ List<span class="token operator">&lt;</span>LoadData<span class="token operator"
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<p>可以看到，这里遍历 copy 后拿到了线程池的执行器（entry.executor），copy 是上面一行 copy = cbs.copy(); 得到的，我们<strong>倒叙</strong>推理一下看这个线程池的执行器是怎么来的：</p>
+<p>可以看到，这里遍历 copy 后拿到了线程池的执行器（entry.executor），copy 是上面一行 copy = cbs.copy(); 得到的，我们利用<strong>反推</strong>看下这个线程池的执行器是怎么来的：</p>
 <pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// 1. cbs.copy()</span>
     <span class="token comment" spellcheck="true">/*ResourceCallbacksAndExecutors*/</span>
     ResourceCallbacksAndExecutors <span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2627,7 +2627,7 @@ List<span class="token operator">&lt;</span>LoadData<span class="token operator"
     engineJob<span class="token punctuation">.</span><span class="token function">addCallback</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span> callbackExecutor<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LoadStatus</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span> engineJob<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里我们倒叙推理了 4 步，发现是从 waitForExistingOrStartNewJob() 方法那里传进来的，继续往后推的代码就不列出来了，最后发现是从 into() 方法哪里传过来的（可以自己正序再跟踪一遍源码）：</p>
+<p>这里我们反推了 4 步，发现是从 waitForExistingOrStartNewJob() 方法那里传进来的，继续往后推的代码就不列出来了，最后发现是从 into() 方法哪里传过来的（可以自己正序再跟踪一遍源码）：</p>
 <pre class="line-numbers language-java"><code class="language-java">  <span class="token comment" spellcheck="true">/*RequestBuilder*/</span>
   <span class="token keyword">public</span> ViewTarget<span class="token operator">&lt;</span>ImageView<span class="token punctuation">,</span> TranscodeType<span class="token operator">></span> <span class="token function">into</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> ImageView view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
