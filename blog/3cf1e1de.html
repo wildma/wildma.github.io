@@ -449,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
                 
@@ -475,8 +475,8 @@
                 <blockquote>
 <p>更新：由于该适配方案越来越多人使用，也有很多人遇到不太理解的问题。所以为了大家更好的使用，我将文章很多内容更新了，老用户可以重新看下整篇文章。主要更新的内容是使用方法跟以前不同了，以前是不改变最小宽度基准值，根据 UI 图来计算布局中设置的值。现在改成最小宽度基准值与设计图一致，然后设计图标注多少 dp 就写多少 dp，非常方便。还整理了评论区比较多人问到的问题作统一回答。</p>
 </blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网上关于屏幕适配的文章已经铺天盖地了，为什么我还要讲？因为网上现在基本都是使用 <strong>屏幕分辨率限定符</strong> 进行适配，即每种屏幕分辨率的设备需要定义一套 dimens.xml 文件。由于不同分辨率的设备太多了，而且有些设备还有虚拟按键（例如华为手机），这样就还需要每个有虚拟按键的设备加多一套 dimens.xml 文件，再加上平板那些你会发现 dimens.xml 文件所占的体积已经超过2M了！这绝对不是我们想要的。</p>
-<p>我这里要讲的是使用 <strong>sw<n>dp限定符，即 smallestWidth（最小宽度） 限定符</n></strong> 来进行适配，使用这种方式只需要少量 dimens.xml 文件即可达到适配，而且根本不用考虑虚拟按键的问题。如果只适配手机，dimens.xml 文件所占的体积只有 100 多 KB，即使加上平板和 TV，也就 500 多 KB，完全可以接收。这种方案已经在自己多个项目中应用过了，经过几十台手机测试过，基本不会出现适配有问题的情况。制作生成对应 dimens.xml 文件插件（后面会讲）的作者也说过他在待过的两家大公司实践过，所以请放心使用。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网上关于屏幕适配的文章已经铺天盖地了，为什么我还要讲？因为网上现在基本都是使用 <strong>屏幕分辨率限定符</strong> 进行适配，即每种屏幕分辨率的设备需要定义一套 dimens.xml 文件。由于不同分辨率的设备太多了，而且有些设备还有虚拟按键（例如华为手机），这样就还需要每个有虚拟按键的设备加多一套 dimens.xml 文件，再加上平板那些你会发现 dimens.xml 文件所占的体积已经超过 2M 了！这绝对不是我们想要的。</p>
+<p>我这里要讲的是使用 <strong>sw<n>dp 限定符，即 smallestWidth（最小宽度） 限定符</n></strong> 来进行适配，使用这种方式只需要少量 dimens.xml 文件即可达到适配，而且根本不用考虑虚拟按键的问题。如果只适配手机，dimens.xml 文件所占的体积只有 100 多 KB，即使加上平板和 TV，也就 500 多 KB，完全可以接收。这种方案已经在自己多个项目中应用过了，经过几十台手机测试过，基本不会出现适配有问题的情况。制作生成对应 dimens.xml 文件插件（后面会讲）的作者也说过他在待过的两家大公司实践过，所以请放心使用。</p>
 <h2 id="一、为什么要进行屏幕适配？"><a href="#一、为什么要进行屏幕适配？" class="headerlink" title="一、为什么要进行屏幕适配？"></a>一、为什么要进行屏幕适配？</h2><p>关于为什么要进行屏幕适配，什么是 dp、dpi 这些概念我就不去一一讲解了，网上很多文章。这里我推荐几篇讲的比较好的：</p>
 <ul>
 <li><a href="https://blog.csdn.net/zhaokaiqiang1992/article/details/45419023" target="_blank" rel="noopener">Android屏幕适配全攻略(最权威的官方适配指导)</a></li>
@@ -506,7 +506,7 @@ ScreenUtils——&gt;<a href="https://github.com/wildma/ScreenAdaptation/blob/ma
 <h2 id="三、为什么选择-smallestWidth-限定符适配？"><a href="#三、为什么选择-smallestWidth-限定符适配？" class="headerlink" title="三、为什么选择 smallestWidth 限定符适配？"></a>三、为什么选择 smallestWidth 限定符适配？</h2><p>既然原理都一样，都需要多套 dimens.xml 文件，那为什么要选择 smallestWidth 限定符适配呢？</p>
 <ol>
 <li>屏幕分辨率限定符适配是根据屏幕分辨率的，Android 设备分辨率一大堆，而且还要考虑虚拟键盘，这样就需要大量的 dimens.xml 文件。因为无论手机屏幕的像素多少，密度多少，90% 的手机的最小宽度都为 360dp，所以采用 smallestWidth 限定符适配只需要少量 dimens.xml 文件即可。</li>
-<li>屏幕分辨率限定符适配采用的是 px 单位，而 smallestWidth 限定符适配采用的单位是 dp 和 sp，dp 和 sp 是google 推荐使用的计量单位。又由于很多应用要求字体大小随系统改变，所以字体单位使用 sp 也更灵活。</li>
+<li>屏幕分辨率限定符适配采用的是 px 单位，而 smallestWidth 限定符适配采用的单位是 dp 和 sp，dp 和 sp 是 google 推荐使用的计量单位。又由于很多应用要求字体大小随系统改变，所以字体单位使用 sp 也更灵活。</li>
 <li>屏幕分辨率限定符适配需要设备分辨率与 values-xx 文件夹完全匹配才能达到适配，而 smallestWidth 限定符适配寻找 dimens.xml 文件的原理是从大往小找，例如设备的最小宽度为 360dp，就会先去找 values-360dp，发现没有则会向下找 values-320dp，如果还是没有才找默认的 values 下的 demens.xml 文件，所以即使没有完全匹配也能达到不错的适配效果。</li>
 </ol>
 <h2 id="四、使用步骤"><a href="#四、使用步骤" class="headerlink" title="四、使用步骤"></a>四、使用步骤</h2><h3 id="4-1-获取设计图最小宽度（单位为-dp）"><a href="#4-1-获取设计图最小宽度（单位为-dp）" class="headerlink" title="4.1 获取设计图最小宽度（单位为 dp）"></a>4.1 获取设计图最小宽度（单位为 dp）</h3><p>大多数 UI 设计师提供的设计图无非就几种，它们对应的获取方式如下：</p>
@@ -615,8 +615,8 @@ ScreenUtils——&gt;<a href="https://github.com/wildma/ScreenAdaptation/blob/ma
   <span class="token operator">&lt;</span><span class="token operator">/</span>LinearLayout<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h3 id="6-2-使用相对布局（RelativeLayout）-约束布局（ConstraintLayout），禁用绝对布局（AbsoluteLayout）"><a href="#6-2-使用相对布局（RelativeLayout）-约束布局（ConstraintLayout），禁用绝对布局（AbsoluteLayout）" class="headerlink" title="6.2 使用相对布局（RelativeLayout）/ 约束布局（ConstraintLayout），禁用绝对布局（AbsoluteLayout）"></a>6.2 使用相对布局（RelativeLayout）/ 约束布局（ConstraintLayout），禁用绝对布局（AbsoluteLayout）</h3><p>绝对布局直接使用 X、Y 坐标来控制控件的位置，对于屏幕碎片化这么严重的今天，使用绝对布局对于屏幕适配来说就是灾难性的，所以 Google 已经废弃了该控件。</p>
-<p>相对布局或者约束布局就不一样了，相对布局的子控件之间使用 <strong>相对位置</strong> 的方式排列，即使屏幕的大小改变，控件的相对位置也不会变化，与屏幕大小无关，灵活性很强。约束布局也是类似的，通过对某些控件进行约束来确定它们之间的位置。</p>
+<h3 id="6-2-使用相对布局-约束布局，禁用绝对布局"><a href="#6-2-使用相对布局-约束布局，禁用绝对布局" class="headerlink" title="6.2 使用相对布局 / 约束布局，禁用绝对布局"></a>6.2 使用相对布局 / 约束布局，禁用绝对布局</h3><p>绝对布局（AbsoluteLayout）直接使用 X、Y 坐标来控制控件的位置，对于屏幕碎片化这么严重的今天，使用绝对布局对于屏幕适配来说就是灾难性的，所以 Google 已经废弃了该控件。</p>
+<p>相对布局（RelativeLayout）或者约束布局（ConstraintLayout）就不一样了，相对布局的子控件之间使用 <strong>相对位置</strong> 的方式排列，即使屏幕的大小改变，控件的相对位置也不会变化，与屏幕大小无关，灵活性很强。约束布局也是类似的，通过对某些控件进行约束来确定它们之间的位置。</p>
 <h3 id="6-3-善于使用-Nine-Patch-图片"><a href="#6-3-善于使用-Nine-Patch-图片" class="headerlink" title="6.3 善于使用 Nine-Patch 图片"></a>6.3 善于使用 Nine-Patch 图片</h3><p>Nine-Patch 图片是一种被特殊处理过的 PNG 图片，你可以指定哪些区域可以拉伸而哪些区域不可以。例如聊天界面中的聊天气泡背景图就需要做成 Nine-Patch 图片，因为每条消息的字数不是固定的，如果背景图片不能随着字数的长短进行缩放，那么就会导致背景图片变形。</p>
 <h2 id="七、常见问题汇总"><a href="#七、常见问题汇总" class="headerlink" title="七、常见问题汇总"></a>七、常见问题汇总</h2><h3 id="7-1-为什么宽度适配了，高度有时候没有完全适配？"><a href="#7-1-为什么宽度适配了，高度有时候没有完全适配？" class="headerlink" title="7.1 为什么宽度适配了，高度有时候没有完全适配？"></a>7.1 为什么宽度适配了，高度有时候没有完全适配？</h3><p>因为各种屏幕高宽比并不是固定的，有16:9、4:3，还有全面屏的 19.5:9 等等，如果强行将宽高都适配那只会导致布局变形。</p>
 <p>例如一个控件的宽高为 360dp 和 640dp，如果将它显示在宽高为 360dp 和 640dp 的设备上是正常铺满整个屏幕的，但是显示在宽高为 360dp 和 780dp 的设备上高度则不能铺满，如果你让高度铺满，而宽度又保持不变，那就会出现变形的情况。所以这也就是为什么目前市面上的屏幕适配方案只能以宽或高一个维度去适配，另一个方向用滑动或权重的方式去适配的原因。</p>
@@ -624,13 +624,19 @@ ScreenUtils——&gt;<a href="https://github.com/wildma/ScreenAdaptation/blob/ma
 <h3 id="7-2-如何同时适配横竖屏？"><a href="#7-2-如何同时适配横竖屏？" class="headerlink" title="7.2 如何同时适配横竖屏？"></a>7.2 如何同时适配横竖屏？</h3><ul>
 <li><p>方案一：（不推荐）<br>计算出设备宽度和高度的 dp 值，然后生成对应的宽高 dimens.xml 文件。然后去掉所有 values-swXXXdp 目录上的 s，即改为 values-wXXXdp。这样设备不管横竖屏都能找到对应的 values-wXXXdp 目录下的  dimens.xml 文件了。 虽然也能达到一定程度的适配，但是这样会增加很多 dimens.xml 文件，而且使用竖屏的设计图显示出来的效果也不够好。</p>
 </li>
-<li><p>方案二：（推荐）<br>因为横屏时宽高变化太大，想要横屏时也能完全适配，那就只能让设计师出一套横屏的设计图，然后单独写一套横屏的布局文件。</p>
+<li><p>方案二：（推荐）<br>因为横屏时宽高变化太大，想要横屏时也能完全适配，那就只能让设计师出一套横屏的设计图，然后单独写一套横屏的布局文件。这时候还需要在 res 文件夹下创建 layout-land 文件夹用来放横屏的布局文件，默认的 layout 文件夹放竖屏的布局文件。</p>
 </li>
 </ul>
 <p>注意：smallestWidth 限定符适配的效果是让不同分辨率和密度的设备上能达到以设计图等比缩放的适配，如果设备与设计图相差太大时并不能达到很好的适配效果，需要单独出图，其他屏幕适配方案也是一样的。</p>
 <h3 id="7-3-如何适配平板、TV？"><a href="#7-3-如何适配平板、TV？" class="headerlink" title="7.3 如何适配平板、TV？"></a>7.3 如何适配平板、TV？</h3><p>同横屏道理一样，平板、TV 与手机的宽高差距太大，想要平板、TV 也能完全适配，那就只能让设计师出一套平板、TV 的设计图，然后单独写一套平板、TV 的布局文件。</p>
+<ul>
+<li><p>如果 <strong>同时适配手机与平板</strong> 或者 <strong>同时适配手机与 TV</strong>，还需要在 res 文件夹下创建 layout-sw533dp 文件夹用来放平板或 TV 的布局文件，默认的 layout 文件夹放手机的布局文件。<br>注意：这里用的是 533dp 的原因是目前手机最大的宽度为 480dp，所以大于 480dp 的就认为是平板或 TV。</p>
+</li>
+<li><p>如果 <strong>同时适配手机、平板与 TV</strong>，这种情况平板与 TV 的设计图可以只出一套，因为平板与 TV 的样式比较类似，而且平板与 TV 的最小宽度值可能会出现一样的情况，这时候适配看成上面那种方式即可。</p>
+</li>
+</ul>
 <p>注意：再说一遍，smallestWidth 限定符适配的效果是让不同分辨率和密度的设备上能达到以设计图等比缩放的适配，如果设备与设计图相差太大时并不能达到很好的适配效果，需要单独出图，其他屏幕适配方案也是一样的。</p>
-<p><strong>Github 地址：<a href="https://github.com/wildma/ScreenAdaptation" target="_blank" rel="noopener">ScreenAdaptation</a></strong></p>
+<p><strong>Github 地址：</strong><a href="https://github.com/wildma/ScreenAdaptation" target="_blank" rel="noopener">ScreenAdaptation</a></p>
 <p><strong>参考资料：</strong></p>
 <ul>
 <li><a href="https://blog.csdn.net/zhaokaiqiang1992/article/details/45419023" target="_blank" rel="noopener">Android屏幕适配全攻略(最权威的官方适配指导)</a></li>
@@ -1261,7 +1267,7 @@ ScreenUtils——&gt;<a href="https://github.com/wildma/ScreenAdaptation/blob/ma
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">112.9k</span>
+            <span class="white-color">113.1k</span>
             
             
             
