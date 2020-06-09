@@ -497,7 +497,7 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、开始阅读源码"><a href="#三、开始阅读源码" class="headerlink" title="三、开始阅读源码"></a>三、开始阅读源码</h2><p>现在我们就根据上面Handler使用的执行流程去解析源码。</p>
+<h2 id="三、开始阅读源码"><a href="#三、开始阅读源码" class="headerlink" title="三、开始阅读源码"></a>三、开始阅读源码</h2><p>现在我们就根据上面Handler使用的执行流程去解析源码。以下源码基于Android 7.0，即API 24。</p>
 <h3 id="3-1-创建Handler—-Handler-handler-new-Handler"><a href="#3-1-创建Handler—-Handler-handler-new-Handler" class="headerlink" title="3.1 创建Handler—-Handler handler = new Handler();"></a>3.1 创建Handler—-Handler handler = new Handler();</h3><p>有人问：为什么要在主线程中创建Handler，而不在子线程中创建呢？<br>因为如果你在子线程创建Handler（如下），程序则会崩溃，并且会报错误：Can’t create handler inside thread that has not called Looper.prepare() ，翻译为：不能在没有调用Looper.prepare() 的线程中创建Handler。</p>
 <pre class="line-numbers language-java"><code class="language-java">        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token annotation punctuation">@Override</span>
@@ -570,7 +570,7 @@
     Looper<span class="token punctuation">.</span><span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"Main thread loop unexpectedly exited"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到，在第7行调用了Looper.prepareMainLooper()方法，跟进去，prepareMainLooper()方法中又调用了prepare()方法<br>【ActivityThread.java】  </p>
+<p>可以看到，在第7行调用了Looper.prepareMainLooper()方法，跟进去，prepareMainLooper()方法中又调用了prepare()方法<br>【Loope.java】  </p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">prepareMainLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">prepare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">setMainLooper</span><span class="token punctuation">(</span><span class="token function">myLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1494,7 +1494,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">113.1k</span>
+            <span class="white-color">113.2k</span>
             
             
             
