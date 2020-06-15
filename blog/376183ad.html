@@ -599,9 +599,7 @@
 <p>当程序第一次从网络上加载图片后，就将它缓存到设备磁盘中，下次使用这张图片的时候就不用再从网络上加载了。为了提升用户体验，往往还会在内存中缓存一份，因为从内存中加载图片比从磁盘中加载要快。程序下次加载这张图片的时候首先从内存中查找，如果没有就去磁盘中查找，都没有才从网络上加载。</p>
 </blockquote>
 <p>这里的缓存策略涉及到缓存的添加、获取和删除操作，什么时候进行这些操作等逻辑就构成了一种缓存算法。目前常用的一种缓存算法是 LRU（Least Recently Used），即最近最少使用算法。它的核心思想是当缓存满时，会优先淘汰那些最近最少使用的缓存对象。采用 LRU 算法的缓存有两种：LruCache 和 DiskLruCache，LruCache 用于实现内存缓存，DiskLruCache 则用于实现磁盘缓存，两者结合使用就可以实现上面的缓存策略。</p>
-<p>根据上面的描述，LRU 算法可以用如下流程图（图片来自 <a href="https://juejin.im/post/5a6da6e7f265da3e303cbcb6" target="_blank" rel="noopener">Android开源框架源码鉴赏：LruCache与DiskLruCache</a>）表示：</p>
-<p><img src="376183ad/1.jpg" alt></p>
-<p>LruCache 和 DiskLruCache 的内部算法原理是采用一个 LinkedHashMap 以强引用的方式存储外界的缓存对象，其提供了 get() 和 put() 方法来完成缓存的获取和添加的操作。当缓存满时，会移除较早使用的缓存对象，然后再添加新的缓存对象。</p>
+<p>LruCache 和 DiskLruCache 的内部算法原理是采用一个 LinkedHashMap 以强引用的方式存储外界的缓存对象，其提供了 get() 和 put() 方法来完成缓存的获取和添加的操作。当缓存满时，会移除较早使用的缓存对象，然后再添加新的缓存对象。可以用如下流程图表示：<br><img src="376183ad/1.jpg" alt></p>
 <p>下面要讲的 Glide 中的内存缓存与磁盘缓存也是用的 LruCache 和 DiskLruCache，只不过 LruCache 用的不是 SDK 中的，而是自己写的，但是看了原理其实是一样的。而 DiskLruCache 用的是 JakeWharton 封装的 <a href="https://github.com/JakeWharton/DiskLruCache" target="_blank" rel="noopener">DiskLruCache</a>。</p>
 <h2 id="四、内存缓存"><a href="#四、内存缓存" class="headerlink" title="四、内存缓存"></a>四、内存缓存</h2><p>Glide 默认是配置了内存缓存的，当然 Glide 也提供了 API 给我们开启和禁用，如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 开启内存缓存</span>
@@ -1883,7 +1881,7 @@ Map<span class="token operator">&lt;</span>T<span class="token punctuation">,</s
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">113.2k</span>
+            <span class="white-color">113.1k</span>
             
             
             
