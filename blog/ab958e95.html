@@ -4,14 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Dagger2 使用——结合 MVP 模式讲解, Android 知识分享">
+    <meta name="keywords" content="Glide 加载自签名的 https 图片, Android 知识分享">
     <meta name="baidu-site-verification" content="FLsnLJ6eF1">
     <meta name="google-site-verification" content="16Gna8-Ho0L5gq5QusQ01kiKooeZUaUSmH--RyCrrro">
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-更新：根据Dagger2官方最新配置，现在配置已经不需要添加android-apt插件了，所以配置更简单了。即在下文中说的Dagger2配置的第一步与第二步都可以省略了，第三步直接改成以下即可）。
-    /*dagger2的配置*/
- ">
+    <meta name="description" content="前言Glide默认加载http或者通过CA认证了的https图片都是没问题的，但是当加载自签名的https图片的时候就会报如下错误（证书路径验证异常）。
+一、原理对于加载自签名的https图片，我们需要通过GlideModule来进行网络请">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Dagger2 使用——结合 MVP 模式讲解 | wildma的博客</title>
+    <title>Glide 加载自签名的 https 图片 | wildma的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -298,7 +296,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Dagger2 使用——结合 MVP 模式讲解
+                        Glide 加载自签名的 https 图片
                     </div>
                 </div>
             </div>
@@ -409,8 +407,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Dagger2/" target="_blank">
-                            <span class="chip bg-color">Dagger2</span>
+                        <a href="/tags/Glide/" target="_blank">
+                            <span class="chip bg-color">Glide</span>
+                        </a>
+                        
+                        <a href="/tags/自签名-HTTPS/" target="_blank">
+                            <span class="chip bg-color">自签名 HTTPS</span>
                         </a>
                         
                     </div>
@@ -418,22 +420,13 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                        <a href="/categories/Android/" class="post-category" target="_blank">
-                            Android
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2016-11-27
+                    2017-03-13
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -454,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
                 
@@ -470,130 +463,180 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>更新：根据Dagger2官方最新配置，现在配置已经不需要添加android-apt插件了，所以配置更简单了。即在下文中说的Dagger2配置的第一步与第二步都可以省略了，第三步直接改成以下即可）。</p>
-<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/*dagger2的配置*/</span>
-    annotationProcessor <span class="token string">'com.google.dagger:dagger-compiler:2.4'</span>
-    compile <span class="token string">'com.google.dagger:dagger:2.4'</span>
-    compile <span class="token string">'org.glassfish:javax.annotation:10.0-b28'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相信大部分人在使用mvp模式的时候都会同时用到Dagger2框架，因为Dagger2能非常完美的解决mvp模式中存在的V层与P层之间的耦合。所以下面介绍Dagger2的使用也会结合我上一篇文章中的mvp模式来讲解，还没看上一篇文章的可以先去看看—— <a href="https://wildma.github.io/mvc-mvp/">带你通俗易懂的理解——Android中的MVC与MVP</a>。</p>
-<h2 id="一、Dagger2是什么？"><a href="#一、Dagger2是什么？" class="headerlink" title="一、Dagger2是什么？"></a>一、Dagger2是什么？</h2><p>Dagger2是一个在Android 和 Java中使用的依赖注入框架，现在由Google维护，是基于Dagger的基础上开发的，Dagger是由square开发的。Dagger2最大的作用就是解耦，例如ClassA中需要用到ClassB中的某个方法，但是又不想在ClassA中通过new的方式实例化ClassB，这时候Dagger2就很好的解决了这个问题，Dagger2可以在ClassA中通过依赖注入的方式实例化ClassB，从而达到ClassA与ClassB的解耦。</p>
-<h2 id="二、Dagger2配置"><a href="#二、Dagger2配置" class="headerlink" title="二、Dagger2配置"></a>二、Dagger2配置</h2><p>（1）在项目的build.gradle中添加android-apt插件</p>
-<pre class="line-numbers language-java"><code class="language-java">buildscript <span class="token punctuation">{</span>
-    repositories <span class="token punctuation">{</span>
-        <span class="token function">jcenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Glide默认加载http或者通过CA认证了的https图片都是没问题的，但是当加载自签名的https图片的时候就会报如下错误（证书路径验证异常）。<br><img src="ab958e95/1.jpg" alt></p>
+<h2 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h2><p>对于加载自签名的https图片，我们需要通过GlideModule来进行网络请求库的定制。如果你使用的是OkHttp网络请求库，则需要在app的build.gradle 中添加如下依赖：</p>
+<pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.github.bumptech.glide:okhttp-integration:1.4.0@aar'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>使用的是Volley网络请求库，则添加依赖为：</p>
+<pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.github.bumptech.glide:volley-integration:1.3.1@aar'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里主要讲使用OkHttp网络请求库的时候如何通过GlideModule来定制我们的Glide。<br>通过添加的依赖源码其中一个类OkHttpGlideModule 可以看出,</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OkHttpGlideModule</span> <span class="token keyword">implements</span> <span class="token class-name">GlideModule</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">applyOptions</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> GlideBuilder builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Do nothing.</span>
     <span class="token punctuation">}</span>
-    dependencies <span class="token punctuation">{</span>
-        classpath <span class="token string">'com.android.tools.build:gradle:2.2.3'</span>
-        <span class="token comment" spellcheck="true">//android-apt 插件</span>
-        classpath <span class="token string">'com.neenbedankt.gradle.plugins:android-apt:1.8'</span>
 
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerComponents</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> Glide glide<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        glide<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>GlideUrl<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> InputStream<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpUrlLoader<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（2）在app的build.gradle中添加apt插件的使用</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//apt插件的使用</span>
-apply plugin<span class="token operator">:</span> <span class="token string">'com.neenbedankt.android-apt'</span>
-
-android <span class="token punctuation">{</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span>
-
-dependencies <span class="token punctuation">{</span>
-  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（3）在app的build.gradle中添加Dagger2的依赖</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-android <span class="token punctuation">{</span>
- <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span>
-
-dependencies <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//dagger2的配置</span>
-    compile <span class="token string">'com.google.dagger:dagger:2.4'</span>
-    apt <span class="token string">'com.google.dagger:dagger-compiler:2.4'</span>
-    compile <span class="token string">'org.glassfish:javax.annotation:10.0-b28'</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、Dagger2使用"><a href="#三、Dagger2使用" class="headerlink" title="三、Dagger2使用"></a>三、Dagger2使用</h2><p>经过上面的配置就可以在项目中使用Dagger2了，这里举的例子是基于我上篇mvp文章的基础上的，还没看上一篇文章的可以先去看看—— <a href="https://wildma.github.io/mvc-mvp/">带你通俗易懂的理解——Android中的MVC与MVP</a>。该Demo中V层中的Activity如下：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfoActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token keyword">implements</span> <span class="token class-name">UserInfoView</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">private</span> TextView    mTvName<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> ProgressBar mPbLoading<span class="token punctuation">;</span>
-    UserInfoPresenter mUserInfoPresenter<span class="token punctuation">;</span>
+<p>源码是通过自定义一个类OkHttpGlideModule实现GlideModule,实现该类主要有2个方法：<br>applyOptions方法主要是处理图片质量，缓存等。<br>registerComponents方法主要是改变Glide的网络栈，让它能从自签名HTTPS服务器接收连接和图片。<br>我们看到在registerComponents方法中new OkHttpUrlLoader.Factory()方法创建了一个okhttpclient对象，点进去看见还有一个相同的带参数的方法</p>
+<pre class="line-numbers language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token function">Factory</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> client<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这里可以传入一个我们自己的okhttpclient对象，所以如果将我们已经通过认证的okhttpclient传进来替换这个对象就可以解决。</p>
+<h2 id="二、解决步骤"><a href="#二、解决步骤" class="headerlink" title="二、解决步骤"></a>二、解决步骤</h2><p><strong>1、在build.gradle中添加依赖：</strong></p>
+<pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.squareup.okhttp3:okhttp:3.6.0'</span>
+compile <span class="token string">'com.github.bumptech.glide:glide:3.7.0'</span>
+compile <span class="token string">'com.github.bumptech.glide:okhttp-integration:1.4.0@aar'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>2、拷贝’com.github.bumptech.glide:okhttp-integration:1.4.0@aar’里面3个类OkHttpGlideModule ，OkHttpUrlLoader，OkHttpStreamFetcher到项目中（三个类源码，文章末尾贴出）</strong><br>注意：OkHttpGlideModule 类的registerComponents方法需要传入已经通过认证的okhttpclient进来替换。如何配置通过认证的okhttpclient看我的另一篇文章：<a href="https://wildma.github.io/blog/cc4308ee.html">Android使用OkHttp请求自签名的https网站</a></p>
+<p><strong>3、删除在build.gradle中的依赖：</strong></p>
+<pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.github.bumptech.glide:okhttp-integration:1.4.0@aar'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>4、在AndroidManifest中配置刚刚拷贝过来的OkHttpGlideModule。</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>配置glide加载https所需要的GlideModule<span class="token operator">--</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>meta<span class="token operator">-</span>data
+            android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"com.alpha58.okhttps.https.OkHttpGlideModule"</span>
+            android<span class="token operator">:</span>value<span class="token operator">=</span><span class="token string">"GlideModule"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>好了，这个时候我们用Glide就可以将自签名的https图片加载出来啦！</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getHttpsImg</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//自签名https图片链接 （如果链接失效，自行到12306网站找图片）</span>
+        String url <span class="token operator">=</span> <span class="token string">"https://travel.12306.cn/imgs/resources/uploadfiles/images/a9b9c76d-36ba-4e4a-8e02-9e6a1a991da0_news_W540_H300.jpg"</span><span class="token punctuation">;</span>
+        Glide<span class="token punctuation">.</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">asBitmap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">into</span><span class="token punctuation">(</span>mIv_img<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>贴上三个类源码，分别如下：</strong></p>
+<p><strong>OkHttpGlideModule类：</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OkHttpGlideModule</span> <span class="token keyword">implements</span> <span class="token class-name">GlideModule</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">applyOptions</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> GlideBuilder builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Do nothing.</span>
+    <span class="token punctuation">}</span>
 
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//find view</span>
-        mTvName <span class="token operator">=</span> <span class="token punctuation">(</span>TextView<span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>tv_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mPbLoading <span class="token operator">=</span> <span class="token punctuation">(</span>ProgressBar<span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>pb_loading<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//init</span>
-        mUserInfoPresenter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfoPresenter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerComponents</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> Glide glide<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//注意：new HTTPSUtils(context).getInstance()为已经通过认证的okhttpclient</span>
+        glide<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>GlideUrl<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> InputStream<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpUrlLoader<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HTTPSUtils</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>也就是Activity中使用new的方式实例化Presenter，这样就导致V层与P层耦合了，所以下面我就使用Dagger2将它们解耦。</p>
-<p>先看看几个注解的概念：</p>
-<ul>
-<li><p>Module：在这里实例化目标类（例子中就是UserInfoActivity类）需要依赖的对象。</p>
-</li>
-<li><p>Provides：标注一个方法，该方法是用来提供实例化对象给目标类的。</p>
-</li>
-<li><p>Inject：标注实例化对象</p>
-</li>
-<li><p>Component：作为Module与目标类之间的桥梁。</p>
-</li>
-</ul>
-<p>使用步骤：<br>（1）创建带有@Module注解的类，并利用@Provides标注一个方法用来提供实例化对象给目标类。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Module</span> <span class="token comment" spellcheck="true">//实例化目标类需要依赖的对象</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfoActivityModule</span> <span class="token punctuation">{</span>
-
-    UserInfoActivity mActivity<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token function">UserInfoActivityModule</span><span class="token punctuation">(</span>UserInfoActivity activity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        mActivity <span class="token operator">=</span> activity<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Provides</span> <span class="token comment" spellcheck="true">//该方法是用来提供实例化对象给目标类的</span>
-    UserInfoPresenter <span class="token function">provideUserInfoPresenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserInfoPresenter</span><span class="token punctuation">(</span>mActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（2）创建带有@Component的接口，将它作为Module与目标类之间的桥梁。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span><span class="token punctuation">(</span>modules <span class="token operator">=</span> UserInfoActivityModule<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//作为Module与目标类之间的桥梁</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserInfoActivityComponent</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>OkHttpUrlLoader类：</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OkHttpUrlLoader</span> <span class="token keyword">implements</span> <span class="token class-name">ModelLoader</span><span class="token operator">&lt;</span>GlideUrl<span class="token punctuation">,</span> InputStream<span class="token operator">></span> <span class="token punctuation">{</span>
 
     <span class="token comment" spellcheck="true">/**
-     * 定义注入的方法
-     * @param activity
+     * The default factory for {@link OkHttpUrlLoader}s.
      */</span>
-    <span class="token keyword">void</span> <span class="token function">inject</span><span class="token punctuation">(</span>UserInfoActivity activity<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>（3）标注实例化对象，并将Module与目标类联系起来。<br>注意：DaggerUserInfoActivityComponent是Rebuild项目后根据定义的Component的类名自动生成的，所以这里先要Rebuild一下项目再使用。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfoActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token keyword">implements</span> <span class="token class-name">UserInfoView</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Inject</span> <span class="token comment" spellcheck="true">//标注实例化对象</span>
-    UserInfoPresenter mUserInfoPresenter<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Factory</span> <span class="token keyword">implements</span> <span class="token class-name">ModelLoaderFactory</span><span class="token operator">&lt;</span>GlideUrl<span class="token punctuation">,</span> InputStream<span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> OkHttpClient internalClient<span class="token punctuation">;</span>
+        <span class="token keyword">private</span>                 OkHttpClient client<span class="token punctuation">;</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">static</span> OkHttpClient <span class="token function">getInternalClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>internalClient <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>Factory<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>internalClient <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        internalClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> internalClient<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * Constructor for a new Factory that runs requests using a static singleton client.
+         */</span>
+        <span class="token keyword">public</span> <span class="token function">Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token function">getInternalClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * Constructor for a new Factory that runs requests using given client.
+         */</span>
+        <span class="token keyword">public</span> <span class="token function">Factory</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> client<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> ModelLoader<span class="token operator">&lt;</span>GlideUrl<span class="token punctuation">,</span> InputStream<span class="token operator">></span> <span class="token function">build</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> GenericLoaderFactory factories<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpUrlLoader</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">teardown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Do nothing, this instance doesn't own the client.</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> OkHttpClient client<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">OkHttpUrlLoader</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> client<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-        <span class="token comment" spellcheck="true">//将Module与目标类联系起来</span>
-        DaggerUserInfoActivityComponent
-                <span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">userInfoActivityModule</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">UserInfoActivityModule</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">inject</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> DataFetcher<span class="token operator">&lt;</span>InputStream<span class="token operator">></span> <span class="token function">getResourceFetcher</span><span class="token punctuation">(</span>GlideUrl model<span class="token punctuation">,</span> <span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpStreamFetcher</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> model<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>通过上面的三步其实就只实现了UserInfoActivityModule = new UserInfoActivityModule(this)，看起来是复杂了许多，但是它非常完美的解决了mvp模式中存在的V层与P层之间的耦合。就好比使用mvp比使用mvc多了很多代码，但大家还是会使用mvp模式一样的道理。</p>
-<p>Demo地址：<a href="https://github.com/wildma/MVP-Pattern" target="_blank" rel="noopener">MVP-Pattern</a></p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>OkHttpStreamFetcher类：</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OkHttpStreamFetcher</span> <span class="token keyword">implements</span> <span class="token class-name">DataFetcher</span><span class="token operator">&lt;</span>InputStream<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> OkHttpClient client<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> GlideUrl     url<span class="token punctuation">;</span>
+    <span class="token keyword">private</span>       InputStream  stream<span class="token punctuation">;</span>
+    <span class="token keyword">private</span>       ResponseBody responseBody<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">OkHttpStreamFetcher</span><span class="token punctuation">(</span>OkHttpClient client<span class="token punctuation">,</span> GlideUrl url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> client<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> InputStream <span class="token function">loadData</span><span class="token punctuation">(</span>Priority priority<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+        Request<span class="token punctuation">.</span>Builder requestBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">url</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toStringUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> headerEntry <span class="token operator">:</span> url<span class="token punctuation">.</span><span class="token function">getHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            String key <span class="token operator">=</span> headerEntry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            requestBuilder<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> headerEntry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        Request request <span class="token operator">=</span> requestBuilder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Response response <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">newCall</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        responseBody <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token function">isSuccessful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IOException</span><span class="token punctuation">(</span><span class="token string">"Request failed with code: "</span> <span class="token operator">+</span> response<span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">long</span> contentLength <span class="token operator">=</span> responseBody<span class="token punctuation">.</span><span class="token function">contentLength</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stream <span class="token operator">=</span> ContentLengthInputStream<span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">.</span><span class="token function">byteStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contentLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> stream<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>stream <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                stream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// Ignored</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>responseBody <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            responseBody<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> url<span class="token punctuation">.</span><span class="token function">getCacheKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// TODO: call cancel on the client when this method is called on a background thread. See #257</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Demo地址：<a href="https://github.com/wildma/okhttps" target="_blank" rel="noopener">https://github.com/wildma/okhttps</a><br>参考文章：<a href="https://futurestud.io/tutorials/glide-customize-glide-with-modules" target="_blank" rel="noopener">Glide — Customize Glide with Modules</a></p>
 
             </div>
             <hr />
@@ -628,9 +671,9 @@ dependencies <span class="token punctuation">{</span>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Dagger2 使用——结合 MVP 模式讲解》
+                    《Glide 加载自签名的 https 图片》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/blog/66c9d45.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/blog/ab958e95.html" property="cc:attributionName"
                rel="cc:attributionURL">
                 wildma
             </a> 采用
@@ -671,7 +714,7 @@ dependencies <span class="token punctuation">{</span>
         repo: 'wildma.github.io',
         owner: 'wildma',
         admin: "wildma",
-        id: 'blog/66c9d45.html',
+        id: 'blog/ab958e95.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -958,25 +1001,25 @@ dependencies <span class="token punctuation">{</span>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/63c3ed0a.html">
+                <a href="/blog/8e898d79.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Android 一步一步教你集成高德地图">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Android 使用 ShareSDK 集成 QQ、微信、微博等第三方分享">
                         
-                        <span class="card-title">Android 一步一步教你集成高德地图</span>
+                        <span class="card-title">Android 使用 ShareSDK 集成 QQ、微信、微博等第三方分享</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言当项目中需要使用地图SDK的时候, 是选择高德地图还是百度地图呢?从对开发者友好角度，从容易上手角度：高德完胜百度! 所以我们公司的项目也选择了高德地图。好了！下面就开始高德地图的集成吧！
-一、账号与Key的申请注册成为高德开发者需要分
+                            前言第三方分享几乎是每个APP的必须功能。有些人说看官方的文档实在让人眼花缭乱，以前自己第一次做这些功能的时候也会遇到很多坑。这里整理了一份比较详细的，主要给新手学习。有任何问题欢迎提出来！
+一、获取ShareSDK的AppKey（照着流程
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-02-22
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-03-15
                         </span>
                         <span class="publish-author">
                             
@@ -997,8 +1040,12 @@ dependencies <span class="token punctuation">{</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/高德地图/" target="_blank">
-                        <span class="chip bg-color">高德地图</span>
+                    <a href="/tags/ShareSDK/" target="_blank">
+                        <span class="chip bg-color">ShareSDK</span>
+                    </a>
+                    
+                    <a href="/tags/第三方分享/" target="_blank">
+                        <span class="chip bg-color">第三方分享</span>
                     </a>
                     
                 </div>
@@ -1012,24 +1059,25 @@ dependencies <span class="token punctuation">{</span>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/81ad7a6.html">
+                <a href="/blog/cc4308ee.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="带你通俗易懂的理解——Android 中的 MVC 与 MVP">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Android 使用 OkHttp 请求自签名的 HTTPS 网站">
                         
-                        <span class="card-title">带你通俗易懂的理解——Android 中的 MVC 与 MVP</span>
+                        <span class="card-title">Android 使用 OkHttp 请求自签名的 HTTPS 网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言首先介绍一下所谓的MVP，美国职业篮球联赛最有价值球员奖（National Basketball Association Most Valuable Player Award ，简称MVP）是一个自1955-1956赛季以来每年对美国职
+                            前言很多公司考虑到安全问题，项目中都采用https加密协议进行数据传输。但是一些公司又不想花一笔钱去CA申请证书，所以就采用自签名的证书。
+OkHttp默认是可以访问通过CA认证的HTTPS链接，例如百度首页也是https链接（https:
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-11-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-03-12
                             </span>
                         <span class="publish-author">
                             
@@ -1039,6 +1087,10 @@ dependencies <span class="token punctuation">{</span>
                                     Android
                                 </a>
                             
+                            <a href="/categories/Android/网络编程/" class="post-category" target="_blank">
+                                    网络编程
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1046,16 +1098,12 @@ dependencies <span class="token punctuation">{</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android/" target="_blank">
-                        <span class="chip bg-color">Android</span>
+                    <a href="/tags/OkHttp/" target="_blank">
+                        <span class="chip bg-color">OkHttp</span>
                     </a>
                     
-                    <a href="/tags/MVC/" target="_blank">
-                        <span class="chip bg-color">MVC</span>
-                    </a>
-                    
-                    <a href="/tags/MVP/" target="_blank">
-                        <span class="chip bg-color">MVP</span>
+                    <a href="/tags/自签名-HTTPS/" target="_blank">
+                        <span class="chip bg-color">自签名 HTTPS</span>
                     </a>
                     
                 </div>
