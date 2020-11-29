@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2020-06-07T13:08:27.217Z</updated>
+  <updated>2020-11-29T06:54:55.670Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 主流开源框架（八）EventBus 源码解析</title>
+    <link href="https://wildma.github.io/blog/f53f7491.html"/>
+    <id>https://wildma.github.io/blog/f53f7491.html</id>
+    <published>2020-11-29T06:38:26.000Z</published>
+    <updated>2020-11-29T06:54:55.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近有个想法——就是把 Android
+        
+      
+    
+    </summary>
+    
+      <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="EventBus" scheme="https://wildma.github.io/tags/EventBus/"/>
+    
+  </entry>
   
   <entry>
     <title>将博客搬至CSDN</title>
@@ -550,36 +576,6 @@
     
     
       <category term="屏幕适配" scheme="https://wildma.github.io/tags/%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 友盟统计的集成与使用（包含多渠道打包配置）</title>
-    <link href="https://wildma.github.io/blog/2e8cc733.html"/>
-    <id>https://wildma.github.io/blog/2e8cc733.html</id>
-    <published>2018-02-25T13:33:10.000Z</published>
-    <updated>2019-10-20T08:57:23.483Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="第三方集成" scheme="https://wildma.github.io/categories/Android/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90/"/>
-    
-    
-      <category term="多渠道打包" scheme="https://wildma.github.io/tags/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/"/>
-    
-      <category term="友盟统计" scheme="https://wildma.github.io/tags/%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
