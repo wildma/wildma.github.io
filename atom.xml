@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wildma.github.io/"/>
-  <updated>2020-11-29T06:54:55.670Z</updated>
+  <updated>2020-12-08T16:04:20.516Z</updated>
   <id>https://wildma.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 主流开源框架（九）LeakCanary 源码解析</title>
+    <link href="https://wildma.github.io/blog/c3a41673.html"/>
+    <id>https://wildma.github.io/blog/c3a41673.html</id>
+    <published>2020-12-08T15:36:24.000Z</published>
+    <updated>2020-12-08T16:04:20.516Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近有个想法——就是把 Android
+        
+      
+    
+    </summary>
+    
+      <category term="Android主流开源框架" scheme="https://wildma.github.io/categories/Android%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="LeakCanary" scheme="https://wildma.github.io/tags/LeakCanary/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 主流开源框架（八）EventBus 源码解析</title>
@@ -547,35 +573,6 @@
       <category term="Git" scheme="https://wildma.github.io/tags/Git/"/>
     
       <category term="GitLab" scheme="https://wildma.github.io/tags/GitLab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一种非常好用的 Android 屏幕适配</title>
-    <link href="https://wildma.github.io/blog/3cf1e1de.html"/>
-    <id>https://wildma.github.io/blog/3cf1e1de.html</id>
-    <published>2018-04-06T02:43:33.000Z</published>
-    <updated>2020-06-06T11:06:04.237Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;更新：由于该适配方案越来越多人使用，也有很多人遇到不太理解的问题。所以为了大家更好的使用，我将文章很多内容更新了，老用户可以重新看下整篇文章。主要更新的内容是使用方法跟以前不同了，以前是不改变最小宽度基准值，根据 UI
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://wildma.github.io/categories/Android/"/>
-    
-      <category term="适配" scheme="https://wildma.github.io/categories/Android/%E9%80%82%E9%85%8D/"/>
-    
-    
-      <category term="屏幕适配" scheme="https://wildma.github.io/tags/%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/"/>
     
   </entry>
   
